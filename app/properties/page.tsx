@@ -257,7 +257,7 @@ const properties = [
 const testimonials = [
   {
     name: "Nicolas, Lyon",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=faces",
+    avatar: "/placeholder-user.jpg",
     stay: "Studio Luxe – 3 nuits",
     text:
       "Appartement impeccable et super bien situé. Check‑in très fluide, hôte réactif, on reviendra !",
@@ -266,7 +266,7 @@ const testimonials = [
   },
   {
     name: "Sofia, Madrid",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=faces",
+    avatar: "/placeholder-user.jpg",
     stay: "T2 Saint‑Germain – 1 semaine",
     text:
       "Très calme et propre. Les conseils de quartier étaient top et l'accueil vraiment chaleureux.",
@@ -275,7 +275,7 @@ const testimonials = [
   },
   {
     name: "Adam, Londres",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=faces",
+    avatar: "/placeholder-user.jpg",
     stay: "Penthouse – 4 nuits",
     text:
       "Vue incroyable. Organisation parfaite, tout est simple et premium, exactement ce qu'on cherchait.",
@@ -284,7 +284,7 @@ const testimonials = [
   },
   {
     name: "Élise, Nantes",
-    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=faces",
+    avatar: "/placeholder-user.jpg",
     stay: "Loft Marais – Week‑end",
     text:
       "Décoration magnifique, lit confortable, ménage impeccable. Communication rapide, merci !",
@@ -293,7 +293,7 @@ const testimonials = [
   },
   {
     name: "Marco, Rome",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=faces",
+    avatar: "/placeholder-user.jpg",
     stay: "Haussmann 7e – 5 nuits",
     text:
       "Proche de tout, très pratique avec les enfants. Hôte très arrangeant sur les horaires.",
@@ -302,7 +302,7 @@ const testimonials = [
   },
   {
     name: "Hannah, Berlin",
-    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=faces",
+    avatar: "/placeholder-user.jpg",
     stay: "Suite Louvre – 2 nuits",
     text:
       "Check‑in tardif sans problème, appartement silencieux, literie de qualité. Recommandé !",

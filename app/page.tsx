@@ -77,14 +77,14 @@ export default function Home() {
               {services.map((service, i) => (
                 <div
                   key={i}
-                  className={`group bg-card p-8 rounded-xl hover:shadow-2xl transition-all duration-500 border-[3px] border-black hover:border-primary text-center hover:-translate-y-1 hover:scale-[1.02] ${servicesRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+                  className={`group bg-card p-8 rounded-xl hover:shadow-2xl transition-all duration-500 ease-out border border-black hover:border-primary text-center transform hover:scale-105 hover:-translate-y-1 ${servicesRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
                   style={{
                     animationDelay: servicesRef.isVisible ? `${i * 100}ms` : "0ms",
                   }}
                 >
-                  <div className="flex justify-center transition-transform duration-500 group-hover:scale-110 group-hover:text-primary">{service.icon}</div>
-                  <h3 className="text-xl font-bold text-foreground mb-3 transition-colors duration-500 group-hover:text-primary">{service.title}</h3>
-                  <p className="text-muted-foreground transition-colors duration-500 group-hover:text-foreground">{service.description}</p>
+                  <div className="flex justify-center">{service.icon}</div>
+                  <h3 className="text-xl font-bold text-foreground mb-3">{service.title}</h3>
+                  <p className="text-muted-foreground">{service.description}</p>
                 </div>
               ))}
             </div>
