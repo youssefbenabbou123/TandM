@@ -15,7 +15,7 @@ export default function About() {
 
       {/* Hero Section */}
       <section
-        className="pt-32 pb-12 bg-cover bg-center bg-no-repeat relative"
+        className="pt-36 pb-16 bg-cover bg-center bg-no-repeat relative"
         style={{ backgroundImage: "url('/elegant-luxury-interior-hero.jpg')" }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
@@ -61,8 +61,8 @@ export default function About() {
             {values.map((value, i) => (
               <div
                 key={i}
-                className={`bg-white p-8 rounded-2xl border border-border hover:shadow-lg transition-all duration-1000 ${
-                  valuesRef.isVisible ? "animate-fade-in-up" : "opacity-0"
+                className={`bg-white p-8 rounded-2xl border border-border hover:shadow-lg transition-all duration-700 ${
+                  valuesRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
                 style={{
                   animationDelay: valuesRef.isVisible ? `${i * 100}ms` : "0ms",
@@ -84,8 +84,8 @@ export default function About() {
 
           <div
             ref={teamRef.ref}
-            className={`bg-background p-12 rounded-2xl border border-border text-center transition-all duration-1000 ${
-              teamRef.isVisible ? "animate-scale-in" : "opacity-0 scale-95"
+            className={`bg-background p-12 rounded-2xl border border-border text-center transition-all duration-700 ${
+              teamRef.isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
             }`}
           >
             <div className="w-32 h-32 bg-gradient-to-br from-primary to-secondary rounded-full mx-auto mb-6"></div>
@@ -106,8 +106,8 @@ export default function About() {
             {stats.map((stat, i) => (
               <div
                 key={i}
-                className={`transition-all duration-1000 ${
-                  statsRef.isVisible ? "animate-slide-in-up" : "opacity-0 translate-y-8"
+                className={`transition-all duration-700 ${
+                  statsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
                 style={{
                   transitionDelay: statsRef.isVisible ? `${i * 150}ms` : "0ms",

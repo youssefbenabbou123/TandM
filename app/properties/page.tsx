@@ -14,7 +14,7 @@ export default function Properties() {
 
       {/* Hero Section */}
       <section
-        className="pt-32 pb-12 bg-cover bg-center bg-no-repeat relative"
+        className="pt-36 pb-16 bg-cover bg-center bg-no-repeat relative"
         style={{ backgroundImage: "url('/luxury-villa-portefeuille-hero.jpg')" }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
@@ -35,7 +35,7 @@ export default function Properties() {
             {properties.map((property, i) => (
               <div
                 key={i}
-                className="group bg-white rounded-2xl overflow-hidden border border-border hover:border-secondary hover:shadow-xl transition-all duration-500 cursor-pointer transform hover:scale-105 animate-scale-in"
+                className="group bg-white rounded-2xl overflow-hidden border border-border hover:border-secondary hover:shadow-xl transition-all duration-500 cursor-pointer transform hover:scale-105"
                 style={{
                   animationDelay: `${i * 100}ms`,
                 }}
@@ -105,22 +105,37 @@ export default function Properties() {
         </div>
       </section>
 
-      {/* Statistics Section */}
+      {/* Témoignages Section */}
       <section className="py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-serif font-bold text-center mb-16 text-foreground">Nos Résultats en Chiffres</h2>
+          <h2 className="text-4xl font-serif font-bold text-center mb-4 text-foreground">Ils ont séjourné chez nous</h2>
+          <p className="text-muted-foreground text-center mb-12 max-w-3xl mx-auto">
+            Des avis spontanés de voyageurs sur l’accueil, la propreté et l’emplacement.
+          </p>
 
-          <div className="grid md:grid-cols-4 gap-8">
-            {stats.map((stat, i) => (
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonials.map((t, i) => (
               <div
                 key={i}
-                className="text-center bg-white p-8 rounded-xl border border-border hover:shadow-lg transition-all animate-slide-in-up"
-                style={{
-                  animationDelay: `${i * 150}ms`,
-                }}
+                className="bg-white rounded-2xl border border-border p-6 hover:shadow-xl transition-all"
+                style={{ animationDelay: `${i * 120}ms` }}
               >
-                <div className="text-5xl font-bold text-secondary mb-2">{stat.value}</div>
-                <p className="text-muted-foreground">{stat.label}</p>
+                <div className="flex items-center gap-4 mb-4">
+                  <img
+                    src={t.avatar}
+                    alt={t.name}
+                    className="w-12 h-12 rounded-full object-cover border border-border"
+                  />
+                  <div>
+                    <p className="font-semibold text-foreground leading-tight">{t.name}</p>
+                    <p className="text-xs text-muted-foreground">{t.stay}</p>
+                  </div>
+                </div>
+                <p className="text-sm text-foreground mb-4">{t.text}</p>
+                <div className="flex items-center justify-between">
+                  <div className="text-secondary">{'★'.repeat(t.stars)}{'☆'.repeat(5 - t.stars)}</div>
+                  <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">{t.label}</span>
+                </div>
               </div>
             ))}
           </div>
@@ -202,7 +217,8 @@ const properties = [
     type: "Studio Design",
     size: 42,
     capacity: 2,
-    image: "/luxury-hotel-housekeeping-cleaning-preparation.jpg",
+    image:
+      "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1920&q=80",
     description: "Loft moderne avec poutres apparentes. Style design parisien pour voyageurs branchés.",
     amenities: ["Mezzanine", "Murs Briques", "Ambiance Design", "Lumineux"],
     occupancy: 94,
@@ -215,7 +231,7 @@ const properties = [
     type: "T2 Haussmannien",
     size: 65,
     capacity: 4,
-    image: "/concierge-service-luxury-welcoming-guests.jpg",
+    image: "/elegant-luxury-interior-hero.jpg",
     description: "Authentique appartement haussmannien avec plafonds hauts. Paris intemporel.",
     amenities: ["Plafonds Hauts", "Cheminée", "Parquet Massif", "Balcon"],
     occupancy: 96,
@@ -228,7 +244,8 @@ const properties = [
     type: "T1 Modern",
     size: 48,
     capacity: 2,
-    image: "/customer-support-team-helping-guests.jpg",
+    image:
+      "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=1920&q=80",
     description: "Suite contemporaine près du Louvre. Proximité musées et galeries.",
     amenities: ["Art Déco", "Minibar", "Smart TV", "Coffre-Fort"],
     occupancy: 93,
@@ -237,21 +254,59 @@ const properties = [
   },
 ]
 
-const stats = [
+const testimonials = [
   {
-    value: "50+",
-    label: "Propriétés Actives",
+    name: "Nicolas, Lyon",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=faces",
+    stay: "Studio Luxe – 3 nuits",
+    text:
+      "Appartement impeccable et super bien situé. Check‑in très fluide, hôte réactif, on reviendra !",
+    stars: 5,
+    label: "Séjour court",
   },
   {
-    value: "95%",
-    label: "Taux d'Occupation Moyen",
+    name: "Sofia, Madrid",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=faces",
+    stay: "T2 Saint‑Germain – 1 semaine",
+    text:
+      "Très calme et propre. Les conseils de quartier étaient top et l'accueil vraiment chaleureux.",
+    stars: 5,
+    label: "Confort",
   },
   {
-    value: "4.9★",
-    label: "Note Moyenne",
+    name: "Adam, Londres",
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=faces",
+    stay: "Penthouse – 4 nuits",
+    text:
+      "Vue incroyable. Organisation parfaite, tout est simple et premium, exactement ce qu'on cherchait.",
+    stars: 5,
+    label: "Premium",
   },
   {
-    value: "€2.5M+",
-    label: "Revenus Gérés/An",
+    name: "Élise, Nantes",
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=faces",
+    stay: "Loft Marais – Week‑end",
+    text:
+      "Décoration magnifique, lit confortable, ménage impeccable. Communication rapide, merci !",
+    stars: 5,
+    label: "Propreté",
+  },
+  {
+    name: "Marco, Rome",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=faces",
+    stay: "Haussmann 7e – 5 nuits",
+    text:
+      "Proche de tout, très pratique avec les enfants. Hôte très arrangeant sur les horaires.",
+    stars: 4,
+    label: "Famille",
+  },
+  {
+    name: "Hannah, Berlin",
+    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=faces",
+    stay: "Suite Louvre – 2 nuits",
+    text:
+      "Check‑in tardif sans problème, appartement silencieux, literie de qualité. Recommandé !",
+    stars: 5,
+    label: "Business",
   },
 ]

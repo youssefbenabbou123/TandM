@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
@@ -25,7 +25,7 @@ const properties: Property[] = [
     surface: "35 m²",
     capacity: "2 voyageurs",
     description:
-      "Un magnifique studio entièrement rénové, idéalement situé. Nos services garantissent une occupancy élevée et des revenus optimisés.",
+      "Un magnifique studio entièrement rénové, idéalement situé. Nos services garantissent une occupancy élevée",
     image: "/luxury-bedroom-apartment-modern-design.jpg",
     airbnbUrl: "https://www.airbnb.fr/rooms/1432505489484954838",
   },
@@ -50,7 +50,7 @@ const properties: Property[] = [
     capacity: "6 voyageurs",
     description:
       "Penthouse spectaculaire avec terrasse panoramique. Finitions haut de gamme et confort exceptionnel pour les voyageurs exigeants.",
-    image: "/luxury-apartment-interior-design-modern.jpg",
+    image: "/luxury-villa-portefeuille-hero.jpg",
     airbnbUrl: "#",
   },
   {
@@ -62,28 +62,44 @@ const properties: Property[] = [
     capacity: "2 voyageurs",
     description:
       "Petit studio authentique avec caractère dans le cœur du Marais. Parfait pour les couples et courtes escapades parisiennes.",
-    image: "/luxury-hotel-housekeeping-cleaning-preparation.jpg",
+    image: "/elegant-luxury-interior-hero.jpg",
     airbnbUrl: "#",
   },
 ]
 
 export function PropertyCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
+
+  const startAutoPlay = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current)
+    intervalRef.current = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % properties.length)
+    }, 7000)
+  }
+
+  const resetAutoPlay = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current)
+    }
+    startAutoPlay()
+  }
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % properties.length)
-    }, 4000)
-
-    return () => clearInterval(interval)
+    startAutoPlay()
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current)
+    }
   }, [])
 
   const goToPrevious = () => {
     setCurrentIndex((prev) => (prev - 1 + properties.length) % properties.length)
+    resetAutoPlay()
   }
 
   const goToNext = () => {
     setCurrentIndex((prev) => (prev + 1) % properties.length)
+    resetAutoPlay()
   }
 
   const currentProperty = properties[currentIndex]
@@ -149,7 +165,10 @@ export function PropertyCarousel() {
           {properties.map((_, index) => (
             <button
               key={index}
-              onClick={() => setCurrentIndex(index)}
+              onClick={() => {
+                setCurrentIndex(index)
+                resetAutoPlay()
+              }}
               className={`w-3 h-3 rounded-full transition-all ${
                 index === currentIndex ? "bg-primary w-8" : "bg-primary/30"
               }`}

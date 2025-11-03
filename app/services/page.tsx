@@ -17,7 +17,7 @@ export default function Services() {
 
       {/* Hero Section */}
       <section
-        className="pt-32 pb-12 bg-cover bg-center bg-no-repeat relative"
+        className="pt-36 pb-16 bg-cover bg-center bg-no-repeat relative"
         style={{ backgroundImage: "url('/luxury-property-services-hero.jpg')" }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
@@ -36,8 +36,8 @@ export default function Services() {
             <div
               key={i}
               ref={i === 0 ? detailsRef.ref : undefined}
-              className={`mb-20 grid md:grid-cols-2 gap-12 items-center transition-all duration-1000 ${
-                i === 0 && detailsRef.isVisible ? "animate-fade-in-up" : i === 0 ? "opacity-0" : ""
+              className={`mb-20 grid md:grid-cols-2 gap-12 items-center transition-all duration-700 ${
+                i === 0 ? (detailsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4") : ""
               } ${i % 2 === 1 ? "md:grid-cols-2" : ""}`}
             >
               <div className={i % 2 === 1 ? "md:order-2" : ""}>
@@ -73,8 +73,8 @@ export default function Services() {
             {serviceFeatures.map((feature, i) => (
               <div
                 key={i}
-                className={`bg-white p-8 rounded-2xl border border-border hover:shadow-lg transition-all duration-1000 ${
-                  servicesRef.isVisible ? "animate-fade-in-up" : "opacity-0"
+                className={`bg-white p-8 rounded-2xl border border-border hover:shadow-lg transition-all duration-700 ${
+                  servicesRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
                 style={{
                   animationDelay: servicesRef.isVisible ? `${i * 100}ms` : "0ms",
@@ -98,8 +98,8 @@ export default function Services() {
             {pricing.map((item, i) => (
               <div
                 key={i}
-                className={`bg-card p-8 rounded-2xl border-2 border-border hover:border-secondary transition-all duration-1000 ${
-                  pricingRef.isVisible ? "animate-slide-in-up" : "opacity-0 translate-y-8"
+                className={`bg-card p-8 rounded-2xl border-2 border-border hover:border-secondary transition-all duration-700 ${
+                  pricingRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
                 style={{
                   transitionDelay: pricingRef.isVisible ? `${i * 150}ms` : "0ms",

@@ -5,7 +5,7 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+  "relative overflow-hidden group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive before:content-[''] before:absolute before:-inset-px before:[border-radius:inherit] before:pointer-events-none before:opacity-0 group-hover:before:opacity-90 before:blur-[12px] before:transition-all before:duration-700 before:ease-out before:animate-[spin_3s_linear_infinite] before:mix-blend-screen before:bg-[conic-gradient(from_0deg,rgba(255,255,255,0.7)_0%,rgba(56,189,248,0.6)_25%,rgba(244,114,182,0.6)_50%,rgba(250,204,21,0.6)_75%,rgba(255,255,255,0.7)_100%)]",
   {
     variants: {
       variant: {

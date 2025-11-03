@@ -19,35 +19,44 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-br from-primary/5 to-transparent min-h-[90vh] flex items-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div
-            ref={heroRef.ref}
-            className={`grid md:grid-cols-2 gap-12 items-center transition-all duration-1000 ${heroRef.isVisible ? "animate-fade-in-up" : "opacity-0"}`}
-          >
-            <div>
-              <h1 className="text-5xl md:text-6xl font-serif font-bold text-foreground leading-tight mb-6">
-                T&M Conciergerie
-              </h1>
-              <p className="text-xl text-muted-foreground mb-4">Gestion Premium de Votre Bien Immobilier</p>
-              <p className="text-lg text-muted-foreground mb-8">
-                Sérénité pour les propriétaires, expérience 5 étoiles pour vos voyageurs
-              </p>
-              <Link href="/contact">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full">
-                  Contactez-nous
-                </Button>
-              </Link>
-            </div>
-            <div className="relative h-96 md:h-full min-h-96">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl"></div>
-              <img
-                src="/luxury-apartment-interior-design-modern.jpg"
-                alt="Luxury property"
-                className="w-full h-full object-cover rounded-2xl"
+      <section className="relative h-screen flex items-center justify-center">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: "url('/hero-luxury-apartment.jpg')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+          }}
+        >
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-black/50"></div>
+        </div>
+        
+        {/* Content */}
+        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
+          <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6">
+            T&M Conciergerie
+          </h1>
+          <p className="text-2xl md:text-3xl mb-4">
+            Gestion Premium de Votre Bien Immobilier
+          </p>
+          <p className="text-xl md:text-2xl mb-12 text-gray-200">
+            Sérénité pour les propriétaires, expérience 5 étoiles pour vos voyageurs
+          </p>
+          <Link href="/contact">
+            <Button
+              size="lg"
+              className="relative overflow-hidden group bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white rounded-full text-lg px-8 py-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-0.5 border border-white/30"
+            >
+              <span
+                className="pointer-events-none absolute -inset-px rounded-full opacity-0 group-hover:opacity-90 scale-110 group-hover:scale-100 blur-[12px] transition-all duration-700 ease-out animate-[spin_3s_linear_infinite] mix-blend-screen bg-[conic-gradient(from_0deg,rgba(255,255,255,0.7)_0%,rgba(56,189,248,0.6)_25%,rgba(244,114,182,0.6)_50%,rgba(250,204,21,0.6)_75%,rgba(255,255,255,0.7)_100%)]"
+                aria-hidden="true"
               />
-            </div>
-          </div>
+              <span className="relative z-10">Contacter-nous</span>
+            </Button>
+          </Link>
         </div>
       </section>
 
@@ -56,7 +65,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             ref={servicesRef.ref}
-            className={`transition-all duration-1000 ${servicesRef.isVisible ? "opacity-100" : "opacity-0"}`}
+            className={`transition-all duration-700 ${servicesRef.isVisible ? "opacity-100" : "opacity-0"}`}
           >
             <h2 className="text-4xl font-serif font-bold text-center mb-4 text-foreground">Nos Services</h2>
             <p className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto">
@@ -68,7 +77,7 @@ export default function Home() {
               {services.map((service, i) => (
                 <div
                   key={i}
-                  className={`group bg-card p-8 rounded-xl hover:shadow-lg transition-all duration-300 border border-border hover:border-primary text-center ${servicesRef.isVisible ? "animate-fade-in-up" : "opacity-0"}`}
+                  className={`group bg-card p-8 rounded-xl hover:shadow-lg transition-all duration-700 border border-border hover:border-primary text-center ${servicesRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
                   style={{
                     animationDelay: servicesRef.isVisible ? `${i * 100}ms` : "0ms",
                   }}
@@ -85,9 +94,13 @@ export default function Home() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="rounded-full border-primary text-primary hover:bg-primary/10 bg-transparent"
+                  className="relative overflow-hidden group rounded-full border-primary text-primary hover:bg-primary/10 bg-transparent px-8 py-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5"
                 >
-                  Découvrir Tous les Services
+                  <span
+                    className="pointer-events-none absolute -inset-px rounded-full opacity-0 group-hover:opacity-90 scale-110 group-hover:scale-100 blur-[12px] transition-all duration-700 ease-out animate-[spin_3s_linear_infinite] mix-blend-screen bg-[conic-gradient(from_0deg,rgba(16,185,129,0.6)_0%,rgba(99,102,241,0.6)_33%,rgba(244,63,94,0.6)_66%,rgba(250,204,21,0.6)_100%)]"
+                    aria-hidden="true"
+                  />
+                  <span className="relative z-10">Découvrir Tous les Services</span>
                 </Button>
               </Link>
             </div>
@@ -116,7 +129,7 @@ export default function Home() {
             {reasons.map((reason, i) => (
               <div
                 key={i}
-                className={`text-center transition-all duration-1000 ${whyUsRef.isVisible ? "animate-slide-in-up" : "opacity-0 translate-y-8"}`}
+                className={`text-center transition-all duration-700 ${whyUsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
                 style={{
                   transitionDelay: whyUsRef.isVisible ? `${i * 150}ms` : "0ms",
                 }}
@@ -129,6 +142,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      
 
       {/* CTA Section */}
       <section className="py-20 bg-primary text-white">
@@ -253,5 +268,68 @@ const reasons = [
     number: "24/7",
     title: "Support Disponible",
     description: "Nous sommes toujours là pour vous et vos voyageurs, jour et nuit.",
+  },
+]
+
+const testimonials = [
+  {
+    name: "Nicolas",
+    location: "Lyon",
+    property: "Studio Luxe",
+    duration: "3 nuits",
+    comment: "Appartement impeccable et super bien situé. Check‑in très fluide, hôte réactif, on reviendra !",
+    rating: 5,
+    tag: "Séjour court",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=faces",
+  },
+  {
+    name: "Sofia",
+    location: "Madrid",
+    property: "T2 Saint‑Germain",
+    duration: "1 semaine",
+    comment: "Très calme et propre. Les conseils de quartier étaient top et l'accueil vraiment chaleureux.",
+    rating: 5,
+    tag: "Confort",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=faces",
+  },
+  {
+    name: "Adam",
+    location: "Londres",
+    property: "Penthouse",
+    duration: "4 nuits",
+    comment: "Vue incroyable. Organisation parfaite, tout est simple et premium, exactement ce qu'on cherchait.",
+    rating: 5,
+    tag: "Premium",
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=faces",
+  },
+  {
+    name: "Élise",
+    location: "Nantes",
+    property: "Loft Marais",
+    duration: "Week‑end",
+    comment: "Décoration magnifique, lit confortable, ménage impeccable. Communication rapide, merci !",
+    rating: 5,
+    tag: "Propreté",
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=faces",
+  },
+  {
+    name: "Marco",
+    location: "Rome",
+    property: "Haussmann 7e",
+    duration: "5 nuits",
+    comment: "Proche de tout, très pratique avec les enfants. Hôte très arrangeant sur les horaires.",
+    rating: 4,
+    tag: "Famille",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=faces",
+  },
+  {
+    name: "Hannah",
+    location: "Berlin",
+    property: "Suite Louvre",
+    duration: "2 nuits",
+    comment: "Check‑in tardif sans problème, appartement silencieux, literie de qualité. Recommandé !",
+    rating: 5,
+    tag: "Business",
+    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=faces",
   },
 ]

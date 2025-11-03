@@ -71,8 +71,8 @@ export default function Contact() {
 
       {/* Hero Section */}
       <section
-        className="pt-32 pb-12 bg-cover bg-center bg-no-repeat relative"
-        style={{ backgroundImage: "url('/contact-communication-hero.jpg')" }}
+        className="pt-36 pb-16 bg-cover bg-center bg-no-repeat relative"
+        style={{ backgroundImage: "url('/customer-support-team-helping-guests.jpg')" }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -90,11 +90,11 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             ref={formRef.ref}
-            className={`grid lg:grid-cols-2 gap-10 transition-all duration-1000 ${formRef.isVisible ? "opacity-100" : "opacity-0"}`}
+            className={`grid lg:grid-cols-2 gap-10 transition-all duration-700 ${formRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
           >
             {/* Contact Information */}
             <Card
-              className={`relative overflow-hidden border-border/60 shadow-md backdrop-blur supports-[backdrop-filter]:bg-card/80 transition-all duration-1000 ${formRef.isVisible ? "animate-slide-in-left" : "opacity-0"}`}
+              className={`relative overflow-hidden border-border/60 shadow-md backdrop-blur supports-[backdrop-filter]:bg-card/80 transition-all duration-700 ${formRef.isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"}`}
             >
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/10" />
               <div
@@ -160,7 +160,7 @@ export default function Contact() {
 
             {/* Contact Form */}
             <Card
-              className={`relative overflow-hidden border-border/60 shadow-md backdrop-blur supports-[backdrop-filter]:bg-card/80 transition-all duration-1000 ${formRef.isVisible ? "animate-scale-in" : "opacity-0 scale-95"}`}
+              className={`relative overflow-hidden border-border/60 shadow-md backdrop-blur supports-[backdrop-filter]:bg-card/80 transition-all duration-700 ${formRef.isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
             >
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/10" />
               <div
@@ -259,8 +259,8 @@ export default function Contact() {
             {faqs.map((faq, i) => (
               <div
                 key={i}
-                className={`bg-white p-6 rounded-lg border border-border transition-all duration-1000 ${
-                  faqRef.isVisible ? "animate-fade-in-up" : "opacity-0"
+                className={`bg-white p-6 rounded-lg border border-border transition-all duration-700 ${
+                  faqRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
                 style={{
                   animationDelay: faqRef.isVisible ? `${i * 75}ms` : "0ms",
