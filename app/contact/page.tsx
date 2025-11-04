@@ -2,18 +2,17 @@
 
 import type React from "react"
 import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { Separator } from "@/components/ui/separator"
-import { Phone, Mail, MapPin, Clock, Loader2 } from "lucide-react"
+import { Phone, Mail, Loader2 } from "lucide-react"
 import { toast } from "@/hooks/use-toast"
 import { useState } from "react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { useLanguage } from "@/contexts/language-context"
-import Link from "next/link"
 
 export default function Contact() {
   const formRef = useScrollAnimation()
@@ -33,6 +32,18 @@ export default function Contact() {
       question: t("contact.faq.q3"),
       answer: t("contact.faq.a3"),
     },
+    {
+      question: t("contact.faq.q4"),
+      answer: t("contact.faq.a4"),
+    },
+    {
+      question: t("contact.faq.q5"),
+      answer: t("contact.faq.a5"),
+    },
+    {
+      question: t("contact.faq.q6"),
+      answer: t("contact.faq.a6"),
+    },
   ]
 
   const [formData, setFormData] = useState({
@@ -40,7 +51,6 @@ export default function Contact() {
     lastname: "",
     email: "",
     phone: "",
-    service: "",
     message: "",
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -77,7 +87,7 @@ export default function Contact() {
       }
 
       toast({ title: t("contact.form.success"), description: t("contact.form.successDescription") })
-      setFormData({ firstname: '', lastname: '', email: '', phone: '', service: '', message: '' })
+      setFormData({ firstname: '', lastname: '', email: '', phone: '', message: '' })
     } catch (err) {
       toast({ title: t("contact.form.error"), description: t("contact.form.networkError") })
     } finally {
@@ -120,7 +130,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground text-xl mb-2">{t("contact.info.phone")}</h3>
-                  <p className="text-muted-foreground text-lg">+33 (0)1 23 45 67 89</p>
+                  <p className="text-muted-foreground text-lg">06.66.83.08.14</p>
                 </div>
               </div>
 
@@ -130,17 +140,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground text-xl mb-2">{t("contact.info.email")}</h3>
-                  <p className="text-muted-foreground text-lg">info@tmconciergerie.fr</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-5">
-                <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0">
-                  <Clock className="h-8 w-8 text-foreground" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground text-xl mb-2">{t("contact.info.hours")}</h3>
-                  <p className="text-muted-foreground text-lg">{t("contact.info.hoursValue")}</p>
+                  <p className="text-muted-foreground text-lg">theo.m.conciergerie@gmail.com</p>
                 </div>
               </div>
             </div>
@@ -162,7 +162,6 @@ export default function Contact() {
                         value={formData.firstname}
                         onChange={handleChange}
                         required
-                        placeholder={t("contact.form.firstnamePlaceholder")}
                         className="bg-gray-100 border-gray-400"
                       />
                     </div>
@@ -176,7 +175,6 @@ export default function Contact() {
                         value={formData.lastname}
                         onChange={handleChange}
                         required
-                        placeholder={t("contact.form.lastnamePlaceholder")}
                         className="bg-gray-100 border-gray-400"
                       />
                     </div>
@@ -192,7 +190,6 @@ export default function Contact() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        placeholder={t("contact.form.emailPlaceholder")}
                         className="bg-gray-100 border-gray-400"
                       />
                     </div>
@@ -205,29 +202,9 @@ export default function Contact() {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        placeholder={t("contact.form.phoneLabel")}
                         className="bg-gray-100 border-gray-400"
                       />
                     </div>
-                  </div>
-
-                  <div className="grid gap-2">
-                    <Label htmlFor="service">{t("contact.form.service")}</Label>
-                    <select
-                      id="service"
-                      name="service"
-                      value={formData.service}
-                      onChange={handleChange}
-                      className="flex h-10 w-full rounded-md border border-gray-400 bg-gray-100 px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    >
-                      <option value="">{t("contact.form.servicePlaceholder")}</option>
-                      <option value="gestion-complete">{t("contact.form.serviceOptions.gestionComplete")}</option>
-                      <option value="creation-annonce">{t("contact.form.serviceOptions.creationAnnonce")}</option>
-                      <option value="preparation-sejour">{t("contact.form.serviceOptions.preparationSejour")}</option>
-                      <option value="checkin-checkout">{t("contact.form.serviceOptions.checkinCheckout")}</option>
-                      <option value="support-24-7">{t("contact.form.serviceOptions.support247")}</option>
-                      <option value="autre">{t("contact.form.serviceOptions.autre")}</option>
-                    </select>
                   </div>
 
                   <div className="grid gap-2">
@@ -240,7 +217,6 @@ export default function Contact() {
                       required
                       rows={7}
                       className="min-h-[150px] bg-gray-100 border-gray-400"
-                      placeholder={t("contact.form.messagePlaceholder")}
                     />
                   </div>
 
@@ -307,59 +283,7 @@ export default function Contact() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-foreground text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <h4 className="font-bold mb-4">T&M Conciergerie</h4>
-              <p className="text-white/70">Service premium de gestion immobilière.</p>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4">Navigation</h4>
-              <ul className="space-y-2 text-white/70">
-                <li>
-                  <Link href="/services" className="hover:text-white">
-                    {t("nav.services")}
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about" className="hover:text-white">
-                    {t("nav.about")}
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="hover:text-white">
-                    {t("nav.contact")}
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4">{t("nav.contact")}</h4>
-              <p className="text-white/70">Email: info@tmconciergerie.fr</p>
-              <p className="text-white/70">Tél: +33 (0)1 23 45 67 89</p>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4">Légal</h4>
-              <ul className="space-y-2 text-white/70">
-                <li>
-                  <a href="#" className="hover:text-white">
-                    Mentions Légales
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white">
-                    Politique de Confidentialité
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-white/20 pt-8 text-center text-white/70">
-            <p>&copy; 2025 T&M Conciergerie. Tous droits réservés.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   )
 }

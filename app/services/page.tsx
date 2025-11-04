@@ -1,6 +1,7 @@
 "use client"
 
 import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
@@ -204,13 +205,7 @@ export default function Services() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-foreground text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center text-white/70">
-            <p>&copy; 2025 T&M Conciergerie. Tous droits réservés.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   )
 }

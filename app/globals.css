@@ -3,6 +3,23 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Didot font-face - try to use system Didot if available, otherwise use Cormorant Garamond */
+@font-face {
+  font-family: "Didot";
+  src: local("Didot"), local("Didot LT Std"), local("Hoefler Text");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Didot";
+  src: local("Didot Italic"), local("Didot LT Std Italic"), local("Hoefler Text Italic");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
   /* Updated to pure black and white color scheme */
   --background: #fafafa;
@@ -77,7 +94,9 @@
 
 @theme inline {
   --font-sans: "Poppins", "Poppins Fallback", sans-serif;
-  --font-serif: "Poppins", "Poppins Fallback", sans-serif;
+  --font-heading: var(--font-heading, "Libre Baskerville", serif);
+  --font-display: var(--font-display, "Didot", "Cormorant Garamond", serif);
+  --font-serif: var(--font-display, "Didot", "Cormorant Garamond", serif);
   --font-mono: "Geist Mono", "Geist Mono Fallback";
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -132,13 +151,47 @@
     @apply bg-background text-foreground font-sans;
   }
   
-  /* Force Poppins everywhere - tous les éléments de texte */
+  /* Luxury professional serif font for ALL headings - Libre Baskerville */
+  /* More robust and professional, thicker strokes, better readability */
+  /* Reduced letter-spacing for a more professional, tighter look */
   h1, h2, h3, h4, h5, h6,
+  h1.font-sans, h2.font-sans, h3.font-sans, h4.font-sans, h5.font-sans, h6.font-sans,
+  h1[class*="font-"], h2[class*="font-"], h3[class*="font-"], h4[class*="font-"], h5[class*="font-"], h6[class*="font-"] {
+    font-family: var(--font-heading), "Libre Baskerville", serif !important;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    font-feature-settings: "kern" 1, "liga" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Slightly more spacing for h1 and h2 but still professional */
+  h1, h2 {
+    letter-spacing: 0.03em !important;
+  }
+  
+  /* Didot style for luxury branding and display elements */
+  /* Use class "font-display" or "font-luxury" on elements for luxury branding feel */
+  .font-display,
+  .font-luxury,
+  .brand-font {
+    font-family: var(--font-display), "Didot", "Cormorant Garamond", serif !important;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.02em;
+  }
+  
+  /* Body text remains Poppins - but NOT headings */
   p, span, div, a, button,
   input, textarea, select, label,
   li, ul, ol, td, th, table,
-  .font-serif, .font-sans {
+  .font-sans:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
     font-family: "Poppins", "Poppins Fallback", var(--font-sans), sans-serif !important;
+  }
+  
+  .font-serif {
+    font-family: var(--font-display), "Didot", "Cormorant Garamond", serif !important;
   }
 }
 

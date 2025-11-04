@@ -1,20 +1,36 @@
 "use client"
 
 import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
 import Link from "next/link"
 import { useLanguage } from "@/contexts/language-context"
 import { PropertyDetailModal } from "@/components/property-detail-modal"
-import { Users, Bed, Bath, Home, Star } from "lucide-react"
+import { Users, Bed, Bath, Home, Star, ChevronLeft, ChevronRight } from "lucide-react"
 
 export default function Properties() {
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const { t, language } = useLanguage()
   
   // Get property data from translations
   const translations = require("@/translations/index").translations
   const property = translations[language as "fr" | "en"].properties.property
+
+  const images = property.images || []
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % images.length)
+  }
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length)
+  }
+
+  const goToImage = (index: number) => {
+    setCurrentImageIndex(index)
+  }
 
   return (
     <main className="min-h-screen">
@@ -40,16 +56,68 @@ export default function Properties() {
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-2xl overflow-hidden shadow-xl border border-border hover:shadow-2xl transition-all duration-500">
-            {/* Image Container */}
-            <div className="relative h-96 overflow-hidden">
-              <img
-                src={property.images[0] || "/placeholder.svg"}
-                alt={property.title}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute top-4 right-4 bg-secondary text-white px-4 py-2 rounded-full text-sm font-semibold">
+            {/* Image Carousel Container */}
+            <div className="relative h-96 overflow-hidden group">
+              {/* Images */}
+              <div className="relative h-full w-full">
+                {images.map((image: string, index: number) => (
+                  <div
+                    key={index}
+                    className={`absolute inset-0 transition-opacity duration-500 ${
+                      index === currentImageIndex ? "opacity-100" : "opacity-0"
+                    }`}
+                  >
+                    <img
+                      src={image}
+                      alt={`${property.title} - Image ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+
+              {/* Type Badge */}
+              <div className="absolute top-4 right-4 bg-secondary text-white px-4 py-2 rounded-full text-sm font-semibold z-10">
                 {property.type}
               </div>
+
+              {/* Navigation Arrows */}
+              {images.length > 1 && (
+                <>
+                  <button
+                    onClick={prevImage}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all opacity-0 group-hover:opacity-100 z-10"
+                    aria-label="Previous image"
+                  >
+                    <ChevronLeft className="h-6 w-6" />
+                  </button>
+                  <button
+                    onClick={nextImage}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all opacity-0 group-hover:opacity-100 z-10"
+                    aria-label="Next image"
+                  >
+                    <ChevronRight className="h-6 w-6" />
+                  </button>
+                </>
+              )}
+
+              {/* Image Indicators */}
+              {images.length > 1 && (
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                  {images.map((_: string, index: number) => (
+                    <button
+                      key={index}
+                      onClick={() => goToImage(index)}
+                      className={`h-2 rounded-full transition-all ${
+                        index === currentImageIndex
+                          ? "bg-white w-8"
+                          : "bg-white/50 w-2 hover:bg-white/75"
+                      }`}
+                      aria-label={`Go to image ${index + 1}`}
+                    />
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Content */}
@@ -176,13 +244,7 @@ export default function Properties() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-foreground text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center text-white/70">
-            <p>&copy; 2025 T&M Conciergerie. Tous droits réservés.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
 
       {/* Property Detail Modal */}
       <PropertyDetailModal open={isModalOpen} onOpenChange={setIsModalOpen} />

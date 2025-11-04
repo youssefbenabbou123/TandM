@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Playfair_Display, Poppins } from "next/font/google"
+import { Libre_Baskerville, Cormorant_Garamond, Poppins } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { Navbar } from "@/components/navbar"
@@ -8,8 +8,33 @@ import { PageTransition } from "@/components/page-transition"
 import { Toaster } from "@/components/ui/toaster"
 import { LanguageProvider } from "@/contexts/language-context"
 
-const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-serif" })
-const poppins = Poppins({ subsets: ["latin"], variable: "--font-sans", weight: ["300", "400", "500", "600", "700"] })
+// Luxury professional serif font for main headings - Libre Baskerville
+// More robust and professional than Cormorant, with thicker strokes and better readability
+// Perfect for premium concierge and luxury lifestyle brands
+const luxurySerif = Libre_Baskerville({ 
+  subsets: ["latin"], 
+  variable: "--font-heading",
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
+})
+
+// Didot style for luxury branding and secondary display
+const didot = Cormorant_Garamond({ 
+  subsets: ["latin"], 
+  variable: "--font-display",
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
+})
+
+// Poppins for body text
+const poppins = Poppins({ 
+  subsets: ["latin"], 
+  variable: "--font-sans", 
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+})
 
 export const metadata: Metadata = {
   title: "T&M Conciergerie - Gestion premium de votre bien immobilier",
@@ -25,7 +50,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={`${poppins.variable} ${playfair.variable} font-sans antialiased`}>
+      <body className={`${luxurySerif.variable} ${didot.variable} ${poppins.variable} font-sans antialiased`}>
         <LanguageProvider>
           <Navbar />
           <PageTransition>{children}</PageTransition>

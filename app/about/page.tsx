@@ -1,30 +1,40 @@
 "use client"
 
 import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
-import { Award, Handshake, Heart } from "lucide-react"
+import { Shield, Target, Briefcase, Heart, Sparkles, Handshake, Award, TrendingUp } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 
 export default function About() {
   const valuesRef = useScrollAnimation()
   const statsRef = useScrollAnimation()
+  const section1Ref = useScrollAnimation()
+  const approachRef = useScrollAnimation()
+  const standardsRef = useScrollAnimation()
+  const commitmentRef = useScrollAnimation()
   const { t } = useLanguage()
 
   const values = [
     {
-      icon: <Award className="w-12 h-12" />,
-      title: t("about.values.excellence.title"),
-      description: t("about.values.excellence.description"),
+      icon: <Shield className="w-12 h-12" />,
+      title: t("about.values.confiance.title"),
+      description: t("about.values.confiance.description"),
     },
     {
-      icon: <Handshake className="w-12 h-12" />,
-      title: t("about.values.transparency.title"),
-      description: t("about.values.transparency.description"),
+      icon: <Target className="w-12 h-12" />,
+      title: t("about.values.exigence.title"),
+      description: t("about.values.exigence.description"),
+    },
+    {
+      icon: <Briefcase className="w-12 h-12" />,
+      title: t("about.values.professionnalisme.title"),
+      description: t("about.values.professionnalisme.description"),
     },
     {
       icon: <Heart className="w-12 h-12" />,
-      title: t("about.values.passion.title"),
-      description: t("about.values.passion.description"),
+      title: t("about.values.engagement.title"),
+      description: t("about.values.engagement.description"),
     },
   ]
 
@@ -55,24 +65,101 @@ export default function About() {
         </div>
       </section>
 
-      {/* Company Story */}
+      {/* Section 1: L'exigence au service de votre sérénité */}
       <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-sans font-bold mb-8 text-center text-foreground">{t("about.storyTitle")}</h2>
-          <div className="space-y-6 text-lg text-muted-foreground">
-            <p>{t("about.story.p1")}</p>
-            <p>{t("about.story.p2")}</p>
-            <p>{t("about.story.p3")}</p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div ref={section1Ref.ref} className={`transition-all duration-700 ${
+            section1Ref.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          }`}>
+            <div className="flex items-center justify-center mb-8">
+              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                <Sparkles className="w-8 h-8 text-primary" />
+              </div>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-sans font-bold mb-8 text-center text-foreground">
+              {t("about.section1Title")}
+            </h2>
+            <div className="max-w-4xl mx-auto space-y-6 text-lg text-muted-foreground">
+              <p className="text-xl text-foreground font-medium">{t("about.section1Intro")}</p>
+              <p>{t("about.section1p1")}</p>
+              <p>{t("about.section1p2")}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2: Une approche sur mesure */}
+      <section className="py-20 bg-gradient-to-br from-background to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div ref={approachRef.ref} className={`transition-all duration-700 ${
+            approachRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          }`}>
+            <div className="flex items-center justify-center mb-8">
+              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                <Handshake className="w-8 h-8 text-primary" />
+              </div>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-sans font-bold mb-8 text-center text-foreground">
+              {t("about.approachTitle")}
+            </h2>
+            <div className="max-w-4xl mx-auto space-y-6 text-lg text-muted-foreground">
+              <p>{t("about.approach")}</p>
+              <p>{t("about.approach2")}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3: Des standards hôteliers */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div ref={standardsRef.ref} className={`transition-all duration-700 ${
+            standardsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          }`}>
+            <div className="flex items-center justify-center mb-8">
+              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                <Award className="w-8 h-8 text-primary" />
+              </div>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-sans font-bold mb-8 text-center text-foreground">
+              {t("about.standardsTitle")}
+            </h2>
+            <div className="max-w-4xl mx-auto space-y-6 text-lg text-muted-foreground">
+              <p>{t("about.standards")}</p>
+              <p>{t("about.standards2")}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 4: Notre engagement */}
+      <section className="py-20 bg-gradient-to-br from-background to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div ref={commitmentRef.ref} className={`transition-all duration-700 ${
+            commitmentRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          }`}>
+            <div className="flex items-center justify-center mb-8">
+              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                <TrendingUp className="w-8 h-8 text-primary" />
+              </div>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-sans font-bold mb-8 text-center text-foreground">
+              {t("about.commitmentTitle")}
+            </h2>
+            <div className="max-w-4xl mx-auto space-y-6 text-lg text-muted-foreground">
+              <p>{t("about.commitment")}</p>
+              <p>{t("about.commitment2")}</p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Values */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-sans font-bold text-center mb-16 text-foreground">{t("about.valuesTitle")}</h2>
 
-          <div ref={valuesRef.ref} className="grid md:grid-cols-3 gap-8">
+          <div ref={valuesRef.ref} className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, i) => (
               <div
                 key={i}
@@ -83,9 +170,9 @@ export default function About() {
                   animationDelay: valuesRef.isVisible ? `${i * 100}ms` : "0ms",
                 }}
               >
-                <div className="w-12 h-12 mb-4 text-foreground">{value.icon}</div>
-                <h3 className="text-2xl font-bold text-foreground mb-4">{value.title}</h3>
-                <p className="text-muted-foreground">{value.description}</p>
+                <div className="w-12 h-12 mb-4 text-foreground mx-auto flex items-center justify-center">{value.icon}</div>
+                <h3 className="text-2xl font-bold text-foreground mb-4 text-center">{value.title}</h3>
+                <p className="text-muted-foreground text-center">{value.description}</p>
               </div>
             ))}
           </div>
@@ -115,13 +202,7 @@ export default function About() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-foreground text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center text-white/70">
-            <p>&copy; 2025 T&M Conciergerie. Tous droits réservés.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   )
 }
