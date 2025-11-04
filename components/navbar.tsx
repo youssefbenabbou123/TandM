@@ -2,13 +2,15 @@
 
 import Link from "next/link"
 import { useState, useEffect } from "react"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Languages } from "lucide-react"
 import { usePathname } from "next/navigation"
+import { useLanguage } from "@/contexts/language-context"
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
+  const { language, setLanguage, t } = useLanguage()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,6 +32,10 @@ export function Navbar() {
     return false
   }
 
+  const toggleLanguage = () => {
+    setLanguage(language === "fr" ? "en" : "fr")
+  }
+
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
       scrolled 
@@ -48,10 +54,10 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-12">
+          <div className="hidden md:flex space-x-12 items-center">
             <Link
               href="/"
-              className={`transition-colors relative text-lg font-serif tracking-wide ${
+              className={`transition-colors relative text-lg font-sans tracking-wide group ${
                 isActive("/")
                   ? scrolled
                     ? "text-foreground font-medium"
@@ -61,7 +67,8 @@ export function Navbar() {
                   : "text-white/90 hover:text-white"
               }`}
             >
-              Accueil
+              {t("nav.home")}
+              {/* Active line */}
               {isActive("/") && (
                 <div
                   className={`absolute bottom-0 left-0 w-full h-0.5 transition-colors duration-300 ${
@@ -69,131 +76,206 @@ export function Navbar() {
                   }`}
                 ></div>
               )}
-            </Link>
-              <Link
-                href="/properties"
-                className={`transition-colors relative text-lg font-serif tracking-wide ${
-                  isActive("/properties")
-                    ? scrolled ? "text-foreground font-medium" : "text-white font-medium"
-                    : scrolled ? "text-foreground/90 hover:text-primary" : "text-white/90 hover:text-white"
+              {/* Hover line animation */}
+              <div
+                className={`absolute bottom-0 left-0 h-0.5 w-0 group-hover:w-full transition-all duration-300 ease-out origin-left ${
+                  scrolled ? "bg-primary" : "bg-white"
                 }`}
-              >
-                Portefeuille
-                {isActive("/properties") && (
-                  <div className={`absolute bottom-0 left-0 w-full h-0.5 transition-colors duration-300 ${
-                    scrolled ? "bg-black" : "bg-white"
-                  }`}></div>
-                )}
-              </Link>
-              <Link
-                href="/services"
-                className={`transition-colors relative text-lg font-serif tracking-wide ${
-                  isActive("/services")
-                    ? scrolled ? "text-foreground font-medium" : "text-white font-medium"
-                    : scrolled ? "text-foreground/90 hover:text-primary" : "text-white/90 hover:text-white"
-                }`}
-              >
-                Nos Services
-                {isActive("/services") && (
-                  <div className={`absolute bottom-0 left-0 w-full h-0.5 transition-colors duration-300 ${
-                    scrolled ? "bg-black" : "bg-white"
-                  }`}></div>
-                )}
-              </Link>
-              <Link
-                href="/about"
-                className={`transition-colors relative text-lg font-serif tracking-wide ${
-                  isActive("/about")
-                    ? scrolled ? "text-foreground font-medium" : "text-white font-medium"
-                    : scrolled ? "text-foreground/90 hover:text-primary" : "text-white/90 hover:text-white"
-                }`}
-              >
-                À Propos
-                {isActive("/about") && (
-                  <div className={`absolute bottom-0 left-0 w-full h-0.5 transition-colors duration-300 ${
-                    scrolled ? "bg-black" : "bg-white"
-                  }`}></div>
-                )}
-              </Link>
-              <Link
-                href="/contact"
-                className={`transition-colors relative text-lg font-serif tracking-wide ${
-                  isActive("/contact")
-                    ? scrolled ? "text-foreground font-medium" : "text-white font-medium"
-                    : scrolled ? "text-foreground/90 hover:text-primary" : "text-white/90 hover:text-white"
-                }`}
-              >
-                Contact
-                {isActive("/contact") && (
-                  <div className={`absolute bottom-0 left-0 w-full h-0.5 transition-colors duration-300 ${
-                    scrolled ? "bg-black" : "bg-white"
-                  }`}></div>
-                )}
-            </Link>
-          </div>
-
-          {/* Mobile Menu Button */}
-            <button onClick={toggleMenu} className={`md:hidden transition-colors duration-300 ${scrolled ? "text-foreground" : "text-white"}`}>
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden pb-4 space-y-3">
-            <Link
-              href="/"
-              className={`block py-2 transition-colors font-serif tracking-wide text-lg ${
-                isActive("/")
-                  ? "text-foreground font-medium border-l-2 border-primary pl-3"
-                  : "text-foreground/90 hover:text-primary pl-3"
-              }`}
-            >
-              Accueil
-            </Link>
-            <Link
-              href="/properties"
-              className={`block py-2 transition-colors font-serif tracking-wide text-lg ${
-                isActive("/properties")
-                  ? "text-foreground font-medium border-l-2 border-primary pl-3"
-                  : "text-foreground/90 hover:text-primary pl-3"
-              }`}
-            >
-              Portefeuille
+              ></div>
             </Link>
             <Link
               href="/services"
-              className={`block py-2 transition-colors font-serif tracking-wide text-lg ${
+              className={`transition-colors relative text-lg font-sans tracking-wide group ${
                 isActive("/services")
-                  ? "text-foreground font-medium border-l-2 border-primary pl-3"
-                  : "text-foreground/90 hover:text-primary pl-3"
+                  ? scrolled
+                    ? "text-foreground font-medium"
+                    : "text-white font-medium"
+                  : scrolled
+                  ? "text-foreground/90 hover:text-primary"
+                  : "text-white/90 hover:text-white"
               }`}
             >
-              Nos Services
+              {t("nav.services")}
+              {/* Active line */}
+              {isActive("/services") && (
+                <div
+                  className={`absolute bottom-0 left-0 w-full h-0.5 transition-colors duration-300 ${
+                    scrolled ? "bg-black" : "bg-white"
+                  }`}
+                ></div>
+              )}
+              {/* Hover line animation */}
+              <div
+                className={`absolute bottom-0 left-0 h-0.5 w-0 group-hover:w-full transition-all duration-300 ease-out origin-left ${
+                  scrolled ? "bg-primary" : "bg-white"
+                }`}
+              ></div>
+            </Link>
+            <Link
+              href="/properties"
+              className={`transition-colors relative text-lg font-sans tracking-wide group ${
+                isActive("/properties")
+                  ? scrolled
+                    ? "text-foreground font-medium"
+                    : "text-white font-medium"
+                  : scrolled
+                  ? "text-foreground/90 hover:text-primary"
+                  : "text-white/90 hover:text-white"
+              }`}
+            >
+              {t("nav.properties")}
+              {/* Active line */}
+              {isActive("/properties") && (
+                <div
+                  className={`absolute bottom-0 left-0 w-full h-0.5 transition-colors duration-300 ${
+                    scrolled ? "bg-black" : "bg-white"
+                  }`}
+                ></div>
+              )}
+              {/* Hover line animation */}
+              <div
+                className={`absolute bottom-0 left-0 h-0.5 w-0 group-hover:w-full transition-all duration-300 ease-out origin-left ${
+                  scrolled ? "bg-primary" : "bg-white"
+                }`}
+              ></div>
             </Link>
             <Link
               href="/about"
-              className={`block py-2 transition-colors font-serif tracking-wide text-lg ${
+              className={`transition-colors relative text-lg font-sans tracking-wide group ${
                 isActive("/about")
-                  ? "text-foreground font-medium border-l-2 border-primary pl-3"
-                  : "text-foreground/90 hover:text-primary pl-3"
+                  ? scrolled
+                    ? "text-foreground font-medium"
+                    : "text-white font-medium"
+                  : scrolled
+                  ? "text-foreground/90 hover:text-primary"
+                  : "text-white/90 hover:text-white"
               }`}
             >
-              À Propos
+              {t("nav.about")}
+              {/* Active line */}
+              {isActive("/about") && (
+                <div
+                  className={`absolute bottom-0 left-0 w-full h-0.5 transition-colors duration-300 ${
+                    scrolled ? "bg-black" : "bg-white"
+                  }`}
+                ></div>
+              )}
+              {/* Hover line animation */}
+              <div
+                className={`absolute bottom-0 left-0 h-0.5 w-0 group-hover:w-full transition-all duration-300 ease-out origin-left ${
+                  scrolled ? "bg-primary" : "bg-white"
+                }`}
+              ></div>
             </Link>
             <Link
               href="/contact"
-              className={`block py-2 transition-colors font-serif tracking-wide text-lg ${
+              className={`transition-colors relative text-lg font-sans tracking-wide group ${
                 isActive("/contact")
-                  ? "text-foreground font-medium border-l-2 border-primary pl-3"
-                  : "text-foreground/90 hover:text-primary pl-3"
+                  ? scrolled
+                    ? "text-foreground font-medium"
+                    : "text-white font-medium"
+                  : scrolled
+                  ? "text-foreground/90 hover:text-primary"
+                  : "text-white/90 hover:text-white"
               }`}
             >
-              Contact
+              {t("nav.contact")}
+              {/* Active line */}
+              {isActive("/contact") && (
+                <div
+                  className={`absolute bottom-0 left-0 w-full h-0.5 transition-colors duration-300 ${
+                    scrolled ? "bg-black" : "bg-white"
+                  }`}
+                ></div>
+              )}
+              {/* Hover line animation */}
+              <div
+                className={`absolute bottom-0 left-0 h-0.5 w-0 group-hover:w-full transition-all duration-300 ease-out origin-left ${
+                  scrolled ? "bg-primary" : "bg-white"
+                }`}
+              ></div>
+            </Link>
+            
+            {/* Language Toggle Button */}
+            <button
+              onClick={toggleLanguage}
+              className={`flex items-center gap-2 px-3 py-2 rounded-md transition-colors ${
+                scrolled
+                  ? "text-foreground hover:bg-gray-100"
+                  : "text-white hover:bg-white/10"
+              }`}
+            >
+              <Languages className="h-5 w-5" />
+              <span className="text-sm font-medium">{language.toUpperCase()}</span>
+            </button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={toggleMenu}
+            className={`md:hidden p-2 rounded-md transition-colors ${
+              scrolled
+                ? "text-foreground hover:bg-gray-100"
+                : "text-white hover:bg-white/10"
+            }`}
+          >
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="md:hidden bg-white border-t border-border">
+          <div className="px-4 py-6 space-y-4">
+            <Link
+              href="/"
+              onClick={toggleMenu}
+              className={`block text-lg font-sans ${
+                isActive("/") ? "text-primary font-medium" : "text-foreground"
+              }`}
+            >
+              {t("nav.home")}
+            </Link>
+            <Link
+              href="/services"
+              onClick={toggleMenu}
+              className={`block text-lg font-sans ${
+                isActive("/services") ? "text-primary font-medium" : "text-foreground"
+              }`}
+            >
+              {t("nav.services")}
+            </Link>
+            <Link
+              href="/properties"
+              onClick={toggleMenu}
+              className={`block text-lg font-sans ${
+                isActive("/properties") ? "text-primary font-medium" : "text-foreground"
+              }`}
+            >
+              {t("nav.properties")}
+            </Link>
+            <Link
+              href="/about"
+              onClick={toggleMenu}
+              className={`block text-lg font-sans ${
+                isActive("/about") ? "text-primary font-medium" : "text-foreground"
+              }`}
+            >
+              {t("nav.about")}
+            </Link>
+            <Link
+              href="/contact"
+              onClick={toggleMenu}
+              className={`block text-lg font-sans ${
+                isActive("/contact") ? "text-primary font-medium" : "text-foreground"
+              }`}
+            >
+              {t("nav.contact")}
             </Link>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </nav>
   )
 }

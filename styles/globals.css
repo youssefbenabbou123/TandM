@@ -75,7 +75,7 @@
 }
 
 @theme inline {
-  --font-sans: 'Geist', 'Geist Fallback';
+  --font-sans: 'Poppins', 'Poppins Fallback', sans-serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -119,7 +119,22 @@
   * {
     @apply border-border outline-ring/50;
   }
+  
+  html,
   body {
-    @apply bg-background text-foreground;
+    font-family: "Poppins", "Poppins Fallback", var(--font-sans), sans-serif !important;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  
+  /* Force Poppins everywhere - tous les éléments de texte */
+  h1, h2, h3, h4, h5, h6,
+  p, span, div, a, button,
+  input, textarea, select, label,
+  li, ul, ol, td, th, table,
+  .font-serif, .font-sans {
+    font-family: "Poppins", "Poppins Fallback", var(--font-sans), sans-serif !important;
   }
 }
