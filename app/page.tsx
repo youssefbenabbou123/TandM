@@ -92,21 +92,37 @@ export default function Home() {
         
         {/* Content */}
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-          <h1 className="text-5xl md:text-7xl mb-6">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl mb-6 font-bold">
             {t("home.heroTitle")}
           </h1>
-          <p className="text-2xl md:text-3xl mb-4">
+          <p className="text-lg md:text-xl mb-4">
             {t("home.heroSubtitle")}
           </p>
-          <p className="text-xl md:text-2xl mb-12 text-gray-200">
+          <p className="text-base md:text-lg mb-12 text-gray-200">
             {t("home.heroDescription")}
           </p>
           <Link href="/services">
             <Button
               size="lg"
-              className="relative overflow-hidden group bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white rounded-full text-lg px-8 py-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-0.5 border border-white/30"
+              className="relative overflow-hidden group bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white rounded-full text-lg px-8 py-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-0.5 border border-white/30 animate-spin-gradient"
+              style={{
+                background: 'linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.1) 100%)',
+                backgroundSize: '200% 100%',
+                animation: 'spin-gradient 3s ease infinite',
+              }}
             >
-              <span className="relative z-10">{t("home.ctaButton")}</span>
+              <span className="relative z-10 flex items-center gap-2">
+                {t("home.ctaButton")}
+                <svg 
+                  className="w-5 h-5 transition-transform duration-300" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
             </Button>
           </Link>
         </div>
@@ -128,7 +144,7 @@ export default function Home() {
               {services.map((service, i) => (
                 <div
                   key={i}
-                  className={`bg-white p-8 rounded-lg shadow-sm border border-gray-100 transition-all duration-300 text-center cursor-pointer transform hover:scale-105 hover:border-black ${
+                  className={`group relative bg-white p-8 rounded-lg shadow-sm border border-gray-100 transition-all duration-300 text-center cursor-pointer transform hover:scale-105 hover:border-black overflow-hidden ${
                     servicesRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                   }`}
                   style={{
@@ -143,7 +159,14 @@ export default function Home() {
                     </div>
                   </div>
                   <h3 className="text-xl font-bold text-foreground mb-4">{service.title}</h3>
-                  <p className="text-muted-foreground">{service.description}</p>
+                  <p className="text-muted-foreground mb-6">{service.description}</p>
+                  <Link href="/services">
+                    <Button
+                      className="w-full bg-primary hover:bg-primary/90 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    >
+                      {t("home.learnMore")}
+                    </Button>
+                  </Link>
                 </div>
               ))}
             </div>

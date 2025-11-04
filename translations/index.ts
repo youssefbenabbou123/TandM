@@ -61,6 +61,8 @@ export const translations = {
       finalCtaTitle: "Confiez votre bien à un partenaire de confiance",
       finalCtaDescription: "T&M Conciergerie assure une gestion rigoureuse et personnalisée, pour un service à la hauteur de vos exigences.",
       finalCtaButton: "Discuter de votre projet",
+      discoverServices: "Découvrir tous les services",
+      learnMore: "En savoir plus",
     },
     about: {
       title: "À propos de T&M",
@@ -367,6 +369,7 @@ export const translations = {
       heroTitle: "T&M Conciergerie",
       heroSubtitle: "Premium property management",
       heroDescription: "Peace of mind for owners, 5-star experience for your travelers",
+      ctaButton: "Discover our services",
       contactUs: "Contact us",
       servicesTitle: "Our services",
       servicesSubtitle: "Complete and professional management of your property",
@@ -397,6 +400,7 @@ export const translations = {
         },
       },
       featuredTitle: "Featured Property",
+      featuredSubtitle: "Discover an example of a property we manage with excellence.",
       whyUsTitle: "Why Choose Us?",
       stats: {
         occupancy: {
@@ -415,9 +419,25 @@ export const translations = {
           description: "We are always here for you and your travelers, day and night.",
         },
       },
-      ctaTitle: "Ready to entrust your property?",
-      ctaSubtitle: "Let's discuss your project and discover how we can maximize your revenue",
-      ctaButton: "Request a free consultation",
+      commitmentsTitle: "Our Commitments",
+      commitmentsSubtitle: "Our excellence is reflected in every mission: personalized support, rigorous management and constant availability.",
+      commitments: {
+        performance: {
+          title: "Performance & Profitability",
+          description: "We enhance each property through an adjusted pricing strategy and rigorous calendar monitoring to balance occupancy rate and profitability.",
+        },
+        quality: {
+          title: "Quality & Satisfaction",
+          description: "Each stay is prepared with the utmost care: well-maintained accommodations, personalized welcome and harmonious experience for fully satisfied travelers.",
+        },
+        proximity: {
+          title: "Proximity & Responsiveness",
+          description: "Present at every step, we respond quickly to the needs of property owners and travelers alike, in a spirit of trust and availability.",
+        },
+      },
+      finalCtaTitle: "Entrust your property to a trusted partner",
+      finalCtaDescription: "T&M Conciergerie ensures rigorous and personalized management, for service that meets your expectations.",
+      finalCtaButton: "Discuss your project",
       discoverServices: "Discover all services",
       learnMore: "Learn more",
     },
