@@ -141,6 +141,10 @@
     @apply border-border outline-ring/50;
   }
   
+  html {
+    scroll-behavior: smooth;
+  }
+  
   html,
   body {
     font-family: "Poppins", "Poppins Fallback", var(--font-sans), sans-serif !important;

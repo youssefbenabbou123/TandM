@@ -17,6 +17,7 @@ import { useLanguage } from "@/contexts/language-context"
 export default function Contact() {
   const formRef = useScrollAnimation()
   const faqRef = useScrollAnimation()
+  const mapRef = useScrollAnimation()
   const { t } = useLanguage()
 
   const faqs = [
@@ -244,7 +245,7 @@ export default function Contact() {
       {/* Map Section */}
       <section className="pt-0 pb-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="w-full h-[450px] rounded-lg overflow-hidden shadow-sm border border-border">
+          <div ref={mapRef.ref} className={`w-full h-[450px] rounded-lg overflow-hidden shadow-sm border border-border transition-all duration-700 ${mapRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d46323.76274033073!2d7.208943!3d43.7101728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12cdd0106a852d31%3A0x40819a5fd979a70!2sNice%2C%20France!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
               width="100%"

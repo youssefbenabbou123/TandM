@@ -384,36 +384,36 @@ export const translations = {
     },
     home: {
       heroTitle: "T&M Conciergerie",
-      heroSubtitle: "Premium property management",
-      heroDescription: "Peace of mind for owners, 5-star experience for your travelers",
+      heroSubtitle: "Premium management of your seasonal rentals with complete peace of mind.",
+      heroDescription: "Tailored management combining expertise and attention to detail, for a 5-star experience shared between owners and travelers.",
       ctaButton: "Discover our services",
       contactUs: "Contact us",
       servicesTitle: "Our services",
-      servicesSubtitle: "Complete and professional management of your property",
+      servicesSubtitle: "We handle every step of short-term rental to guarantee an exceptional experience for your travelers, and for you, the owner, serene and profitable management.",
       services: {
         announcement: {
           title: "Listing Creation",
-          description: "Professional photos and optimized descriptions to maximize your visibility on Airbnb and other platforms.",
+          description: "Professional photos and a polished description to enhance your property. We optimize your listing for maximum visibility on Airbnb and the main rental platforms.",
         },
         preparation: {
           title: "Stay Preparation",
-          description: "Cleaning, linens, welcome basket. Every detail is carefully handled to offer a 5-star experience.",
+          description: "Cleaning, household linens, welcome basket… every detail is designed to offer your travelers comfort worthy of the finest establishments.",
         },
         checkin: {
-          title: "Check-in / Check-out",
-          description: "Personal welcome and stress-free departure. We handle every interaction to maximize your reviews.",
+          title: "Check-in & Check-out",
+          description: "In-person welcome, key handover and rigorous property inspection at each stay. Our on-site presence guarantees a warm welcome, serene travelers and 5-star reviews.",
         },
         support: {
-          title: "Responsiveness & Support",
-          description: "24/7 support for your travelers and emergency management. We respond in less than 10 minutes.",
+          title: "Responsiveness & Assistance",
+          description: "Available 7 days a week, we respond quickly to travelers' needs and handle unexpected situations efficiently. Your peace of mind is our priority.",
         },
         payment: {
           title: "Transparent Payment",
-          description: "Direct payments to your account with no intermediaries. Clear and justified commissions.",
+          description: "Payments are transferred directly to your account. Our commissions are clearly defined and justified with complete transparency.",
         },
         management: {
-          title: "Complete Management",
-          description: "Digital guide, QR codes, wifi, directions. Everything is included for a hassle-free stay.",
+          title: "Personalized Follow-up",
+          description: "From the digital welcome booklet to the attention paid to every detail, everything is designed to facilitate travelers' stays and offer them comfort, serenity and well-being.",
         },
       },
       featuredTitle: "Featured Property",

@@ -16,6 +16,8 @@ export default function Home() {
   const servicesRef = useScrollAnimation()
   const featuredRef = useScrollAnimation()
   const commitmentsRef = useScrollAnimation()
+  const joinCtaRef = useScrollAnimation()
+  const finalCtaRef = useScrollAnimation()
   const { t } = useLanguage()
   const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -232,7 +234,7 @@ export default function Home() {
       {/* Join CTA Section - White Background */}
       <section className="py-20 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-2xl">
+          <div ref={joinCtaRef.ref} className={`max-w-2xl transition-all duration-700 ${joinCtaRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-8 leading-tight">
               {t("home.joinCtaTitle")}
             </h2>
@@ -261,24 +263,26 @@ export default function Home() {
       {/* Final CTA Section */}
       <section className="py-20 bg-primary text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-6">{t("home.finalCtaTitle")}</h2>
-          <p className="text-lg mb-8 text-white/90">
-            {t("home.finalCtaDescription")}
-          </p>
-          <Link href="/contact">
-            <Button 
-              size="lg" 
-              className="relative overflow-hidden group text-primary rounded-full font-semibold transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 animate-spin-gradient"
-              style={{
-                background: 'linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0.95) 50%, #ffffff 100%)',
-                backgroundSize: '200% 100%',
-                animation: 'spin-gradient 3s ease infinite',
-              }}
-            >
-              <span className="relative z-10">{t("home.finalCtaButton")}</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-            </Button>
-          </Link>
+          <div ref={finalCtaRef.ref} className={`transition-all duration-700 ${finalCtaRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+            <h2 className="text-4xl font-bold mb-6">{t("home.finalCtaTitle")}</h2>
+            <p className="text-lg mb-8 text-white/90">
+              {t("home.finalCtaDescription")}
+            </p>
+            <Link href="/contact">
+              <Button 
+                size="lg" 
+                className="relative overflow-hidden group text-primary rounded-full font-semibold transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 animate-spin-gradient"
+                style={{
+                  background: 'linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0.95) 50%, #ffffff 100%)',
+                  backgroundSize: '200% 100%',
+                  animation: 'spin-gradient 3s ease infinite',
+                }}
+              >
+                <span className="relative z-10">{t("home.finalCtaButton")}</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 

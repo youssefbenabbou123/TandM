@@ -8,8 +8,12 @@ import Link from "next/link"
 import { useLanguage } from "@/contexts/language-context"
 import { PropertyDetailModal } from "@/components/property-detail-modal"
 import { Users, Bed, Bath, Home, Star, ChevronLeft, ChevronRight } from "lucide-react"
+import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 export default function Properties() {
+  const propertyRef = useScrollAnimation()
+  const commentsRef = useScrollAnimation()
+  const ctaRef = useScrollAnimation()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const { t, language } = useLanguage()
@@ -55,7 +59,7 @@ export default function Properties() {
       {/* Property Card */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-2xl overflow-hidden shadow-xl border border-border hover:shadow-2xl transition-all duration-500">
+          <div ref={propertyRef.ref} className={`bg-white rounded-2xl overflow-hidden shadow-xl border border-border hover:shadow-2xl transition-all duration-700 ${propertyRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
             {/* Image Carousel Container */}
             <div className="relative h-96 overflow-hidden group">
               {/* Images */}
@@ -193,16 +197,23 @@ export default function Properties() {
       {property.comments && property.comments.length > 0 && (
         <section className="py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-sans font-bold text-center mb-4 text-foreground">{t("properties.commentsTitle")}</h2>
-            <p className="text-muted-foreground text-center mb-12 max-w-3xl mx-auto">
-              {t("properties.commentsSubtitle")}
-            </p>
+            <div ref={commentsRef.ref} className={`transition-all duration-700 ${commentsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+              <h2 className="text-4xl font-sans font-bold text-center mb-4 text-foreground">{t("properties.commentsTitle")}</h2>
+              <p className="text-muted-foreground text-center mb-12 max-w-3xl mx-auto">
+                {t("properties.commentsSubtitle")}
+              </p>
+            </div>
 
             <div className="grid md:grid-cols-3 gap-6">
               {property.comments.map((comment: any, i: number) => (
                 <div
                   key={i}
-                  className="bg-white rounded-2xl border border-border p-6 hover:shadow-xl transition-all"
+                  className={`bg-white rounded-2xl border border-border p-6 hover:shadow-xl transition-all duration-700 ${
+                    commentsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                  }`}
+                  style={{
+                    animationDelay: commentsRef.isVisible ? `${i * 100}ms` : "0ms",
+                  }}
                 >
                   <div className="flex items-center gap-4 mb-4">
                     <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
@@ -231,7 +242,8 @@ export default function Properties() {
       {/* CTA Section */}
       <section className="py-20 bg-primary text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-sans font-bold mb-6">{t("properties.ctaTitle")}</h2>
+          <div ref={ctaRef.ref} className={`transition-all duration-700 ${ctaRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+            <h2 className="text-4xl font-sans font-bold mb-6">{t("properties.ctaTitle")}</h2>
           <p className="text-lg mb-8 text-white/90">
             {t("properties.ctaSubtitle")}
           </p>
@@ -240,6 +252,7 @@ export default function Properties() {
               {t("properties.ctaButton")}
             </Button>
           </Link>
+          </div>
         </div>
       </section>
 

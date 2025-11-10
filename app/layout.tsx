@@ -7,6 +7,7 @@ import { Navbar } from "@/components/navbar"
 import { PageTransition } from "@/components/page-transition"
 import { Toaster } from "@/components/ui/toaster"
 import { LanguageProvider } from "@/contexts/language-context"
+import { SmoothScroll } from "@/components/smooth-scroll"
 
 // Luxury professional serif font for main headings - Libre Baskerville
 // More robust and professional than Cormorant, with thicker strokes and better readability
@@ -52,10 +53,12 @@ export default function RootLayout({
     <html lang="fr">
       <body className={`${luxurySerif.variable} ${didot.variable} ${poppins.variable} font-sans antialiased`}>
         <LanguageProvider>
-          <Navbar />
-          <PageTransition>{children}</PageTransition>
-          <Toaster />
-          <Analytics />
+          <SmoothScroll>
+            <Navbar />
+            <PageTransition>{children}</PageTransition>
+            <Toaster />
+            <Analytics />
+          </SmoothScroll>
         </LanguageProvider>
       </body>
     </html>

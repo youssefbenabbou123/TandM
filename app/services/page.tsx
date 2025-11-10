@@ -12,6 +12,8 @@ export default function Services() {
   const detailsRef = useScrollAnimation()
   const pricingRef = useScrollAnimation()
   const servicesRef = useScrollAnimation()
+  const featuresTitleRef = useScrollAnimation()
+  const ctaRef = useScrollAnimation()
   const { t, language } = useLanguage()
 
   // Get features arrays from translations
@@ -134,7 +136,7 @@ export default function Services() {
                 i === 1 ? "h-[500px] md:h-[700px]" : 
                 i === 2 ? "h-[500px] md:h-[650px]" : 
                 i === 3 ? "h-[500px] md:h-[400px]" : 
-                i === 4 ? "h-[500px] md:h-[500px]" : 
+                i === 4 ? "h-[500px] md:h-[450px]" : 
                 "h-[500px] md:h-[500px]"
               } ${i % 2 === 1 ? "md:order-1" : ""}`}>
                 <img
