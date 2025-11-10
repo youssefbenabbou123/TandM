@@ -50,7 +50,7 @@ export function PropertyDetailModal({ open, onOpenChange }: PropertyDetailModalP
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-7xl max-h-[90vh] overflow-y-auto w-[95vw]">
+      <DialogContent className="!max-w-5xl sm:!max-w-5xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-3xl font-bold">{property.title}</DialogTitle>
         </DialogHeader>
@@ -162,9 +162,9 @@ export function PropertyDetailModal({ open, onOpenChange }: PropertyDetailModalP
         {/* About */}
         <div className="border-t pt-6 mb-6">
           <h3 className="text-xl font-bold mb-4">{t("properties.modalAbout")}</h3>
-          <p className="text-muted-foreground mb-2">{property.about}</p>
+          <p className="text-muted-foreground mb-2 text-justify whitespace-pre-line">{property.about}</p>
           <div>
-            <p className="text-muted-foreground mb-3">
+            <p className="text-muted-foreground mb-3 text-justify">
               {showFullDescription ? property.aboutExtended : truncateText(property.aboutExtended, 250)}
             </p>
             {property.aboutExtended.length > 250 && (
@@ -192,7 +192,7 @@ export function PropertyDetailModal({ open, onOpenChange }: PropertyDetailModalP
         <div className="border-t pt-6 mb-6">
           <h3 className="text-xl font-bold mb-4">{t("properties.modalAccommodation")}</h3>
           <div>
-            <p className="text-muted-foreground whitespace-pre-line mb-3">
+            <p className="text-muted-foreground whitespace-pre-line mb-3 text-justify">
               {showFullAccommodation ? property.accommodation : truncateText(property.accommodation, 300)}
             </p>
             {property.accommodation.length > 300 && (

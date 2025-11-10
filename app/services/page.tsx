@@ -22,26 +22,38 @@ export default function Services() {
     {
       title: t("services.detailedServices.announcement.title"),
       description: t("services.detailedServices.announcement.description"),
-      image: "/professional-photography-apartment-interior.jpg",
+      image: "/02 - PAGE NOS SERVICES/02 - CREATION DE L_ANNONCE A à Z.JPG",
       features: langData.services.detailedServices.announcement.features,
     },
     {
       title: t("services.detailedServices.preparation.title"),
       description: t("services.detailedServices.preparation.description"),
-      image: "/luxury-hotel-housekeeping-cleaning-preparation.jpg",
+      image: "/02 - PAGE NOS SERVICES/03 - MISE EN PLACE ET PREPARATION DU SEJOUR.JPG",
       features: langData.services.detailedServices.preparation.features,
     },
     {
       title: t("services.detailedServices.checkin.title"),
       description: t("services.detailedServices.checkin.description"),
-      image: "/concierge-service-luxury-welcoming-guests.jpg",
+      image: "/02 - PAGE NOS SERVICES/04 - ACCUEIL PERSONNALISÉ DES VOYAGEURS.JPG",
       features: langData.services.detailedServices.checkin.features,
     },
     {
-      title: t("services.detailedServices.support.title"),
-      description: t("services.detailedServices.support.description"),
-      image: "/customer-support-team-helping-guests.jpg",
-      features: langData.services.detailedServices.support.features,
+      title: t("services.detailedServices.reactivity.title"),
+      description: t("services.detailedServices.reactivity.description"),
+      image: "/02 - PAGE NOS SERVICES/05 - REACTIVITE ET SUIVI CONTINU.JPG",
+      features: langData.services.detailedServices.reactivity.features,
+    },
+    {
+      title: t("services.detailedServices.assistance.title"),
+      description: t("services.detailedServices.assistance.description"),
+      image: "/02 - PAGE NOS SERVICES/06 - ASSISTANCE ET SUIVI DES IMPREVUS.jpg",
+      features: langData.services.detailedServices.assistance.features,
+    },
+    {
+      title: t("services.detailedServices.payment.title"),
+      description: t("services.detailedServices.payment.description"),
+      image: "/02 - PAGE NOS SERVICES/07 - GESTION TRANSPARENTE DES PAIEMENTS.JPG",
+      features: langData.services.detailedServices.payment.features,
     },
   ]
 
@@ -83,7 +95,7 @@ export default function Services() {
       {/* Hero Section */}
       <section
         className="pt-36 pb-16 bg-cover bg-center bg-no-repeat relative"
-        style={{ backgroundImage: "url('/luxury-property-services-hero.jpg')" }}
+        style={{ backgroundImage: "url('/02 - PAGE NOS SERVICES/01 - NOS SERVICES.JPG')" }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -101,23 +113,30 @@ export default function Services() {
             <div
               key={i}
               ref={i === 0 ? detailsRef.ref : undefined}
-              className={`mb-20 grid md:grid-cols-2 gap-12 items-center transition-all duration-700 ${
+              className={`mb-20 ${i === 0 ? "mt-12 md:mt-16" : ""} grid md:grid-cols-2 gap-12 items-start transition-all duration-700 ${
                 i === 0 ? (detailsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4") : ""
               } ${i % 2 === 1 ? "md:grid-cols-2" : ""}`}
             >
               <div className={i % 2 === 1 ? "md:order-2" : ""}>
-                <h2 className="text-3xl font-sans font-bold text-foreground mb-6">{service.title}</h2>
-                <p className="text-lg text-muted-foreground mb-6">{service.description}</p>
-                <ul className="space-y-4">
-                  {service.features.map((feature, j) => (
+                <h2 className="text-2xl md:text-3xl font-sans font-bold text-foreground mb-4">{service.title}</h2>
+                <p className="text-base md:text-lg text-muted-foreground mb-5">{service.description}</p>
+                <ul className="space-y-3">
+                  {service.features.map((feature: string, j: number) => (
                     <li key={j} className="flex items-start space-x-3">
-                      <span className="text-secondary font-bold">✓</span>
-                      <span className="text-foreground">{feature}</span>
+                      <span className="text-secondary font-bold mt-0.5 flex-shrink-0">✓</span>
+                      <span className="text-foreground text-sm md:text-base leading-relaxed">{feature}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className={`relative h-96 ${i % 2 === 1 ? "md:order-1" : ""}`}>
+              <div className={`relative ${
+                i === 0 ? "h-[500px] md:h-[750px]" : 
+                i === 1 ? "h-[500px] md:h-[700px]" : 
+                i === 2 ? "h-[500px] md:h-[650px]" : 
+                i === 3 ? "h-[500px] md:h-[400px]" : 
+                i === 4 ? "h-[500px] md:h-[500px]" : 
+                "h-[500px] md:h-[500px]"
+              } ${i % 2 === 1 ? "md:order-1" : ""}`}>
                 <img
                   src={service.image || "/placeholder.svg"}
                   alt={service.title}
@@ -177,7 +196,7 @@ export default function Services() {
                 <h3 className="text-2xl font-bold text-foreground mb-2">{item.type}</h3>
                 <p className="text-muted-foreground mb-6">{item.description}</p>
                 <div className="space-y-3">
-                  {item.items.map((sub, j) => (
+                  {item.items.map((sub: string, j: number) => (
                     <p key={j} className="text-foreground">
                       {sub}
                     </p>

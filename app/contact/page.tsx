@@ -102,7 +102,7 @@ export default function Contact() {
       {/* Hero Section */}
       <section
         className="pt-36 pb-16 bg-cover bg-center bg-no-repeat relative"
-        style={{ backgroundImage: "url('/customer-support-team-helping-guests.jpg')" }}
+        style={{ backgroundImage: "url('/05 - PAGE CONTACT/PAGE CONTACT.JPG')" }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -120,10 +120,10 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             ref={formRef.ref}
-            className={`grid lg:grid-cols-2 gap-10 transition-all duration-700 ${formRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+            className={`grid lg:grid-cols-5 gap-10 transition-all duration-700 ${formRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
           >
             {/* Contact Information */}
-            <div className="space-y-6">
+            <div className="space-y-6 lg:col-span-2">
               <div className="flex items-start gap-5">
                 <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0">
                   <Phone className="h-8 w-8 text-foreground" />
@@ -146,15 +146,15 @@ export default function Contact() {
             </div>
 
             {/* Contact Form */}
-            <Card className="bg-white border border-border shadow-sm">
-              <CardHeader>
-                <CardTitle className="text-2xl font-sans font-bold text-foreground">{t("contact.formTitle")}</CardTitle>
+            <Card className="bg-white border border-border shadow-sm lg:col-span-3 max-w-2xl lg:max-w-none mx-auto lg:mx-0">
+              <CardHeader className="p-6 pb-4">
+                <CardTitle className="text-4xl font-sans font-bold text-foreground text-center">{t("contact.formTitle")}</CardTitle>
               </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-4">
+              <CardContent className="p-6">
+                <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-2 gap-4">
                     <div className="grid gap-2">
-                      <Label htmlFor="firstname">{t("contact.form.firstname")}</Label>
+                      <Label htmlFor="firstname" className="text-base font-medium">{t("contact.form.firstname")}</Label>
                       <Input
                         id="firstname"
                         type="text"
@@ -162,12 +162,12 @@ export default function Contact() {
                         value={formData.firstname}
                         onChange={handleChange}
                         required
-                        className="bg-gray-100 border-gray-400"
+                        className="bg-gray-100 border-gray-400 h-11 text-base"
                       />
                     </div>
 
                     <div className="grid gap-2">
-                      <Label htmlFor="lastname">{t("contact.form.lastname")}</Label>
+                      <Label htmlFor="lastname" className="text-base font-medium">{t("contact.form.lastname")}</Label>
                       <Input
                         id="lastname"
                         type="text"
@@ -175,14 +175,14 @@ export default function Contact() {
                         value={formData.lastname}
                         onChange={handleChange}
                         required
-                        className="bg-gray-100 border-gray-400"
+                        className="bg-gray-100 border-gray-400 h-11 text-base"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
                     <div className="grid gap-2">
-                      <Label htmlFor="email">{t("contact.form.email")}</Label>
+                      <Label htmlFor="email" className="text-base font-medium">{t("contact.form.email")}</Label>
                       <Input
                         id="email"
                         type="email"
@@ -190,40 +190,40 @@ export default function Contact() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="bg-gray-100 border-gray-400"
+                        className="bg-gray-100 border-gray-400 h-11 text-base"
                       />
                     </div>
 
                     <div className="grid gap-2">
-                      <Label htmlFor="phone">{t("contact.form.phone")}</Label>
+                      <Label htmlFor="phone" className="text-base font-medium">{t("contact.form.phone")}</Label>
                       <Input
                         id="phone"
                         type="tel"
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="bg-gray-100 border-gray-400"
+                        className="bg-gray-100 border-gray-400 h-11 text-base"
                       />
                     </div>
                   </div>
 
                   <div className="grid gap-2">
-                    <Label htmlFor="message">{t("contact.form.message")}</Label>
+                    <Label htmlFor="message" className="text-base font-medium">{t("contact.form.message")}</Label>
                     <Textarea
                       id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
                       required
-                      rows={7}
-                      className="min-h-[150px] bg-gray-100 border-gray-400"
+                      rows={8}
+                      className="min-h-[180px] bg-gray-100 border-gray-400 text-base"
                     />
                   </div>
 
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-md h-11 font-semibold disabled:opacity-70"
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-md h-11 text-base font-semibold disabled:opacity-70"
                   >
                     {isSubmitting ? (
                       <span className="inline-flex items-center gap-2">

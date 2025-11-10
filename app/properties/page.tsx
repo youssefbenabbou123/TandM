@@ -39,7 +39,7 @@ export default function Properties() {
       {/* Hero Section */}
       <section
         className="pt-36 pb-16 bg-cover bg-center bg-no-repeat relative"
-        style={{ backgroundImage: "url('/luxury-villa-portefeuille-hero.jpg')" }}
+        style={{ backgroundImage: "url('/03 - PAGE PORTEFEUILLE/PAGE PORTEFEUILLE.JPG')" }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">

@@ -4,7 +4,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { ImageIcon, Sparkles, Key, Clock, Wallet, Layers, TrendingUp, Award, Heart } from "lucide-react"
+import { ImageIcon, Sparkles, Key, Clock, Wallet, Handshake, TrendingUp, Award, Heart } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { PropertyCarousel } from "@/components/property-carousel"
 import { PropertyDetailModal } from "@/components/property-detail-modal"
@@ -46,7 +46,7 @@ export default function Home() {
       description: t("home.services.payment.description"),
     },
     {
-      icon: <Layers className="h-8 w-8 text-foreground transition-transform duration-300" />,
+      icon: <Handshake className="h-8 w-8 text-foreground transition-transform duration-300" />,
       title: t("home.services.management.title"),
       description: t("home.services.management.description"),
     },
@@ -80,7 +80,7 @@ export default function Home() {
         <div 
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: "url('/hero-luxury-apartment.jpg')",
+            backgroundImage: "url('/01 - PAGE D_ACCUEIL/PHOTO PAGE D_ACCUEIL.JPG')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
@@ -159,7 +159,7 @@ export default function Home() {
                     </div>
                   </div>
                   <h3 className="text-xl font-bold text-foreground mb-4">{service.title}</h3>
-                  <p className="text-muted-foreground mb-6">{service.description}</p>
+                  <p className="text-muted-foreground mb-6 text-justify">{service.description}</p>
                   <Link href="/services">
                     <Button
                       className="w-full bg-primary hover:bg-primary/90 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -216,13 +216,45 @@ export default function Home() {
                     animationDelay: commitmentsRef.isVisible ? `${i * 100}ms` : "0ms",
                   }}
                 >
-                  <div className="w-12 h-12 mb-4 text-foreground mx-auto flex items-center justify-center">{commitment.icon}</div>
-                  <h3 className="text-2xl font-bold text-foreground mb-4">{commitment.title}</h3>
+                  <h3 className={`text-xl font-bold text-foreground mb-4 ${
+                    commitment.title === t("home.commitments.performance.title") 
+                      ? "whitespace-nowrap" 
+                      : ""
+                  }`}>{commitment.title}</h3>
                   <p className="text-muted-foreground">{commitment.description}</p>
                 </div>
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Join CTA Section - White Background */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-2xl">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-8 leading-tight">
+              {t("home.joinCtaTitle")}
+            </h2>
+            <Link href="/contact">
+              <Button 
+                size="lg" 
+                className="relative overflow-hidden group text-white rounded-full font-semibold uppercase px-8 py-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 animate-spin-gradient"
+                style={{
+                  background: 'linear-gradient(90deg, #1A363A 0%, rgba(26, 54, 58, 0.9) 50%, #1A363A 100%)',
+                  backgroundSize: '200% 100%',
+                  animation: 'spin-gradient 3s ease infinite',
+                }}
+              >
+                <span className="relative z-10">{t("home.joinCtaButton")}</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+              </Button>
+            </Link>
+          </div>
+        </div>
+        {/* Background TM Text */}
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-[10%] text-[10rem] md:text-[15rem] lg:text-[18rem] xl:text-[20rem] font-serif font-bold text-[#E0E0E0] opacity-30 select-none pointer-events-none z-0 leading-none">
+          TM
         </div>
       </section>
 
@@ -234,8 +266,17 @@ export default function Home() {
             {t("home.finalCtaDescription")}
           </p>
           <Link href="/contact">
-            <Button size="lg" className="bg-white text-primary hover:bg-white/90 rounded-full font-semibold">
-              {t("home.finalCtaButton")}
+            <Button 
+              size="lg" 
+              className="relative overflow-hidden group text-primary rounded-full font-semibold transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 animate-spin-gradient"
+              style={{
+                background: 'linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0.95) 50%, #ffffff 100%)',
+                backgroundSize: '200% 100%',
+                animation: 'spin-gradient 3s ease infinite',
+              }}
+            >
+              <span className="relative z-10">{t("home.finalCtaButton")}</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
             </Button>
           </Link>
         </div>
