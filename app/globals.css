@@ -94,7 +94,8 @@
 
 @theme inline {
   --font-sans: "Poppins", "Poppins Fallback", sans-serif;
-  --font-heading: var(--font-heading, "Libre Baskerville", serif);
+  /* Prefer Constantia; use Skema Pro or Strato Pro if locally available; then classic serif fallbacks */
+  --font-heading: var(--font-heading, "Constantia", "Skema Pro", "Strato Pro", "Cambria", "Georgia", "Times New Roman", serif);
   --font-display: var(--font-display, "Didot", "Cormorant Garamond", serif);
   --font-serif: var(--font-display, "Didot", "Cormorant Garamond", serif);
   --font-mono: "Geist Mono", "Geist Mono Fallback";
@@ -184,6 +185,33 @@
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.02em;
+  }
+
+  /* Explicit title font utility to apply per-element (not global) */
+  .title-font {
+    font-family: "Constantia", "Skema Pro", "Strato Pro", "Cambria", "Georgia", "Times New Roman", serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Boost specificity to override global heading font rules */
+  h1.title-font, h2.title-font, h3.title-font, h4.title-font, h5.title-font, h6.title-font {
+    font-family: "Constantia", "Skema Pro", "Strato Pro", "Cambria", "Georgia", "Times New Roman", serif !important;
+  }
+
+  /* Taller title line-height utility */
+  .title-tall {
+    line-height: 1.3 !important;
+  }
+  h1.title-tall { line-height: 1.15 !important; }
+  h2.title-tall { line-height: 1.2 !important; }
+  h3.title-tall { line-height: 1.25 !important; }
+
+  /* Thinner weight for titles */
+  .title-thin {
+    font-weight: 400 !important;
+    /* Slight global bump for thin titles */
+    font-size: 1.05em;
   }
   
   /* Body text remains Poppins - but NOT headings */
@@ -287,6 +315,400 @@
   }
 }
 
+/* Modern Scroll Animations - Many Variants */
+
+/* 1. Fade in with scale and blur */
+@keyframes fadeScaleBlur {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+/* 2. Slide in from right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 3. Slide in from bottom with rotation */
+@keyframes slideUpRotate {
+  from {
+    opacity: 0;
+    transform: translateY(50px) rotate(-5deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+/* 4. Zoom in with fade */
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 5. Flip animation */
+@keyframes flipIn {
+  from {
+    opacity: 0;
+    transform: perspective(1000px) rotateY(-90deg);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1000px) rotateY(0deg);
+  }
+}
+
+/* 6. Glow effect */
+@keyframes glowIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* 7. Blur to focus */
+@keyframes blurToFocus {
+  from {
+    opacity: 0;
+    filter: blur(20px);
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+/* 8. Slide with skew */
+@keyframes slideSkew {
+  from {
+    opacity: 0;
+    transform: translateX(-50px) skewX(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) skewX(0deg);
+  }
+}
+
+/* 9. Rotate and fade */
+@keyframes rotateFade {
+  from {
+    opacity: 0;
+    transform: rotate(-10deg) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+/* 10. Bounce in */
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translateY(-100px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05) translateY(0);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* 11. Elastic animation */
+@keyframes elasticIn {
+  0% {
+    opacity: 0;
+    transform: scale(0) translateY(-50px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) translateY(0);
+  }
+  75% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* 12. Slide with scale */
+@keyframes slideScale {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 13. Rotate 3D */
+@keyframes rotate3D {
+  from {
+    opacity: 0;
+    transform: perspective(1000px) rotateX(-90deg) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1000px) rotateX(0deg) scale(1);
+  }
+}
+
+/* 14. Gradient reveal */
+@keyframes gradientReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+    background-position: 0% 50%;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    background-position: 100% 50%;
+  }
+}
+
+/* 15. Slide from top with bounce */
+@keyframes slideTopBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(10px);
+  }
+  80% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* 16. Fade with slide from bottom left */
+@keyframes fadeBottomLeft {
+  from {
+    opacity: 0;
+    transform: translate(-30px, 30px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+/* 17. Fade with slide from bottom right */
+@keyframes fadeBottomRight {
+  from {
+    opacity: 0;
+    transform: translate(30px, 30px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+/* 18. Scale with rotation */
+@keyframes scaleRotate {
+  from {
+    opacity: 0;
+    transform: scale(0.5) rotate(-180deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* 19. Slide in with fade and scale */
+@keyframes slideFadeScale {
+  from {
+    opacity: 0;
+    transform: translateX(-40px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* 20. Zoom out */
+@keyframes zoomOut {
+  from {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 21. Slide up with opacity and scale */
+@keyframes slideUpScale {
+  from {
+    opacity: 0;
+    transform: translateY(60px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 22. Fade in with translate and scale */
+@keyframes fadeTranslateScale {
+  from {
+    opacity: 0;
+    transform: translateY(50px) translateX(-20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(0) scale(1);
+  }
+}
+
+/* 23. Flip horizontal */
+@keyframes flipHorizontal {
+  from {
+    opacity: 0;
+    transform: perspective(1000px) rotateX(90deg);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1000px) rotateX(0deg);
+  }
+}
+
+/* 24. Slide in with blur */
+@keyframes slideBlur {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+    filter: blur(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+
+/* 25. Scale with fade and rotate */
+@keyframes scaleFadeRotate {
+  from {
+    opacity: 0;
+    transform: scale(0.7) rotate(45deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* 26. Slide down */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 27. Fade in with slide and scale */
+@keyframes fadeSlideScale {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 28. Rotate in */
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-180deg) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+/* 29. Slide in from left with fade */
+@keyframes slideLeftFade {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 30. Pulse fade in */
+@keyframes pulseFade {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 /* Animation utility classes */
 .animate-fade-in-up {
   animation: fadeInUp 0.6s ease-out;
@@ -310,4 +732,125 @@
 
 .animate-shimmer {
   animation: shimmer 2s infinite;
+}
+
+/* Modern animation classes */
+.animate-fade-scale-blur {
+  animation: fadeScaleBlur 0.8s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.7s ease-out forwards;
+}
+
+.animate-slide-up-rotate {
+  animation: slideUpRotate 0.8s ease-out forwards;
+}
+
+.animate-zoom-in {
+  animation: zoomIn 0.6s ease-out forwards;
+}
+
+.animate-flip-in {
+  animation: flipIn 0.8s ease-out forwards;
+}
+
+.animate-glow-in {
+  animation: glowIn 0.7s ease-out forwards;
+}
+
+.animate-blur-to-focus {
+  animation: blurToFocus 0.9s ease-out forwards;
+}
+
+.animate-slide-skew {
+  animation: slideSkew 0.7s ease-out forwards;
+}
+
+.animate-rotate-fade {
+  animation: rotateFade 0.8s ease-out forwards;
+}
+
+.animate-bounce-in {
+  animation: bounceIn 0.8s ease-out forwards;
+}
+
+.animate-elastic-in {
+  animation: elasticIn 0.9s ease-out forwards;
+}
+
+.animate-slide-scale {
+  animation: slideScale 0.7s ease-out forwards;
+}
+
+.animate-rotate-3d {
+  animation: rotate3D 0.8s ease-out forwards;
+}
+
+.animate-gradient-reveal {
+  animation: gradientReveal 0.8s ease-out forwards;
+}
+
+.animate-slide-top-bounce {
+  animation: slideTopBounce 0.8s ease-out forwards;
+}
+
+.animate-fade-bottom-left {
+  animation: fadeBottomLeft 0.7s ease-out forwards;
+}
+
+.animate-fade-bottom-right {
+  animation: fadeBottomRight 0.7s ease-out forwards;
+}
+
+.animate-scale-rotate {
+  animation: scaleRotate 0.8s ease-out forwards;
+}
+
+.animate-slide-fade-scale {
+  animation: slideFadeScale 0.7s ease-out forwards;
+}
+
+.animate-zoom-out {
+  animation: zoomOut 0.6s ease-out forwards;
+}
+
+.animate-slide-up-scale {
+  animation: slideUpScale 0.8s ease-out forwards;
+}
+
+.animate-fade-translate-scale {
+  animation: fadeTranslateScale 0.8s ease-out forwards;
+}
+
+.animate-flip-horizontal {
+  animation: flipHorizontal 0.8s ease-out forwards;
+}
+
+.animate-slide-blur {
+  animation: slideBlur 0.8s ease-out forwards;
+}
+
+.animate-scale-fade-rotate {
+  animation: scaleFadeRotate 0.8s ease-out forwards;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.6s ease-out forwards;
+}
+
+.animate-fade-slide-scale {
+  animation: fadeSlideScale 0.7s ease-out forwards;
+}
+
+.animate-rotate-in {
+  animation: rotateIn 0.8s ease-out forwards;
+}
+
+.animate-slide-left-fade {
+  animation: slideLeftFade 0.7s ease-out forwards;
+}
+
+.animate-pulse-fade {
+  animation: pulseFade 0.8s ease-out forwards;
 }

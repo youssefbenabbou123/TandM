@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/contexts/language-context"
 import { Users, Bed, Bath, Home, ChevronLeft, ChevronRight } from "lucide-react"
@@ -34,7 +35,7 @@ export function PropertyCarousel({ onLearnMore }: PropertyCarouselProps) {
   return (
     <div className="relative">
       {/* Carousel Container */}
-      <div className="bg-white rounded-2xl overflow-hidden shadow-xl border border-border">
+      <div className="bg-white dark:bg-card rounded-2xl overflow-hidden shadow-xl border border-border dark:border-border">
         <div className="grid md:grid-cols-2 gap-0 min-h-96">
           {/* Image Carousel */}
           <div className="relative overflow-hidden h-96 md:h-auto group">
@@ -47,10 +48,13 @@ export function PropertyCarousel({ onLearnMore }: PropertyCarouselProps) {
                     index === currentImageIndex ? "opacity-100" : "opacity-0"
                   }`}
                 >
-                  <img
+                  <Image
                     src={image}
                     alt={`${property.title} - Image ${index + 1}`}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    loading={index === 0 ? "eager" : "lazy"}
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
               ))}
@@ -98,7 +102,7 @@ export function PropertyCarousel({ onLearnMore }: PropertyCarouselProps) {
           {/* Content */}
           <div className="p-12 flex flex-col justify-center">
             <div className="transition-all duration-700">
-              <h3 className="text-3xl font-sans font-bold text-foreground mb-4">{property.title}</h3>
+              <h3 className="text-3xl font-sans font-bold text-foreground mb-4 title-font title-tall title-thin">{property.title}</h3>
               <p className="text-muted-foreground mb-4 font-semibold">{property.type}</p>
               <div className="space-y-3 mb-6">
                 <p className="text-muted-foreground flex items-center gap-2">
@@ -124,14 +128,18 @@ export function PropertyCarousel({ onLearnMore }: PropertyCarouselProps) {
               <div className="flex gap-4">
                 {onLearnMore && (
                   <Button 
-                    onClick={onLearnMore}
-                    className="bg-primary hover:bg-primary/90 text-white rounded-full"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      e.stopPropagation()
+                      onLearnMore()
+                    }}
+                    className="bg-black dark:bg-white hover:bg-black/90 dark:hover:bg-white/90 text-white dark:text-black rounded-full font-semibold"
                   >
                     {t("properties.learnMore")}
                   </Button>
                 )}
                 <a href={property.airbnbUrl} target="_blank" rel="noopener noreferrer">
-                  <Button className="bg-secondary hover:bg-secondary/90 text-white rounded-full">
+                  <Button className="bg-black dark:bg-white hover:bg-black/90 dark:hover:bg-white/90 text-white dark:text-black rounded-full font-semibold">
                     {t("properties.viewOnAirbnb")}
                   </Button>
                 </a>

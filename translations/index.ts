@@ -107,6 +107,33 @@ export const translations = {
         rating: "Note moyenne",
         support: "Support disponible",
       },
+      faqTitle: "Questions fréquentes",
+      faq: {
+        propertyTypes: {
+          question: "Quels types de biens gérez-vous ?",
+          answer: "Appartements, maisons ou résidences secondaires destinés à la location courte durée sur Nice et sa région.",
+        },
+        listingProcess: {
+          question: "Comment se déroule la mise en location ?",
+          answer: "Nous créons et optimisons votre annonce, organisons le shooting photo et gérons la mise en ligne sur les plateformes.",
+        },
+        pricing: {
+          question: "Comment fixez-vous les tarifs des nuitées ?",
+          answer: "Nos prix sont ajustés selon la saison, la demande et le marché local pour maximiser vos revenus.",
+        },
+        commission: {
+          question: "Comment est calculée la commission ?",
+          answer: "Notre commission est calculée sur les revenus mensuels du bien. Les propriétaires perçoivent directement leurs paiements, dans une transparence totale.",
+        },
+        realTimeTracking: {
+          question: "Puis-je suivre les réservations en temps réel ?",
+          answer: "Oui, vous conservez l'accès à votre calendrier et à vos revenus à tout moment.",
+        },
+        occupancyRate: {
+          question: "Quel est votre taux d'occupation moyen ?",
+          answer: "Nos biens atteignent en moyenne 90 à 95 % d'occupation, selon la saison.",
+        },
+      },
     },
     services: {
       title: "Nos services",
@@ -210,8 +237,8 @@ export const translations = {
         },
       },
       ctaTitle: "Commencez dès aujourd'hui",
-      ctaSubtitle: "Parlons de votre propriété et comment nous pouvons maximiser vos revenus",
-      ctaButton: "Prendre RDV gratuit",
+      ctaSubtitle: "Échangeons ensemble sur votre propriété et sur la façon dont nous pouvons valoriser votre bien",
+      ctaButton: "Prendre rendez-vous",
     },
     contact: {
       title: "Échangeons sur votre projet",
@@ -262,9 +289,9 @@ export const translations = {
     properties: {
       title: "Nos biens d'exception",
       subtitle: "Des biens soigneusement sélectionnés et gérés par notre équipe.",
-      ctaTitle: "Prêt à rejoindre notre portefeuille ?",
-      ctaSubtitle: "Proposez votre propriété et découvrez comment nous pouvons maximiser vos revenus",
-      ctaButton: "Proposer votre propriété",
+      ctaTitle: "Prêt à valoriser votre propriété ?",
+      ctaSubtitle: "Échangeons sur votre bien et sur les solutions que nous pouvons mettre en place pour optimiser sa gestion",
+      ctaButton: "Nous contacter",
       learnMore: "En savoir plus",
       viewOnAirbnb: "Voir sur Airbnb",
       commentsTitle: "L'expérience T&M Conciergerie racontée par nos voyageurs",
@@ -501,6 +528,33 @@ export const translations = {
         rating: "Average Rating",
         support: "Available Support",
       },
+      faqTitle: "Frequently Asked Questions",
+      faq: {
+        propertyTypes: {
+          question: "What types of properties do you manage?",
+          answer: "Apartments, houses or second homes intended for short-term rental in Nice and its region.",
+        },
+        listingProcess: {
+          question: "How does the listing process work?",
+          answer: "We create and optimize your listing, organize the photo shoot and manage the online posting on platforms.",
+        },
+        pricing: {
+          question: "How do you set nightly rates?",
+          answer: "Our prices are adjusted according to season, demand and local market to maximize your revenue.",
+        },
+        commission: {
+          question: "How is the commission calculated?",
+          answer: "Our commission is calculated on the monthly revenue of the property. Property owners receive their payments directly, with complete transparency.",
+        },
+        realTimeTracking: {
+          question: "Can I track reservations in real time?",
+          answer: "Yes, you retain access to your calendar and revenue at all times.",
+        },
+        occupancyRate: {
+          question: "What is your average occupancy rate?",
+          answer: "Our properties achieve an average of 90 to 95% occupancy, depending on the season.",
+        },
+      },
     },
     services: {
       title: "Our Services",
@@ -604,8 +658,8 @@ export const translations = {
         },
       },
       ctaTitle: "Get Started Today",
-      ctaSubtitle: "Let's talk about your property and how we can maximize your revenue",
-      ctaButton: "Book Free Appointment",
+      ctaSubtitle: "Let's exchange together about your property and how we can enhance your property",
+      ctaButton: "Book Appointment",
     },
     contact: {
       title: "Let's discuss your project",
@@ -656,9 +710,9 @@ export const translations = {
     properties: {
       title: "Our Exceptional Properties",
       subtitle: "Carefully selected and managed properties by our team.",
-      ctaTitle: "Ready to join our portfolio?",
-      ctaSubtitle: "Submit your property and discover how we can maximize your revenue",
-      ctaButton: "Submit Your Property",
+      ctaTitle: "Ready to enhance your property?",
+      ctaSubtitle: "Let's discuss your property and the solutions we can implement to optimize its management",
+      ctaButton: "Contact Us",
       learnMore: "Learn more",
       viewOnAirbnb: "View on Airbnb",
       commentsTitle: "The T&M Conciergerie experience told by our travelers",

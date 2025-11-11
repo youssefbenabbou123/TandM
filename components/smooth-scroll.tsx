@@ -22,6 +22,8 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     })
 
     lenisRef.current = lenis
+    // Store Lenis instance globally so other components can access it
+    ;(window as any).lenis = lenis
 
     function raf(time: number) {
       lenis.raf(time)
@@ -32,6 +34,7 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
 
     return () => {
       lenis.destroy()
+      delete (window as any).lenis
     }
   }, [])
 

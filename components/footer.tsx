@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Phone, Mail, MapPin, Star } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 
@@ -17,12 +18,15 @@ export function Footer() {
           {/* Brand Column */}
           <div className="w-64">
             <div className="flex items-start gap-3 mb-4">
-              <img
+              <Image
                 src="/logo-gold.png"
                 alt="T&M Conciergerie"
+                width={48}
+                height={48}
                 className="h-12 w-auto -mt-4"
+                priority
               />
-              <h4 className="font-bold mb-4 text-white whitespace-nowrap">T&M Conciergerie</h4>
+              <h4 className="font-bold mb-4 text-white whitespace-nowrap title-font title-tall title-thin">T&M Conciergerie</h4>
             </div>
             <p className="text-white/70 text-justify -mt-4">
               {t("footer.brandDescription")}
@@ -31,7 +35,7 @@ export function Footer() {
 
           {/* Quick Links Column */}
           <div className="w-48 md:ml-16">
-            <h4 className="font-bold mb-4 text-white">{t("footer.quickLinksTitle")}</h4>
+            <h4 className="font-bold mb-4 text-white title-font title-tall title-thin">{t("footer.quickLinksTitle")}</h4>
             <ul className="space-y-2 text-white/70">
               <li>
                 <Link href="/" className="hover:text-white transition-colors">
@@ -63,7 +67,7 @@ export function Footer() {
 
           {/* Contact Column */}
           <div className="w-60">
-            <h4 className="font-bold mb-4 text-white">{t("footer.contactTitle")}</h4>
+            <h4 className="font-bold mb-4 text-white title-font title-tall title-thin">{t("footer.contactTitle")}</h4>
             <ul className="space-y-2 text-white/70">
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4 flex-shrink-0 text-white" />
@@ -95,7 +99,7 @@ export function Footer() {
 
           {/* Legal Information Column */}
           <div className="w-52 md:ml-8">
-            <h4 className="font-bold mb-4 text-white">{t("footer.legalTitle")}</h4>
+            <h4 className="font-bold mb-4 text-white title-font title-tall title-thin">{t("footer.legalTitle")}</h4>
             <ul className="space-y-2 text-white/70">
               <li>
                 <Link href="/cookies" className="hover:text-white transition-colors">
@@ -108,7 +112,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/politique-confidentialite" className="hover:text-white transition-colors">
+                <Link href="/politique-confidentialite" className="hover:text-white transition-colors whitespace-nowrap">
                   {t("footer.privacyPolicy")}
                 </Link>
               </li>

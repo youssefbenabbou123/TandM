@@ -56,24 +56,24 @@ export default function Home() {
 
   const commitments = [
     {
-      icon: <TrendingUp className="h-12 w-12" />,
+      icon: <TrendingUp className="h-12 w-12 text-foreground" />,
       title: t("home.commitments.performance.title"),
       description: t("home.commitments.performance.description"),
     },
     {
-      icon: <Award className="h-12 w-12" />,
+      icon: <Award className="h-12 w-12 text-foreground" />,
       title: t("home.commitments.quality.title"),
       description: t("home.commitments.quality.description"),
     },
     {
-      icon: <Heart className="h-12 w-12" />,
+      icon: <Heart className="h-12 w-12 text-foreground" />,
       title: t("home.commitments.proximity.title"),
       description: t("home.commitments.proximity.description"),
     },
   ]
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-gradient-to-br from-background to-stone-50 dark:from-background dark:to-background/80">
       <Navbar />
 
       {/* Hero Section */}
@@ -94,51 +94,56 @@ export default function Home() {
         
         {/* Content */}
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl mb-6 font-bold">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl mb-6 font-bold title-font title-tall title-thin opacity-0 animate-fade-in-up" style={{ animationFillMode: 'forwards' }}>
             {t("home.heroTitle")}
           </h1>
-          <p className="text-lg md:text-xl mb-4">
+          <p className="text-lg md:text-xl mb-4 opacity-0 animate-fade-in-up" style={{ animationDelay: "400ms", animationFillMode: 'forwards' }}>
             {t("home.heroSubtitle")}
           </p>
-          <p className="text-base md:text-lg mb-12 text-gray-200">
+          <p className="text-base md:text-lg mb-12 text-gray-200 opacity-0 animate-fade-in-up" style={{ animationDelay: "700ms", animationFillMode: 'forwards' }}>
             {t("home.heroDescription")}
           </p>
-          <Link href="/services">
-            <Button
-              size="lg"
-              className="relative overflow-hidden group bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white rounded-full text-lg px-8 py-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-0.5 border border-white/30 animate-spin-gradient"
-              style={{
-                background: 'linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.1) 100%)',
-                backgroundSize: '200% 100%',
-                animation: 'spin-gradient 3s ease infinite',
-              }}
-            >
-              <span className="relative z-10 flex items-center gap-2">
-                {t("home.ctaButton")}
-                <svg 
-                  className="w-5 h-5 transition-transform duration-300" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-            </Button>
-          </Link>
+          <div className="opacity-0 animate-fade-in-up" style={{ animationDelay: "1000ms", animationFillMode: 'forwards' }}>
+            <Link href="/services">
+              <Button
+                size="lg"
+                className="relative overflow-hidden group bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white rounded-full text-lg px-8 py-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-0.5 border border-white/30 animate-spin-gradient"
+                style={{
+                  background: 'linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.1) 100%)',
+                  backgroundSize: '200% 100%',
+                  animation: 'spin-gradient 3s ease infinite',
+                }}
+              >
+                <span className="relative z-10 flex items-center gap-2">
+                  {t("home.ctaButton")}
+                  <svg 
+                    className="w-5 h-5 transition-transform duration-300" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* Services Overview */}
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div
-            ref={servicesRef.ref}
-            className={`transition-all duration-700 ${servicesRef.isVisible ? "opacity-100" : "opacity-0"}`}
-          >
-            <h2 className="text-4xl font-bold text-center mb-4 text-foreground">{t("home.servicesTitle")}</h2>
-            <p className="text-center text-muted-foreground mb-16 max-w-3xl mx-auto text-lg">
+          <div ref={servicesRef.ref}>
+            <h2 className={`text-4xl font-bold text-center mb-4 text-foreground transition-all duration-700 title-font title-tall title-thin ${
+              servicesRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}>{t("home.servicesTitle")}</h2>
+            <p className={`text-center text-muted-foreground mb-16 max-w-3xl mx-auto text-lg transition-all duration-700 ${
+              servicesRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`} style={{
+              transitionDelay: servicesRef.isVisible ? "100ms" : "0ms",
+            }}>
               {t("home.servicesSubtitle")}
             </p>
 
@@ -146,25 +151,25 @@ export default function Home() {
               {services.map((service, i) => (
                 <div
                   key={i}
-                  className={`group relative bg-white p-8 rounded-lg shadow-sm border border-gray-100 transition-all duration-300 text-center cursor-pointer transform hover:scale-105 hover:border-black overflow-hidden ${
-                    servicesRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                  className={`group relative bg-white dark:bg-card p-8 rounded-lg shadow-sm border border-gray-100 dark:border-border transition-all duration-700 ease-out text-center cursor-pointer transform hover:scale-105 hover:border-black dark:hover:border-white overflow-hidden ${
+                    servicesRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                   }`}
                   style={{
-                    animationDelay: servicesRef.isVisible ? `${i * 100}ms` : "0ms",
+                    transitionDelay: servicesRef.isVisible ? `${300 + i * 200}ms` : "0ms",
                   }}
                 >
                   <div className="flex justify-center mb-6">
-                    <div className="w-16 h-16 rounded-full bg-gray-100 hover:bg-primary/10 flex items-center justify-center transition-all duration-300">
+                    <div className="w-16 h-16 rounded-full bg-gray-100 dark:bg-muted hover:bg-primary/10 dark:hover:bg-primary/20 flex items-center justify-center transition-all duration-300">
                       <div className="hover:scale-110 transition-transform duration-300">
                         {service.icon}
                       </div>
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-4">{service.title}</h3>
+                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4 title-font title-tall title-thin">{service.title}</h3>
                   <p className="text-muted-foreground mb-6 text-justify">{service.description}</p>
                   <Link href="/services">
                     <Button
-                      className="w-full bg-primary hover:bg-primary/90 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      className="w-full bg-black dark:bg-white text-white dark:text-black rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-semibold"
                     >
                       {t("home.learnMore")}
                     </Button>
@@ -177,33 +182,36 @@ export default function Home() {
       </section>
 
       {/* Featured Properties */}
-      <section ref={featuredRef.ref} className="py-20 bg-background">
+      <section ref={featuredRef.ref} className="py-20 !bg-stone-100 dark:!bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             className={`transition-all duration-700 ${featuredRef.isVisible ? "opacity-100" : "opacity-0"}`}
           >
-            <h2 className="text-4xl font-bold text-center mb-4 text-foreground">
+            <h2 className="text-4xl font-bold text-center mb-4 text-foreground title-font title-tall title-thin">
               {t("home.featuredTitle")}
             </h2>
             <p className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto">
               {t("home.featuredSubtitle")}
             </p>
             <PropertyCarousel onLearnMore={() => setIsModalOpen(true)} />
-            <PropertyDetailModal open={isModalOpen} onOpenChange={setIsModalOpen} />
           </div>
         </div>
       </section>
 
       {/* Commitments Section (replaces Why Us) */}
-      <section ref={commitmentsRef.ref} className="py-20 bg-white">
+      <section ref={commitmentsRef.ref} className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div
-            className={`transition-all duration-700 ${commitmentsRef.isVisible ? "opacity-100" : "opacity-0"}`}
-          >
-            <h2 className="text-4xl font-bold text-center mb-4 text-foreground">
+          <div>
+            <h2 className={`text-4xl font-bold text-center mb-4 text-foreground transition-all duration-700 title-font title-tall title-thin ${
+              commitmentsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}>
               {t("home.commitmentsTitle")}
             </h2>
-            <p className="text-center text-muted-foreground mb-16 max-w-3xl mx-auto text-lg">
+            <p className={`text-center text-muted-foreground mb-16 max-w-3xl mx-auto text-lg transition-all duration-700 ${
+              commitmentsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`} style={{
+              transitionDelay: commitmentsRef.isVisible ? "100ms" : "0ms",
+            }}>
               {t("home.commitmentsSubtitle")}
             </p>
 
@@ -211,14 +219,14 @@ export default function Home() {
               {commitments.map((commitment, i) => (
                 <div
                   key={i}
-                  className={`bg-white p-8 rounded-2xl border border-border hover:shadow-lg transition-all duration-700 text-center ${
+                  className={`bg-white dark:bg-card p-8 rounded-2xl border border-border dark:border-border hover:shadow-lg transition-all duration-700 text-center ${
                     commitmentsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                   }`}
                   style={{
-                    animationDelay: commitmentsRef.isVisible ? `${i * 100}ms` : "0ms",
+                    transitionDelay: commitmentsRef.isVisible ? `${200 + i * 100}ms` : "0ms",
                   }}
                 >
-                  <h3 className={`text-xl font-bold text-foreground mb-4 ${
+                  <h3 className={`text-xl md:text-2xl font-bold text-foreground mb-4 title-font title-tall title-thin ${
                     commitment.title === t("home.commitments.performance.title") 
                       ? "whitespace-nowrap" 
                       : ""
@@ -232,23 +240,28 @@ export default function Home() {
       </section>
 
       {/* Join CTA Section - White Background */}
-      <section className="py-20 bg-white relative overflow-hidden">
+      <section className="py-20 relative overflow-hidden !bg-stone-100 dark:!bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div ref={joinCtaRef.ref} className={`max-w-2xl transition-all duration-700 ${joinCtaRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-8 leading-tight">
-              {t("home.joinCtaTitle")}
+          <div ref={joinCtaRef.ref} className={`max-w-2xl transition-all duration-700 ${
+            joinCtaRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          }`}>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-8 title-font title-tall title-thin">
+              {t("home.finalCtaTitle")}
             </h2>
+            <p className="text-lg mb-8 text-muted-foreground max-w-2xl">
+              {t("home.finalCtaDescription")}
+            </p>
             <Link href="/contact">
               <Button 
                 size="lg" 
-                className="relative overflow-hidden group text-white rounded-full font-semibold uppercase px-8 py-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 animate-spin-gradient"
+                className="relative overflow-hidden group text-white rounded-full font-semibold px-8 py-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 animate-spin-gradient"
                 style={{
                   background: 'linear-gradient(90deg, #1A363A 0%, rgba(26, 54, 58, 0.9) 50%, #1A363A 100%)',
                   backgroundSize: '200% 100%',
                   animation: 'spin-gradient 3s ease infinite',
                 }}
               >
-                <span className="relative z-10">{t("home.joinCtaButton")}</span>
+                <span className="relative z-10">{t("home.finalCtaButton")}</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
               </Button>
             </Link>
@@ -260,31 +273,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Final CTA Section */}
-      <section className="py-20 bg-primary text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div ref={finalCtaRef.ref} className={`transition-all duration-700 ${finalCtaRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-            <h2 className="text-4xl font-bold mb-6">{t("home.finalCtaTitle")}</h2>
-            <p className="text-lg mb-8 text-white/90">
-              {t("home.finalCtaDescription")}
-            </p>
-            <Link href="/contact">
-              <Button 
-                size="lg" 
-                className="relative overflow-hidden group text-primary rounded-full font-semibold transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 animate-spin-gradient"
-                style={{
-                  background: 'linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0.95) 50%, #ffffff 100%)',
-                  backgroundSize: '200% 100%',
-                  animation: 'spin-gradient 3s ease infinite',
-                }}
-              >
-                <span className="relative z-10">{t("home.finalCtaButton")}</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
+      
 
       {/* Footer */}
       <Footer />

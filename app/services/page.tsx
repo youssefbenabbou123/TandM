@@ -4,15 +4,12 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import Image from "next/image"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
-import { ClipboardCheck, Sparkles, TrendingUp, FileText, Brush, Wallet } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 
 export default function Services() {
   const detailsRef = useScrollAnimation()
-  const pricingRef = useScrollAnimation()
-  const servicesRef = useScrollAnimation()
-  const featuresTitleRef = useScrollAnimation()
   const ctaRef = useScrollAnimation()
   const { t, language } = useLanguage()
 
@@ -59,39 +56,9 @@ export default function Services() {
     },
   ]
 
-  const serviceFeatures = [
-    {
-      icon: <ClipboardCheck className="h-8 w-8 text-foreground" />,
-      title: t("services.features.admin.title"),
-      description: t("services.features.admin.description"),
-    },
-    {
-      icon: <Sparkles className="h-8 w-8 text-foreground" />,
-      title: t("services.features.cleaning.title"),
-      description: t("services.features.cleaning.description"),
-    },
-    {
-      icon: <TrendingUp className="h-8 w-8 text-foreground" />,
-      title: t("services.features.finance.title"),
-      description: t("services.features.finance.description"),
-    },
-  ]
-
-  const pricing = [
-    {
-      type: t("services.pricing.commission.type"),
-      description: t("services.pricing.commission.description"),
-      items: langData.services.pricing.commission.items,
-    },
-    {
-      type: t("services.pricing.additional.type"),
-      description: t("services.pricing.additional.description"),
-      items: langData.services.pricing.additional.items,
-    },
-  ]
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-gradient-to-br from-background to-stone-50 dark:from-background dark:to-background/80">
       <Navbar />
 
       {/* Hero Section */}
@@ -101,7 +68,7 @@ export default function Services() {
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h1 className="text-5xl md:text-6xl font-sans font-bold mb-4 animate-fade-in-up text-white">{t("services.title")}</h1>
+          <h1 className="text-5xl md:text-6xl font-sans font-bold mb-4 animate-fade-in-up text-white title-font title-tall title-thin">{t("services.title")}</h1>
           <p className="text-xl text-white/90 mx-auto animate-fade-in-up" style={{ animationDelay: "100ms" }}>
             {t("services.subtitle")}
           </p>
@@ -109,24 +76,26 @@ export default function Services() {
       </section>
 
       {/* Service Details */}
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {detailedServices.map((service, i) => (
             <div
               key={i}
               ref={i === 0 ? detailsRef.ref : undefined}
-              className={`mb-20 ${i === 0 ? "mt-12 md:mt-16" : ""} grid md:grid-cols-2 gap-12 items-start transition-all duration-700 ${
-                i === 0 ? (detailsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4") : ""
-              } ${i % 2 === 1 ? "md:grid-cols-2" : ""}`}
+              className={`mb-20 ${i === 0 ? "mt-12 md:mt-16" : ""} ${i === 3 ? "mt-8 md:mt-12" : ""} grid md:grid-cols-2 gap-12 items-start ${i % 2 === 1 ? "md:grid-cols-2" : ""} transition-all duration-700 ${
+                detailsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
+              style={{
+                transitionDelay: detailsRef.isVisible ? `${i * 300}ms` : "0ms"
+              }}
             >
               <div className={i % 2 === 1 ? "md:order-2" : ""}>
-                <h2 className="text-2xl md:text-3xl font-sans font-bold text-foreground mb-4">{service.title}</h2>
-                <p className="text-base md:text-lg text-muted-foreground mb-5">{service.description}</p>
-                <ul className="space-y-3">
+                <h2 className="text-2xl md:text-3xl font-sans font-bold text-foreground mb-4 title-font title-tall title-thin text-justify">{service.title}</h2>
+                <p className="text-base md:text-lg text-muted-foreground mb-5 text-justify">{service.description}</p>
+                <ul className="space-y-3 text-justify">
                   {service.features.map((feature: string, j: number) => (
-                    <li key={j} className="flex items-start space-x-3">
-                      <span className="text-secondary font-bold mt-0.5 flex-shrink-0">✓</span>
-                      <span className="text-foreground text-sm md:text-base leading-relaxed">{feature}</span>
+                    <li key={j} className="text-justify">
+                      <span className="text-foreground text-sm md:text-base leading-relaxed text-justify">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -136,13 +105,16 @@ export default function Services() {
                 i === 1 ? "h-[500px] md:h-[700px]" : 
                 i === 2 ? "h-[500px] md:h-[650px]" : 
                 i === 3 ? "h-[500px] md:h-[400px]" : 
-                i === 4 ? "h-[500px] md:h-[450px]" : 
+                i === 4 ? "h-[500px] md:h-[550px]" : 
                 "h-[500px] md:h-[500px]"
               } ${i % 2 === 1 ? "md:order-1" : ""}`}>
-                <img
+                <Image
                   src={service.image || "/placeholder.svg"}
                   alt={service.title}
-                  className="w-full h-full object-cover rounded-2xl shadow-lg"
+                  fill
+                  className={`object-cover rounded-2xl shadow-lg ${i === 4 ? "object-[center_30%]" : ""}`}
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
             </div>
@@ -150,78 +122,20 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Service Features Grid Section */}
-      <section className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-sans font-bold text-center mb-16 text-foreground">{t("services.detailsTitle")}</h2>
-
-                      <div ref={servicesRef.ref} className="grid md:grid-cols-3 gap-8">
-              {serviceFeatures.map((feature, i) => (
-                <div
-                  key={i}
-                  className={`bg-white p-8 rounded-lg shadow-sm border border-gray-100 transition-all duration-700 text-center ${
-                    servicesRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                  }`}
-                  style={{
-                    animationDelay: servicesRef.isVisible ? `${i * 100}ms` : "0ms",
-                  }}
-                >
-                  <div className="flex justify-center mb-6">
-                    <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center">
-                      {feature.icon}
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground mb-4">{feature.title}</h3>
-                  <p className="text-muted-foreground">{feature.description}</p>
-                </div>
-              ))}
-            </div>
-        </div>
-      </section>
-
-      {/* Pricing Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-sans font-bold text-center mb-16 text-foreground">{t("services.pricingTitle")}</h2>
-
-          <div ref={pricingRef.ref} className="grid md:grid-cols-2 gap-8">
-            {pricing.map((item, i) => (
-              <div
-                key={i}
-                className={`bg-card p-8 rounded-2xl border-2 border-border hover:border-secondary transition-all duration-700 ${
-                  pricingRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                }`}
-                style={{
-                  transitionDelay: pricingRef.isVisible ? `${i * 150}ms` : "0ms",
-                }}
-              >
-                <h3 className="text-2xl font-bold text-foreground mb-2">{item.type}</h3>
-                <p className="text-muted-foreground mb-6">{item.description}</p>
-                <div className="space-y-3">
-                  {item.items.map((sub: string, j: number) => (
-                    <p key={j} className="text-foreground">
-                      {sub}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
-      <section className="py-20 bg-primary text-white">
+      <section className="py-20 bg-black text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-sans font-bold mb-6">{t("services.ctaTitle")}</h2>
-          <p className="text-lg mb-8 text-white/90">
-            {t("services.ctaSubtitle")}
-          </p>
-          <Link href="/contact">
-            <Button size="lg" className="bg-white text-primary hover:bg-white/90 rounded-full font-semibold">
-              {t("services.ctaButton")}
-            </Button>
-          </Link>
+          <div ref={ctaRef.ref} className={`transition-all duration-700 ${ctaRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+            <h2 className="text-4xl font-sans font-bold mb-6 title-font title-tall title-thin text-white">{t("services.ctaTitle")}</h2>
+            <p className="text-lg mb-8 text-white/90">
+              {t("services.ctaSubtitle")}
+            </p>
+            <Link href="/contact">
+              <Button size="lg" className="bg-white text-black hover:bg-white/90 rounded-full font-semibold">
+                {t("services.ctaButton")}
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 

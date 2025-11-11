@@ -5,6 +5,7 @@ import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { useLanguage } from "@/contexts/language-context"
 import { PropertyDetailModal } from "@/components/property-detail-modal"
 import { Users, Bed, Bath, Home, Star, ChevronLeft, ChevronRight } from "lucide-react"
@@ -37,7 +38,7 @@ export default function Properties() {
   }
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-gradient-to-br from-background to-stone-50 dark:from-background dark:to-background/80">
       <Navbar />
 
       {/* Hero Section */}
@@ -47,7 +48,7 @@ export default function Properties() {
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h1 className="text-5xl md:text-6xl font-sans font-bold mb-4 animate-fade-in-up text-white">
+          <h1 className="text-5xl md:text-6xl font-sans font-bold mb-4 animate-fade-in-up text-white title-font title-tall title-thin">
             {t("properties.title")}
           </h1>
           <p className="text-xl text-white/90 mx-auto animate-fade-in-up" style={{ animationDelay: "100ms" }}>
@@ -57,9 +58,9 @@ export default function Properties() {
       </section>
 
       {/* Property Card */}
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div ref={propertyRef.ref} className={`bg-white rounded-2xl overflow-hidden shadow-xl border border-border hover:shadow-2xl transition-all duration-700 ${propertyRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+          <div ref={propertyRef.ref} className={`bg-white dark:bg-card rounded-2xl overflow-hidden shadow-xl border border-border dark:border-border hover:shadow-2xl transition-all duration-700 ${propertyRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
             {/* Image Carousel Container */}
             <div className="relative h-96 overflow-hidden group">
               {/* Images */}
@@ -71,17 +72,20 @@ export default function Properties() {
                       index === currentImageIndex ? "opacity-100" : "opacity-0"
                     }`}
                   >
-                    <img
+                    <Image
                       src={image}
                       alt={`${property.title} - Image ${index + 1}`}
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
+                      loading={index === 0 ? "eager" : "lazy"}
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>
                 ))}
               </div>
 
               {/* Type Badge */}
-              <div className="absolute top-4 right-4 bg-secondary text-white px-4 py-2 rounded-full text-sm font-semibold z-10">
+              <div className="absolute top-4 right-4 bg-secondary text-secondary-foreground px-4 py-2 rounded-full text-sm font-semibold z-10">
                 {property.type}
               </div>
 
@@ -126,7 +130,7 @@ export default function Properties() {
 
             {/* Content */}
             <div className="p-8">
-              <h2 className="text-3xl font-bold text-foreground mb-4">{property.title}</h2>
+              <h2 className="text-3xl font-bold text-foreground mb-4 title-font title-tall title-thin">{property.title}</h2>
               <p className="text-muted-foreground mb-6 flex items-center gap-2">
                 <Home className="h-4 w-4" />
                 {property.location}
@@ -163,7 +167,7 @@ export default function Properties() {
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                   {Object.values(property.ratings).map((rating: any, index: number) => (
-                    <div key={index} className="flex flex-col gap-1.5 p-3 border rounded-lg bg-gray-50/50">
+                    <div key={index} className="flex flex-col gap-1.5 p-3 border rounded-lg bg-gray-50/50 dark:bg-muted/50 border-border dark:border-border">
                       <span className="text-muted-foreground text-xs font-medium">{rating.label}</span>
                       <div className="flex items-center gap-2">
                         <Star className="h-4 w-4 fill-yellow-400 text-yellow-400 flex-shrink-0" />
@@ -178,12 +182,12 @@ export default function Properties() {
               <div className="flex gap-4">
                 <Button
                   onClick={() => setIsModalOpen(true)}
-                  className="bg-primary hover:bg-primary/90 text-white rounded-full flex-1"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full flex-1"
                 >
                   {t("properties.learnMore")}
                 </Button>
                 <a href={property.airbnbUrl} target="_blank" rel="noopener noreferrer" className="flex-1">
-                  <Button className="bg-secondary hover:bg-secondary/90 text-white rounded-full w-full">
+                  <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground rounded-full w-full">
                     {t("properties.viewOnAirbnb")}
                   </Button>
                 </a>
@@ -195,10 +199,10 @@ export default function Properties() {
 
       {/* Comments Section */}
       {property.comments && property.comments.length > 0 && (
-        <section className="py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
+        <section className="py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div ref={commentsRef.ref} className={`transition-all duration-700 ${commentsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-              <h2 className="text-4xl font-sans font-bold text-center mb-4 text-foreground">{t("properties.commentsTitle")}</h2>
+              <h2 className="text-4xl font-sans font-bold text-center mb-4 text-foreground title-font title-tall title-thin">{t("properties.commentsTitle")}</h2>
               <p className="text-muted-foreground text-center mb-12 max-w-3xl mx-auto">
                 {t("properties.commentsSubtitle")}
               </p>
@@ -208,7 +212,7 @@ export default function Properties() {
               {property.comments.map((comment: any, i: number) => (
                 <div
                   key={i}
-                  className={`bg-white rounded-2xl border border-border p-6 hover:shadow-xl transition-all duration-700 ${
+                  className={`bg-white dark:bg-card rounded-2xl border border-border dark:border-border p-6 hover:shadow-xl transition-all duration-700 ${
                     commentsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                   }`}
                   style={{
@@ -240,15 +244,15 @@ export default function Properties() {
       )}
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary text-white">
+      <section className="py-20 bg-black text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div ref={ctaRef.ref} className={`transition-all duration-700 ${ctaRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-            <h2 className="text-4xl font-sans font-bold mb-6">{t("properties.ctaTitle")}</h2>
+            <h2 className="text-4xl font-sans font-bold mb-6 title-font title-tall title-thin text-white">{t("properties.ctaTitle")}</h2>
           <p className="text-lg mb-8 text-white/90">
             {t("properties.ctaSubtitle")}
           </p>
           <Link href="/contact">
-            <Button size="lg" className="bg-white text-primary hover:bg-white/90 rounded-full font-semibold">
+            <Button size="lg" className="bg-white text-black hover:bg-white/90 rounded-full font-semibold">
               {t("properties.ctaButton")}
             </Button>
           </Link>

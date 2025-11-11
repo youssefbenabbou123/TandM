@@ -97,7 +97,7 @@ export default function Contact() {
   }
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-gradient-to-br from-background to-stone-50 dark:from-background dark:to-background/80">
       <Navbar />
 
       {/* Hero Section */}
@@ -107,7 +107,7 @@ export default function Contact() {
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h1 className="text-5xl md:text-6xl font-sans font-bold mb-4 animate-fade-in-up text-white">
+          <h1 className="text-5xl md:text-6xl font-sans font-bold mb-4 animate-fade-in-up text-white title-font title-tall title-thin">
             {t("contact.title")}
           </h1>
           <p className="text-xl text-white/90 mx-auto animate-fade-in-up" style={{ animationDelay: "100ms" }}>
@@ -117,7 +117,7 @@ export default function Contact() {
       </section>
 
       {/* Contact Info & Form */}
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             ref={formRef.ref}
@@ -126,30 +126,30 @@ export default function Contact() {
             {/* Contact Information */}
             <div className="space-y-6 lg:col-span-2">
               <div className="flex items-start gap-5">
-                <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0">
+                <div className="w-16 h-16 rounded-full bg-gray-100 dark:bg-muted flex items-center justify-center flex-shrink-0">
                   <Phone className="h-8 w-8 text-foreground" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground text-xl mb-2">{t("contact.info.phone")}</h3>
+                  <h3 className="font-semibold text-foreground text-xl mb-2 title-font title-tall title-thin">{t("contact.info.phone")}</h3>
                   <p className="text-muted-foreground text-lg">06.66.83.08.14</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-5">
-                <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0">
+                <div className="w-16 h-16 rounded-full bg-gray-100 dark:bg-muted flex items-center justify-center flex-shrink-0">
                   <Mail className="h-8 w-8 text-foreground" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground text-xl mb-2">{t("contact.info.email")}</h3>
+                  <h3 className="font-semibold text-foreground text-xl mb-2 title-font title-tall title-thin">{t("contact.info.email")}</h3>
                   <p className="text-muted-foreground text-lg">theo.m.conciergerie@gmail.com</p>
                 </div>
               </div>
             </div>
 
             {/* Contact Form */}
-            <Card className="bg-white border border-border shadow-sm lg:col-span-3 max-w-2xl lg:max-w-none mx-auto lg:mx-0">
+            <Card className="bg-white dark:bg-card border border-border dark:border-border shadow-sm lg:col-span-3 max-w-2xl lg:max-w-none mx-auto lg:mx-0">
               <CardHeader className="p-6 pb-4">
-                <CardTitle className="text-4xl font-sans font-bold text-foreground text-center">{t("contact.formTitle")}</CardTitle>
+                <CardTitle className="text-4xl font-bold text-foreground text-center title-font title-tall title-thin">{t("contact.formTitle")}</CardTitle>
               </CardHeader>
               <CardContent className="p-6">
                 <form onSubmit={handleSubmit} className="space-y-5">
@@ -243,7 +243,7 @@ export default function Contact() {
       </section>
 
       {/* Map Section */}
-      <section className="pt-0 pb-20 bg-white">
+      <section className="pt-0 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div ref={mapRef.ref} className={`w-full h-[450px] rounded-lg overflow-hidden shadow-sm border border-border transition-all duration-700 ${mapRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
             <iframe
@@ -260,22 +260,22 @@ export default function Contact() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
+      <section className="py-20 !bg-stone-100 dark:!bg-transparent">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-sans font-bold text-center mb-16 text-foreground">{t("contact.faqTitle")}</h2>
+          <h2 className="text-5xl md:text-5xl font-sans font-bold text-center mb-16 text-foreground title-font title-tall title-thin">{t("contact.faqTitle")}</h2>
 
           <div ref={faqRef.ref} className="space-y-4">
             {faqs.map((faq, i) => (
               <div
                 key={i}
-                className={`bg-white p-6 rounded-lg border border-border transition-all duration-700 ${
+                className={`bg-white dark:bg-card p-6 rounded-lg border border-border dark:border-border transition-all duration-700 ${
                   faqRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
                 style={{
                   animationDelay: faqRef.isVisible ? `${i * 75}ms` : "0ms",
                 }}
               >
-                <h3 className="font-bold text-foreground mb-2">{faq.question}</h3>
+                <h3 className="text-lg md:text-xl font-bold text-foreground mb-2 title-font title-tall title-thin">{faq.question}</h3>
                 <p className="text-muted-foreground">{faq.answer}</p>
               </div>
             ))}

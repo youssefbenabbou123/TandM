@@ -8,6 +8,7 @@ import { PageTransition } from "@/components/page-transition"
 import { Toaster } from "@/components/ui/toaster"
 import { LanguageProvider } from "@/contexts/language-context"
 import { SmoothScroll } from "@/components/smooth-scroll"
+import { ThemeProvider } from "next-themes"
 
 // Luxury professional serif font for main headings - Libre Baskerville
 // More robust and professional than Cormorant, with thicker strokes and better readability
@@ -50,16 +51,18 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="fr">
+    <html lang="fr" suppressHydrationWarning>
       <body className={`${luxurySerif.variable} ${didot.variable} ${poppins.variable} font-sans antialiased`}>
-        <LanguageProvider>
-          <SmoothScroll>
-            <Navbar />
-            <PageTransition>{children}</PageTransition>
-            <Toaster />
-            <Analytics />
-          </SmoothScroll>
-        </LanguageProvider>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+          <LanguageProvider>
+            <SmoothScroll>
+              <Navbar />
+              <PageTransition>{children}</PageTransition>
+              <Toaster />
+              <Analytics />
+            </SmoothScroll>
+          </LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   )

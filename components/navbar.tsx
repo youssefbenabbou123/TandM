@@ -1,16 +1,24 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { useState, useEffect } from "react"
-import { Menu, X, Languages } from "lucide-react"
+import { Menu, X, Languages, Moon, Sun } from "lucide-react"
 import { usePathname } from "next/navigation"
 import { useLanguage } from "@/contexts/language-context"
+import { useTheme } from "next-themes"
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const pathname = usePathname()
   const { language, setLanguage, t } = useLanguage()
+  const { theme, setTheme } = useTheme()
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,17 +47,22 @@ export function Navbar() {
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
       scrolled 
-        ? "bg-white/95 backdrop-blur-sm border-b border-border" 
+        ? "bg-white/95 dark:bg-card/95 backdrop-blur-sm border-b border-border dark:border-border" 
         : "bg-transparent border-transparent"
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-32">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <img
+            <Image
               src={scrolled ? "/logo-black.png" : "/logo-gold.png"}
               alt="T&M Conciergerie"
-              className="h-28 w-auto transition-all duration-300"
+              width={112}
+              height={112}
+              className={`h-28 w-auto transition-all duration-300 ${
+                scrolled && mounted && theme === "dark" ? "brightness-0 invert" : ""
+              }`}
+              priority
             />
           </Link>
 
@@ -57,7 +70,7 @@ export function Navbar() {
           <div className="hidden md:flex space-x-12 items-center">
             <Link
               href="/"
-              className={`transition-colors relative text-lg font-sans tracking-wide group ${
+              className={`transition-colors text-lg font-sans tracking-wide ${
                 isActive("/")
                   ? scrolled
                     ? "text-foreground font-medium"
@@ -68,24 +81,10 @@ export function Navbar() {
               }`}
             >
               {t("nav.home")}
-              {/* Active line */}
-              {isActive("/") && (
-                <div
-                  className={`absolute bottom-0 left-0 w-full h-0.5 transition-colors duration-300 ${
-                    scrolled ? "bg-black" : "bg-white"
-                  }`}
-                ></div>
-              )}
-              {/* Hover line animation */}
-              <div
-                className={`absolute bottom-0 left-0 h-0.5 w-0 group-hover:w-full transition-all duration-300 ease-out origin-left ${
-                  scrolled ? "bg-primary" : "bg-white"
-                }`}
-              ></div>
             </Link>
             <Link
               href="/services"
-              className={`transition-colors relative text-lg font-sans tracking-wide group ${
+              className={`transition-colors text-lg font-sans tracking-wide ${
                 isActive("/services")
                   ? scrolled
                     ? "text-foreground font-medium"
@@ -96,24 +95,10 @@ export function Navbar() {
               }`}
             >
               {t("nav.services")}
-              {/* Active line */}
-              {isActive("/services") && (
-                <div
-                  className={`absolute bottom-0 left-0 w-full h-0.5 transition-colors duration-300 ${
-                    scrolled ? "bg-black" : "bg-white"
-                  }`}
-                ></div>
-              )}
-              {/* Hover line animation */}
-              <div
-                className={`absolute bottom-0 left-0 h-0.5 w-0 group-hover:w-full transition-all duration-300 ease-out origin-left ${
-                  scrolled ? "bg-primary" : "bg-white"
-                }`}
-              ></div>
             </Link>
             <Link
               href="/properties"
-              className={`transition-colors relative text-lg font-sans tracking-wide group ${
+              className={`transition-colors text-lg font-sans tracking-wide ${
                 isActive("/properties")
                   ? scrolled
                     ? "text-foreground font-medium"
@@ -124,24 +109,10 @@ export function Navbar() {
               }`}
             >
               {t("nav.properties")}
-              {/* Active line */}
-              {isActive("/properties") && (
-                <div
-                  className={`absolute bottom-0 left-0 w-full h-0.5 transition-colors duration-300 ${
-                    scrolled ? "bg-black" : "bg-white"
-                  }`}
-                ></div>
-              )}
-              {/* Hover line animation */}
-              <div
-                className={`absolute bottom-0 left-0 h-0.5 w-0 group-hover:w-full transition-all duration-300 ease-out origin-left ${
-                  scrolled ? "bg-primary" : "bg-white"
-                }`}
-              ></div>
             </Link>
             <Link
               href="/about"
-              className={`transition-colors relative text-lg font-sans tracking-wide group ${
+              className={`transition-colors text-lg font-sans tracking-wide ${
                 isActive("/about")
                   ? scrolled
                     ? "text-foreground font-medium"
@@ -152,24 +123,10 @@ export function Navbar() {
               }`}
             >
               {t("nav.about")}
-              {/* Active line */}
-              {isActive("/about") && (
-                <div
-                  className={`absolute bottom-0 left-0 w-full h-0.5 transition-colors duration-300 ${
-                    scrolled ? "bg-black" : "bg-white"
-                  }`}
-                ></div>
-              )}
-              {/* Hover line animation */}
-              <div
-                className={`absolute bottom-0 left-0 h-0.5 w-0 group-hover:w-full transition-all duration-300 ease-out origin-left ${
-                  scrolled ? "bg-primary" : "bg-white"
-                }`}
-              ></div>
             </Link>
             <Link
               href="/contact"
-              className={`transition-colors relative text-lg font-sans tracking-wide group ${
+              className={`transition-colors text-lg font-sans tracking-wide ${
                 isActive("/contact")
                   ? scrolled
                     ? "text-foreground font-medium"
@@ -180,28 +137,31 @@ export function Navbar() {
               }`}
             >
               {t("nav.contact")}
-              {/* Active line */}
-              {isActive("/contact") && (
-                <div
-                  className={`absolute bottom-0 left-0 w-full h-0.5 transition-colors duration-300 ${
-                    scrolled ? "bg-black" : "bg-white"
-                  }`}
-                ></div>
-              )}
-              {/* Hover line animation */}
-              <div
-                className={`absolute bottom-0 left-0 h-0.5 w-0 group-hover:w-full transition-all duration-300 ease-out origin-left ${
-                  scrolled ? "bg-primary" : "bg-white"
-                }`}
-              ></div>
             </Link>
+            
+            {/* Dark Mode Toggle Button */}
+            <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className={`flex items-center gap-2 px-3 py-2 rounded-md transition-colors ${
+                scrolled
+                  ? "text-foreground hover:bg-gray-100 dark:hover:bg-gray-800"
+                  : "text-white hover:bg-white/10"
+              }`}
+              aria-label="Toggle dark mode"
+            >
+              {mounted && theme === "dark" ? (
+                <Sun className="h-5 w-5" />
+              ) : (
+                <Moon className="h-5 w-5" />
+              )}
+            </button>
             
             {/* Language Toggle Button */}
             <button
               onClick={toggleLanguage}
               className={`flex items-center gap-2 px-3 py-2 rounded-md transition-colors ${
                 scrolled
-                  ? "text-foreground hover:bg-gray-100"
+                  ? "text-foreground hover:bg-gray-100 dark:hover:bg-gray-800"
                   : "text-white hover:bg-white/10"
               }`}
             >
@@ -226,7 +186,7 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white border-t border-border">
+        <div className="md:hidden bg-white dark:bg-card border-t border-border dark:border-border">
           <div className="px-4 py-6 space-y-4">
             <Link
               href="/"
@@ -273,6 +233,34 @@ export function Navbar() {
             >
               {t("nav.contact")}
             </Link>
+            
+            {/* Mobile Dark Mode and Language Toggles */}
+            <div className="flex items-center gap-4 pt-4 border-t border-border dark:border-border">
+              <button
+                onClick={() => {
+                  setTheme(theme === "dark" ? "light" : "dark")
+                  toggleMenu()
+                }}
+                className="flex items-center gap-2 px-3 py-2 rounded-md transition-colors text-foreground hover:bg-gray-100 dark:hover:bg-gray-800"
+                aria-label="Toggle dark mode"
+              >
+                {mounted && theme === "dark" ? (
+                  <Sun className="h-5 w-5" />
+                ) : (
+                  <Moon className="h-5 w-5" />
+                )}
+                <span className="text-sm font-medium">
+                  {mounted && theme === "dark" ? "Light" : "Dark"}
+                </span>
+              </button>
+              <button
+                onClick={toggleLanguage}
+                className="flex items-center gap-2 px-3 py-2 rounded-md transition-colors text-foreground hover:bg-gray-100 dark:hover:bg-gray-800"
+              >
+                <Languages className="h-5 w-5" />
+                <span className="text-sm font-medium">{language.toUpperCase()}</span>
+              </button>
+            </div>
           </div>
         </div>
       )}
