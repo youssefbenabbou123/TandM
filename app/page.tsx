@@ -167,7 +167,7 @@ export default function Home() {
               {services.map((service, i) => (
                 <div
                   key={i}
-                  className={`group relative bg-white dark:bg-card p-8 rounded-lg shadow-sm border border-gray-100 dark:border-border transition-all duration-700 ease-out text-center transform hover:scale-105 hover:border-black dark:hover:border-white overflow-hidden ${
+                  className={`group relative bg-white dark:bg-card p-8 rounded-lg shadow-sm border border-gray-100 dark:border-border transition-all duration-700 ease-out text-center cursor-pointer transform hover:scale-105 hover:border-black dark:hover:border-white overflow-hidden ${
                     servicesRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                   }`}
                   style={{
@@ -175,8 +175,8 @@ export default function Home() {
                   }}
                 >
                   <div className="flex justify-center mb-6">
-                    <div className="w-16 h-16 rounded-full bg-gray-100 dark:bg-muted hover:bg-primary/10 dark:hover:bg-primary/20 flex items-center justify-center transition-all duration-300">
-                      <div className="hover:scale-110 transition-transform duration-300">
+                    <div className="w-16 h-16 rounded-full bg-gray-100 dark:bg-muted hover:bg-primary/10 dark:hover:bg-primary/20 flex items-center justify-center transition-all duration-700">
+                      <div className="hover:scale-110 transition-transform duration-700">
                         {service.icon}
                       </div>
                     </div>
@@ -185,7 +185,7 @@ export default function Home() {
                   <p className="text-muted-foreground mb-6 text-justify">{service.description}</p>
                   <Link href={`/services?service=${service.id}`}>
                     <Button
-                      className="w-full bg-black dark:bg-white text-white dark:text-black rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-semibold"
+                      className="w-full bg-black dark:bg-white text-white dark:text-black rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 font-semibold"
                     >
                       {t("home.learnMore")}
                     </Button>
@@ -259,7 +259,7 @@ export default function Home() {
       <section className="py-20 relative overflow-hidden !bg-stone-100 dark:!bg-transparent">
         {/* Background Logo */}
         <div 
-          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-[5%] opacity-25 select-none pointer-events-none"
+          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-[5%] opacity-100 select-none pointer-events-none outline-none"
           style={{ 
             zIndex: 0,
             width: '420px',
@@ -267,7 +267,9 @@ export default function Home() {
             backgroundImage: "url('/logo-gold.png')",
             backgroundSize: 'contain',
             backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center'
+            backgroundPosition: 'center',
+            outline: 'none',
+            border: 'none'
           }}
         />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative" style={{ zIndex: 10 }}>

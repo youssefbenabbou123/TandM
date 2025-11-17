@@ -220,7 +220,7 @@ function ServicesContent() {
                           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         />
                       </div>
-                      <h2 className="text-xl md:text-2xl font-bold mb-3 title-font title-tall title-thin" style={{ color: '#D4AF37', lineHeight: '1.3', maxWidth: '100%' }}>
+                      <h2 className="text-xl md:text-2xl font-bold mb-3 title-font title-tall title-thin text-center" style={{ color: '#D4AF37', lineHeight: '1.3', maxWidth: '100%' }}>
                         {service.title === "Réactivité et suivi continu" ? (
                           <>
                             Réactivité et suivi<br />continu
@@ -238,7 +238,7 @@ function ServicesContent() {
                             return (
                               <li key={j} className="flex items-start gap-2">
                                 <span className="text-primary flex-shrink-0 leading-relaxed">•</span>
-                                <span className="text-foreground text-sm leading-relaxed font-semibold">
+                                <span className="text-foreground text-sm leading-relaxed">
                                   {title}
                                 </span>
                               </li>
@@ -306,9 +306,7 @@ function ServicesContent() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div ref={ctaRef.ref} className={`transition-all duration-700 ${ctaRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
             <h2 className="text-4xl font-sans font-bold mb-6 title-font title-tall title-thin text-white">{t("services.ctaTitle")}</h2>
-            <p className="text-lg mb-8 text-white/90">
-              {t("services.ctaSubtitle")}
-            </p>
+            <p className="text-lg mb-8 text-white/90" dangerouslySetInnerHTML={{ __html: t("services.ctaSubtitle") }} />
             <Link href="/contact">
               <Button size="lg" className="bg-white text-black hover:bg-white/90 rounded-full font-semibold">
                 {t("services.ctaButton")}

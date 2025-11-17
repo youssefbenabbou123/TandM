@@ -237,7 +237,7 @@ export const translations = {
         },
       },
       ctaTitle: "Commencez dès aujourd'hui",
-      ctaSubtitle: "Échangeons ensemble sur votre propriété et sur la façon dont nous pouvons valoriser votre bien",
+      ctaSubtitle: "Échangeons ensemble sur votre propriété et sur la façon<br />dont nous pouvons valoriser votre bien.",
       ctaButton: "Prendre rendez-vous",
     },
     contact: {
@@ -250,9 +250,9 @@ export const translations = {
         email: "Email",
         address: "Adresse",
         addressValue: "Nice, France",
-        serviceZone: "Zone de service: Nice et sa région",
+        serviceZone: "Zone de service : Nice et sa région",
         availability: "Disponibilité",
-        availabilityValue: "Lundi - Dimanche: 24/7",
+        availabilityValue: "Lundi - Dimanche : 24/7",
         availabilityNote: "Support en temps réel pour les urgences",
         hours: "Horaires",
         hoursValue: "Lundi - Vendredi : 08h - 18h",
@@ -290,11 +290,11 @@ export const translations = {
       title: "Nos adresses prestigieuses",
       subtitle: "Des biens soigneusement sélectionnés et gérés par notre équipe.",
       ctaTitle: "Prêt à valoriser votre propriété ?",
-      ctaSubtitle: "Échangeons sur votre bien et sur les solutions que nous pouvons mettre en place pour optimiser sa gestion",
+      ctaSubtitle: "Échangeons sur votre bien et sur les solutions que nous pouvons<br />mettre en place pour optimiser sa gestion.",
       ctaButton: "Nous contacter",
       learnMore: "En savoir plus",
       viewOnAirbnb: "Voir sur Airbnb",
-      commentsTitle: "L'expérience T&M Conciergerie racontée par nos voyageurs",
+      commentsTitle: "L'expérience T&M Conciergerie racontée<br />par nos voyageurs",
       commentsSubtitle: "Des séjours réussis, des voyageurs conquis : découvrez leurs impressions.",
       exceptionalRatings: "(Évaluations exceptionnelles)",
       modalHighlights: "Points forts",
@@ -314,7 +314,7 @@ export const translations = {
         beds: "1 lit",
         bathrooms: "1 salle de bain",
         about: "Idéalement situé en plein coeur du Carré d'Or, à 2 minutes à pied de la place Massena et du Vieux-Nice,\nà 5 minutes du Marché aux Fleurs et de la Promenade des Anglais.",
-        aboutExtended: "Parfaitement placé dans ce magnifique quartier de Nice, vous y trouverez tout ce dont vous avez besoin : restaurants, bars, commerces et transports à proximité. Cet appartement bourgeois calme et confortable, est à quelques pas des plages de la célèbre Promenade des Anglais et des lieux iconiques",
+        aboutExtended: "Parfaitement placé dans ce magnifique quartier de Nice, vous y trouverez tout ce dont vous avez besoin : restaurants, bars, commerces et transports à proximité. Cet appartement bourgeois calme et confortable, est à quelques pas des plages de la célèbre Promenade des Anglais et des lieux iconiques.",
         accommodation: "Ce magnifique appartement bourgeois 2 pièces est situé dans le prestigieux quartier du Carré d'Or à Nice. Sa localisation parfaite est plébiscitée par les voyageurs d'où son nom \"The Splendid Place\". En effet, vous pouvez tout visiter aisément à pied car il se trouve à seulement quelques pas des plages et de la Promenade des Anglais, de la place Masséna et de la Coulée Verte, du Vieux Nice et du Marché aux Fleurs, du cours Saleya ...\n\nLes adeptes du shopping seront enchantés par la proximité des boutiques de luxe et les gourmets par les nombreux restaurants.\n\nParfait pour un séjour en couple ou escapade entre amis, ce logement lumineux et élégant vous offrira tout le confort nécessaire pour des vacances inoubliables sur la Côte d'Azur.\n\nVous y retrouverez le salon avec une décoration contemporaine, agrémentée de touches colorées inspirées de Nice créant ainsi une ambiance chaleureuse et accueillante.\n\nLa cuisine ouverte est entièrement équipée : four à pyrolise, four à micro-ondes, plaque à induction, machine à café Nespresso , bouilloire électrique etc... ainsi que tout le nécessaire pour préparer vos repas, à moins que vous vous laissiez tenter par les très bons restaurants alentours...\n\nUne salle d'eau avec une douche à l'italienne, un meuble vasque élégant et un radiateur sèche-serviettes pour plus de confort. Une chambre cosy avec un lit double, une tête de lit au design rétro-chic et de nombreux rangements (tables de chevets et un placard miroir).\n\nCet appartement entièrement climatisé dispose également du Wi-Fi haut débit par fibre pour partager vos souvenirs et rester en contact avec vos proches.\n\nLors de votre séjour, une machine à laver / sèche-linge sera à votre disposition. Pas besoin de vous préoccupez du linge de lit et de bain, nous nous chargeons de tout pour votre confort.\n\nL'appartement avec accès sécurisé est situé dans un immeuble calme et donne sur une cour pour une tranquillité totale.\n\nLes transports en commun (tramway et bus) sont eux aussi très proches pour partir facilement à la découverte des joyaux de la Côte d'Azur tels que Monaco, Menton, Cannes... Bienvenue au \"Splendid Place\".",
         checkinCode: "06088019906HT",
         highlights: {
@@ -565,63 +565,63 @@ export const translations = {
       servicesSubtitle: "We handle every step of short-term rental to guarantee an exceptional experience for your travelers, and for you, the owner, serene and profitable management.",
       services: {
         announcement: {
-          title: "Listing Creation",
+          title: "Listing creation",
           description: "Professional photos and a polished description to enhance your property. We optimize your listing for maximum visibility on Airbnb and the main rental platforms.",
         },
         preparation: {
-          title: "Stay Preparation",
+          title: "Stay preparation",
           description: "Cleaning, household linens, welcome basket… every detail is designed to offer your travelers comfort worthy of the finest establishments.",
         },
         checkin: {
-          title: "Check-in & Check-out",
+          title: "Check-in & check-out",
           description: "In-person welcome, key handover and rigorous property inspection at each stay. Our on-site presence guarantees a warm welcome, serene travelers and 5-star reviews.",
         },
         support: {
-          title: "Responsiveness & Assistance",
+          title: "Responsiveness & assistance",
           description: "Available 7 days a week, we respond quickly to travelers' needs and handle unexpected situations efficiently. Your peace of mind is our priority.",
         },
         payment: {
-          title: "Transparent Payment",
+          title: "Transparent payment",
           description: "Payments are transferred directly to your account. Our commissions are clearly defined and justified with complete transparency.",
         },
         management: {
-          title: "Personalized Follow-up",
+          title: "Personalized follow-up",
           description: "From the digital welcome booklet to the attention paid to every detail, everything is designed to facilitate travelers' stays and offer them comfort, serenity and well-being.",
         },
       },
-      featuredTitle: "Featured Property",
+      featuredTitle: "Featured property",
       featuredSubtitle: "Discover an example of a property we manage with excellence.",
-      whyUsTitle: "Why Choose Us?",
+      whyUsTitle: "Why choose us?",
       stats: {
         occupancy: {
           number: "95%",
-          title: "Occupancy Rate",
+          title: "Occupancy rate",
           description: "We optimize your calendar and rates for maximum occupancy.",
         },
         rating: {
           number: "4.9★",
-          title: "Average Rating",
+          title: "Average rating",
           description: "Our properties get the best ratings thanks to our operational excellence.",
         },
         support: {
           number: "24/7",
-          title: "Available Support",
+          title: "Available support",
           description: "We are always here for you and your travelers, day and night.",
         },
       },
-      commitmentsTitle: "Our Commitments",
-      commitmentsSubtitle: "Our excellence is reflected in every mission: personalized support, rigorous management and constant availability.",
+      commitmentsTitle: "Our commitments",
+      commitmentsSubtitle: "Our excellence is reflected in every mission : personalized support, rigorous management and constant availability.",
       commitments: {
         performance: {
-          title: "Performance & Profitability",
+          title: "Performance & profitability",
           description: "We enhance each property through an adjusted pricing strategy and rigorous calendar monitoring to balance occupancy rate and profitability.",
         },
         quality: {
-          title: "Quality & Satisfaction",
-          description: "Each stay is prepared with the utmost care: well-maintained accommodations, personalized welcome and harmonious experience for fully satisfied travelers.",
+          title: "Quality & satisfaction",
+          description: "Each stay is prepared with the utmost care : well-maintained accommodations, personalized welcome and harmonious experience for fully satisfied travelers.",
         },
         proximity: {
-          title: "Proximity & Responsiveness",
+          title: "Proximity & responsiveness",
           description: "Present at every step, we respond quickly to the needs of property owners and travelers alike, in a spirit of trust and availability.",
         },
       },
@@ -639,12 +639,12 @@ export const translations = {
       section1Title: "Excellence at the service of your peace of mind",
       section1Intro: "T&M Conciergerie specializes in high-end rental management in Nice and its region.",
       section1p1: "We support property owners who want to enhance their property while delegating management with complete confidence.",
-      section1p2: "Our priority: combining performance, transparency and quality of service to guarantee an impeccable experience with every stay.",
+      section1p2: "Our priority : combining performance, transparency and quality of service to guarantee an impeccable experience with every stay.",
       approachTitle: "A tailored approach",
       approach: "Each property is unique, just like our clients' expectations. That's why we offer personalized support, from listing creation to stay supervision, including maintenance, cleaning and guest relations.",
       approach2: "Our expertise is based on rigor, responsiveness and attention to detail, for smooth and uncompromising management.",
       standardsTitle: "Hotel standards applied to short-term rental",
-      standards: "T&M Conciergerie draws inspiration from luxury hospitality codes to deliver a consistent level of service: impeccable accommodations, personalized welcome and attentive follow-up.",
+      standards: "T&M Conciergerie draws inspiration from luxury hospitality codes to deliver a consistent level of service : impeccable accommodations, personalized welcome and attentive follow-up.",
       standards2: "We place guest satisfaction and property owners' peace of mind at the heart of each of our missions.",
       commitmentTitle: "Our commitment",
       commitment: "Combining humanity and professionalism, excellence and trust, to make every collaboration a lasting success.",
@@ -669,12 +669,12 @@ export const translations = {
         },
       },
       stats: {
-        properties: "Managed Properties",
-        occupancy: "Occupancy Rate",
-        rating: "Average Rating",
-        support: "Available Support",
+        properties: "Managed properties",
+        occupancy: "Occupancy rate",
+        rating: "Average rating",
+        support: "Available support",
       },
-      faqTitle: "Frequently Asked Questions",
+      faqTitle: "Frequently asked questions",
       faq: {
         propertyTypes: {
           question: "What types of properties do you manage?",
@@ -703,12 +703,12 @@ export const translations = {
       },
     },
     services: {
-      title: "Our Services",
+      title: "Our services",
       subtitle: "Complete and professional management of your property for guaranteed results.",
-      detailsTitle: "Essential Services",
+      detailsTitle: "Essential services",
       detailedServices: {
         announcement: {
-          title: "Complete Listing Creation from A to Z",
+          title: "Complete listing creation from A to Z",
           description: "Showcasing a property requires a structured and precise approach. We handle every step of creating your listing to ensure a polished presentation, true to the property and perfectly adapted to the expectations of a demanding clientele.",
           features: [
             "Professional photo shoot - Collaboration with a specialized photographer to take photos of the property. Owners can also hire their own photographer. Photo shoot costs are borne by the owners.",
@@ -720,17 +720,17 @@ export const translations = {
           ],
         },
         preparation: {
-          title: "Setup and Preparation for the Stay",
+          title: "Setup and preparation for the stay",
           description: "Before each arrival, the property is prepared with particular attention. The goal is to guarantee an impeccable environment, conducive to a pleasant stay from the first moments.",
           features: [
-            "Complete digital welcome booklet - Creation of a digital booklet containing all essential information: wifi, use of appliances, local recommendations, transport... A URL link is sent to travelers and a QR code is available in the accommodation. The creation of the booklet is billed to the owners.",
+            "Complete digital welcome booklet - Creation of a digital booklet containing all essential information : wifi, use of appliances, local recommendations, transport... A URL link is sent to travelers and a QR code is available in the accommodation. The creation of the booklet is billed to the owners.",
             "Complete cleaning according to hotel protocol - Complete cleaning of the accommodation before and after each stay, carried out according to standards inspired by the hotel industry. Each cleaning is checked to guarantee consistent quality.",
             "Provision of household linen - The concierge service provides, when necessary, all bed and bath linen, in collaboration with a laundry specialized in luxury hospitality.",
             "Welcome basket and essential products - Installation of a welcome tray (coffee, sugar, tea, biscuits...) and preparation of essential hygiene products. Special touches can be added depending on the context and owners' wishes.",
           ],
         },
         checkin: {
-          title: "Personalized Welcome of Travelers",
+          title: "Personalized welcome of travelers",
           description: "The welcome represents an essential step of the stay. It allows creating a warm, reassuring and professional atmosphere, while ensuring quality human contact.",
           features: [
             "In-person welcome for the majority of stays - Travelers are welcomed or accompanied during their departure in approximately 90 to 95% of stays.",
@@ -741,7 +741,7 @@ export const translations = {
           ],
         },
         reactivity: {
-          title: "Responsiveness & Continuous Follow-up",
+          title: "Responsiveness & continuous follow-up",
           description: "Availability is an essential commitment of the concierge service. Every request is handled quickly to ensure a smooth and seamless stay.",
           features: [
             "Quick responses to travelers - Response rate under one hour, generally around 5 to 10 minutes.",
@@ -749,16 +749,16 @@ export const translations = {
           ],
         },
         assistance: {
-          title: "Assistance & Unforeseen Event Management",
+          title: "Assistance & unforeseen event management",
           description: "In case of an incident, we intervene quickly to preserve the quality of the stay and guarantee peace of mind for owners and travelers.",
           features: [
             "Quick solutions in case of problems - Intervention with trusted craftsmen network in case of issues (electricity, plumbing, etc.).",
-            "Dispute and insurance management - Handling of procedures related to disputes: exchanges with the platform, declarations, communication with travelers.",
+            "Dispute and insurance management - Handling of procedures related to disputes : exchanges with the platform, declarations, communication with travelers.",
             "Maintaining the quality of the experience - Each intervention is carried out quickly to limit any impact on the stay.",
           ],
         },
         payment: {
-          title: "Transparent Payment Management",
+          title: "Transparent payment management",
           description: "Financial management is simple, direct and completely transparent for owners.",
           features: [
             "Revenue paid directly to owners - Earnings are transferred directly to owners' bank accounts, without intermediaries.",
@@ -769,22 +769,22 @@ export const translations = {
       },
       features: {
         admin: {
-          title: "Administrative Management",
+          title: "Administrative management",
           description: "We handle all documentation, contracts, tax declarations, and legal compliance to simplify your life and ensure the security of your investment.",
         },
         cleaning: {
-          title: "Professional Cleaning",
+          title: "Professional cleaning",
           description: "Every stay begins with impeccable cleaning according to 5-star hotel standards. Our team ensures your property is always ready to welcome your travelers.",
         },
         finance: {
-          title: "Financial Management",
+          title: "Financial management",
           description: "Transparent tracking of all your income, payments, and expenses with detailed reports each month. You see exactly how your property generates revenue.",
         },
       },
-      pricingTitle: "Transparent Pricing",
+      pricingTitle: "Transparent pricing",
       pricing: {
         commission: {
-          type: "Concierge Commission",
+          type: "Concierge commission",
           description: "Our rates are transparent and competitive.",
           items: [
             "Single 20% commission on revenue",
@@ -793,33 +793,33 @@ export const translations = {
           ],
         },
         additional: {
-          type: "Additional Services",
+          type: "Additional services",
           description: "À la carte services to meet all your needs.",
           items: [
-            "Professional cleaning: on quote",
-            "Linens: as needed",
-            "Work management: on quote",
-            "Custom concierge: on request",
+            "Professional cleaning : on quote",
+            "Linens : as needed",
+            "Work management : on quote",
+            "Custom concierge : on request",
           ],
         },
       },
-      ctaTitle: "Get Started Today",
-      ctaSubtitle: "Let's exchange together about your property and how we can enhance your property",
+      ctaTitle: "Get started today",
+      ctaSubtitle: "Let's exchange together about your property and how<br />we can enhance your property.",
       ctaButton: "Book Appointment",
     },
     contact: {
       title: "Let's discuss your project",
       subtitle: "For any support request, our team is available to discuss your needs.",
-      infoTitle: "Contact Information",
-      formTitle: "Contact Us",
+      infoTitle: "Contact information",
+      formTitle: "Contact us",
       info: {
         phone: "Phone",
         email: "Email",
         address: "Address",
         addressValue: "Nice, France",
-        serviceZone: "Service area: Nice and surrounding region",
+        serviceZone: "Service area : Nice and surrounding region",
         availability: "Availability",
-        availabilityValue: "Monday - Sunday: 24/7",
+        availabilityValue: "Monday - Sunday : 24/7",
         availabilityNote: "Real-time support for emergencies",
         hours: "Hours",
         hoursValue: "Monday - Friday : 08:00 - 18:00",
@@ -837,7 +837,7 @@ export const translations = {
         error: "Error sending message. Please try again.",
         networkError: "Network error. Please try again later.",
       },
-      faqTitle: "Frequently Asked Questions",
+      faqTitle: "Frequently asked questions",
       faq: {
         q1: "What types of properties do you manage?",
         a1: "Apartments, houses or second homes intended for short-term rental in Nice and its region.",
@@ -854,15 +854,15 @@ export const translations = {
       },
     },
     properties: {
-      title: "Our Prestigious Addresses",
+      title: "Our prestigious addresses",
       subtitle: "Carefully selected and managed properties by our team.",
       ctaTitle: "Ready to enhance your property?",
-      ctaSubtitle: "Let's discuss your property and the solutions we can implement to optimize its management",
+      ctaSubtitle: "Let's discuss your property and the solutions we can<br />implement to optimize its management.",
       ctaButton: "Contact Us",
       learnMore: "Learn more",
       viewOnAirbnb: "View on Airbnb",
-      commentsTitle: "The T&M Conciergerie experience told by our travelers",
-      commentsSubtitle: "Successful stays, delighted travelers: discover their impressions.",
+      commentsTitle: "The T&M Conciergerie experience told<br />by our travelers",
+      commentsSubtitle: "Successful stays, delighted travelers : discover their impressions.",
       exceptionalRatings: "(Exceptional ratings)",
       modalHighlights: "Highlights",
       modalAbout: "About this place",
@@ -874,7 +874,7 @@ export const translations = {
       property: {
         id: "1432505489484954838",
         title: "The Splendid Place – Massena",
-        type: "Entire home: apartment",
+        type: "Entire home : apartment",
         location: "Nice, France",
         guests: "2 guests",
         bedrooms: "1 bedroom",
@@ -948,7 +948,7 @@ export const translations = {
           {
             name: "Pedro",
             date: "",
-            text: "The apartment is a real gem: bright, impeccable, modern and ideally located in the heart of the action, with all restaurants, bars and beaches within reach.",
+            text: "The apartment is a real gem : bright, impeccable, modern and ideally located in the heart of the action, with all restaurants, bars and beaches within reach.",
             rating: 5,
           },
         ],
@@ -999,12 +999,12 @@ export const translations = {
       personalData: {
         title: "Personal Data",
         content: "Personal data may be collected via the contact form and through the use of cookies.",
-        responsible: "The data controller is:",
+        responsible: "The data controller is :",
         responsibleName: "Théo MENARD — theo.m.conciergerie@gmail.com",
         compliance: "Data processing complies with GDPR and French legislation.",
         details: "For more details, consult the site's Privacy Policy.",
-        rights: "Users have the following rights: access, rectification, deletion, opposition, portability, limitation of processing.",
-        contact: "To exercise your rights: theo.m.conciergerie@gmail.com"
+        rights: "Users have the following rights : access, rectification, deletion, opposition, portability, limitation of processing.",
+        contact: "To exercise your rights : theo.m.conciergerie@gmail.com"
       },
       cookies: {
         title: "Cookies",
@@ -1036,8 +1036,8 @@ export const translations = {
       credits: {
         title: "Credits",
         content: "Website designed and developed by Melissa BONNET – Self-employed",
-        siret: "SIRET: 934 160 318 00010",
-        website: "Site: https://melissabonnet.fr"
+        siret: "SIRET : 934 160 318 00010",
+        website: "Site : https://melissabonnet.fr"
       }
     },
     privacyPolicy: {
@@ -1083,8 +1083,8 @@ export const translations = {
       retention: {
         title: "Retention Period",
         content: "Personal data is retained:",
-        contact: "For contact requests: for 12 months from the last exchange",
-        cookies: "For cookies: up to 13 months maximum after deposit"
+        contact: "For contact requests : for 12 months from the last exchange",
+        cookies: "For cookies : up to 13 months maximum after deposit"
       },
       rights: {
         title: "User Rights",
@@ -1097,7 +1097,7 @@ export const translations = {
           "Right to object",
           "Right to data portability"
         ],
-        contact: "You can exercise these rights by sending an email to: theo.m.conciergerie@gmail.com"
+        contact: "You can exercise these rights by sending an email to : theo.m.conciergerie@gmail.com"
       }
     },
     footer: {

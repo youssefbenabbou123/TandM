@@ -44,6 +44,10 @@ export function Navbar() {
     setLanguage(language === "fr" ? "en" : "fr")
   }
 
+  // Pages where navbar should always use foreground colors (black in light mode, white in dark mode)
+  const isLegalPage = pathname === "/cookies" || pathname === "/mentions-legales" || pathname === "/politique-confidentialite"
+  const shouldUseForeground = isLegalPage || scrolled
+
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
       scrolled 
@@ -70,10 +74,10 @@ export function Navbar() {
               href="/"
               className={`transition-colors text-lg font-sans tracking-wide ${
                 isActive("/")
-                  ? scrolled
+                  ? shouldUseForeground
                     ? "text-foreground font-medium"
                     : "text-white font-medium"
-                  : scrolled
+                  : shouldUseForeground
                   ? "text-foreground/90 hover:text-primary"
                   : "text-white/90 hover:text-white"
               }`}
@@ -84,10 +88,10 @@ export function Navbar() {
               href="/services"
               className={`transition-colors text-lg font-sans tracking-wide ${
                 isActive("/services")
-                  ? scrolled
+                  ? shouldUseForeground
                     ? "text-foreground font-medium"
                     : "text-white font-medium"
-                  : scrolled
+                  : shouldUseForeground
                   ? "text-foreground/90 hover:text-primary"
                   : "text-white/90 hover:text-white"
               }`}
@@ -98,10 +102,10 @@ export function Navbar() {
               href="/properties"
               className={`transition-colors text-lg font-sans tracking-wide ${
                 isActive("/properties")
-                  ? scrolled
+                  ? shouldUseForeground
                     ? "text-foreground font-medium"
                     : "text-white font-medium"
-                  : scrolled
+                  : shouldUseForeground
                   ? "text-foreground/90 hover:text-primary"
                   : "text-white/90 hover:text-white"
               }`}
@@ -112,10 +116,10 @@ export function Navbar() {
               href="/about"
               className={`transition-colors text-lg font-sans tracking-wide ${
                 isActive("/about")
-                  ? scrolled
+                  ? shouldUseForeground
                     ? "text-foreground font-medium"
                     : "text-white font-medium"
-                  : scrolled
+                  : shouldUseForeground
                   ? "text-foreground/90 hover:text-primary"
                   : "text-white/90 hover:text-white"
               }`}
@@ -126,10 +130,10 @@ export function Navbar() {
               href="/contact"
               className={`transition-colors text-lg font-sans tracking-wide ${
                 isActive("/contact")
-                  ? scrolled
+                  ? shouldUseForeground
                     ? "text-foreground font-medium"
                     : "text-white font-medium"
-                  : scrolled
+                  : shouldUseForeground
                   ? "text-foreground/90 hover:text-primary"
                   : "text-white/90 hover:text-white"
               }`}
@@ -141,7 +145,7 @@ export function Navbar() {
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               className={`flex items-center gap-2 px-3 py-2 rounded-md transition-colors ${
-                scrolled
+                shouldUseForeground
                   ? "text-foreground hover:bg-gray-100 dark:hover:bg-gray-800"
                   : "text-white hover:bg-white/10"
               }`}
@@ -158,7 +162,7 @@ export function Navbar() {
             <button
               onClick={toggleLanguage}
               className={`flex items-center gap-2 px-3 py-2 rounded-md transition-colors ${
-                scrolled
+                shouldUseForeground
                   ? "text-foreground hover:bg-gray-100 dark:hover:bg-gray-800"
                   : "text-white hover:bg-white/10"
               }`}
@@ -172,7 +176,7 @@ export function Navbar() {
           <button
             onClick={toggleMenu}
             className={`md:hidden p-2 rounded-md transition-colors ${
-              scrolled
+              shouldUseForeground
                 ? "text-foreground hover:bg-gray-100"
                 : "text-white hover:bg-white/10"
             }`}

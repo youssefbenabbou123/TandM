@@ -16,20 +16,16 @@ export default function Cookies() {
 
       {/* Hero Section */}
       <section
-        className="pt-36 pb-16 bg-cover bg-center bg-no-repeat relative"
-        style={{ 
-          backgroundImage: "url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1920&q=80')",
-        }}
+        className="pt-36 pb-16 relative"
         ref={heroRef.ref}
       >
-        <div className="absolute inset-0 bg-black/50 dark:bg-black/60"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h1 className={`text-5xl md:text-6xl font-sans font-bold mb-4 animate-fade-in-up text-white title-font title-tall title-thin transition-all duration-700 ${
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className={`text-5xl md:text-6xl font-sans font-bold mb-4 animate-fade-in-up title-font title-tall title-thin transition-all duration-700 ${
             heroRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-          }`}>
+          }`} style={{ color: '#d9c064' }}>
             {t("cookies.title")}
           </h1>
-          <p className={`text-xl text-white/90 mx-auto animate-fade-in-up transition-all duration-700 ${
+          <p className={`text-xl text-muted-foreground mx-auto animate-fade-in-up transition-all duration-700 ${
             heroRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`} style={{ animationDelay: "100ms" }}>
             {t("cookies.subtitle")}
@@ -56,7 +52,7 @@ export default function Cookies() {
                   {t("cookies.usage.items").map((item: string, index: number) => (
                     <li key={index} className="flex items-start gap-3 text-lg leading-relaxed">
                       <span className="text-primary mt-1">•</span>
-                      <span>{item}</span>
+                      <span className="text-justify">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -64,7 +60,7 @@ export default function Cookies() {
 
               {/* Consent */}
               <div>
-                <p className="text-lg leading-relaxed text-muted-foreground">
+                <p className="text-lg leading-relaxed text-muted-foreground text-justify">
                   {t("cookies.consent")}
                 </p>
               </div>
@@ -74,7 +70,7 @@ export default function Cookies() {
                 <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground title-font title-tall title-thin">
                   {t("cookies.security.title")}
                 </h2>
-                <p className="text-lg leading-relaxed text-muted-foreground">
+                <p className="text-lg leading-relaxed text-muted-foreground text-justify">
                   {t("cookies.security.content")}
                 </p>
               </div>
@@ -84,7 +80,7 @@ export default function Cookies() {
                 <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground title-font title-tall title-thin">
                   {t("cookies.modifications.title")}
                 </h2>
-                <p className="text-lg leading-relaxed text-muted-foreground">
+                <p className="text-lg leading-relaxed text-muted-foreground text-justify">
                   {t("cookies.modifications.content")}
                 </p>
               </div>

@@ -201,9 +201,7 @@ export default function Properties() {
         <section className="py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div ref={commentsRef.ref} className={`transition-all duration-700 ${commentsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-              <h2 className="text-4xl font-sans font-bold text-center mb-4 text-foreground title-font title-tall title-thin" style={{ color: '#d9c064' }}>
-                {t("properties.commentsTitle").replace("T&M Conciergerie", "T&M\u00A0Conciergerie")}
-              </h2>
+              <h2 className="text-4xl font-sans font-bold text-center mb-4 text-foreground title-font title-tall title-thin" style={{ color: '#d9c064' }} dangerouslySetInnerHTML={{ __html: t("properties.commentsTitle").replace("T&M Conciergerie", "T&M\u00A0Conciergerie") }} />
               <p className="text-muted-foreground text-center mb-12 max-w-3xl mx-auto">
                 {t("properties.commentsSubtitle")}
               </p>
@@ -236,7 +234,7 @@ export default function Properties() {
                       <Star key={j} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
-                  <p className="text-sm text-foreground">{comment.text}</p>
+                  <p className="text-sm text-foreground text-justify">{comment.text}</p>
                 </div>
               ))}
             </div>
@@ -249,9 +247,7 @@ export default function Properties() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div ref={ctaRef.ref} className={`transition-all duration-700 ${ctaRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
             <h2 className="text-4xl font-sans font-bold mb-6 title-font title-tall title-thin text-white">{t("properties.ctaTitle")}</h2>
-          <p className="text-lg mb-8 text-white/90">
-            {t("properties.ctaSubtitle")}
-          </p>
+            <p className="text-lg mb-8 text-white/90" dangerouslySetInnerHTML={{ __html: t("properties.ctaSubtitle") }} />
           <Link href="/contact">
             <Button size="lg" className="bg-white text-black hover:bg-white/90 rounded-full font-semibold">
               {t("properties.ctaButton")}

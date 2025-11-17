@@ -105,7 +105,6 @@ export default function About() {
               {t("about.section1Title")}
             </h2>
             <div className="max-w-4xl mx-auto space-y-6 text-lg text-foreground">
-              <p className="text-xl font-medium text-justify">{t("about.section1Intro")}</p>
               <p className="text-justify">{t("about.section1p1")}</p>
               <p className="text-justify">{t("about.section1p2")}</p>
             </div>
@@ -167,7 +166,7 @@ export default function About() {
       {/* Values */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-sans font-bold text-center mb-16 text-foreground title-font title-tall title-thin" style={{ color: '#d9c064' }}>
+          <h2 className="text-4xl md:text-5xl font-sans font-bold text-center mb-16 text-foreground title-font title-tall title-thin" style={{ color: '#d9c064' }}>
             {t("about.valuesTitle").replace("T&M Conciergerie", "T&M\u00A0Conciergerie")}
           </h2>
 
