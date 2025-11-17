@@ -53,15 +53,13 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-32">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center ml-4">
             <Image
-              src={scrolled ? "/logo-black.png" : "/logo-gold.png"}
+              src="/logo-gold.png"
               alt="T&M Conciergerie"
-              width={112}
-              height={112}
-              className={`h-28 w-auto transition-all duration-300 ${
-                scrolled && mounted && theme === "dark" ? "brightness-0 invert" : ""
-              }`}
+              width={88}
+              height={88}
+              className="h-[88px] w-auto transition-all duration-300"
               priority
             />
           </Link>

@@ -149,11 +149,12 @@
   html,
   body {
     font-family: "Poppins", "Poppins Fallback", var(--font-sans), sans-serif !important;
+    overflow-x: hidden;
   }
   
   body {
     /* updated background to subtle gray (#fafafa) to break up white space */
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground font-sans overflow-x-hidden;
   }
   
   /* Luxury professional serif font for ALL headings - Libre Baskerville */

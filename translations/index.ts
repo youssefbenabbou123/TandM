@@ -287,7 +287,7 @@ export const translations = {
       },
     },
     properties: {
-      title: "Nos biens d'exception",
+      title: "Nos adresses prestigieuses",
       subtitle: "Des biens soigneusement sélectionnés et gérés par notre équipe.",
       ctaTitle: "Prêt à valoriser votre propriété ?",
       ctaSubtitle: "Échangeons sur votre bien et sur les solutions que nous pouvons mettre en place pour optimiser sa gestion",
@@ -307,7 +307,7 @@ export const translations = {
       property: {
         id: "1432505489484954838",
         title: "The Splendid Place – Massena",
-        type: "Logement entier Appartement",
+        type: "Logement entier – appartement",
         location: "Nice, France",
         guests: "2 voyageurs",
         bedrooms: "1 chambre",
@@ -367,25 +367,171 @@ export const translations = {
         // Les avis sont affichés du plus récent au plus ancien
         comments: [
           {
-            name: "Marie",
-            date: "Mai 2024",
-            text: "Appartement parfaitement situé dans le cœur de Nice. Très propre et bien équipé. Théo est un hôte exceptionnel, très réactif et attentionné.",
+            name: "Jelena",
+            date: "",
+            text: "C'était vraiment incroyable. L'emplacement est parfait. Propre, bien rangé. Confort avec une touche de style.",
             rating: 5,
           },
           {
-            name: "Pierre",
-            date: "Avril 2024",
-            text: "Excellent séjour ! L'appartement correspond parfaitement aux photos. L'emplacement est idéal pour visiter Nice à pied.",
+            name: "Shreya",
+            date: "",
+            text: "C'est une découverte incroyable ! Je n'aurais pas pu demander un meilleur rapport qualité-prix. Charmant Airbnb, parfait pour 2 personnes qui passent une semaine à Nice.",
             rating: 5,
           },
           {
-            name: "Sophie",
-            date: "Mars 2024",
-            text: "Séjour parfait dans ce magnifique appartement. Tout était impeccable. Je recommande vivement !",
+            name: "Pedro",
+            date: "",
+            text: "L'appartement est un véritable joyau : lumineux, impeccable, moderne et idéalement situé au cœur de l'action, avec tous les restaurants, bars et plages à portée de main.",
             rating: 5,
           },
         ],
       },
+    },
+    cookies: {
+      title: "Politique de cookies",
+      subtitle: "Informations sur l'utilisation des cookies",
+      usage: {
+        title: "Le site utilise des cookies pour :",
+        items: [
+          "Mesurer l'audience",
+          "Améliorer l'expérience utilisateur"
+        ]
+      },
+      consent: "Lors de votre première visite, un bandeau de gestion du consentement vous permet d'accepter ou de refuser tout ou partie des cookies. Vous pouvez également gérer les cookies via les paramètres de votre navigateur.",
+      security: {
+        title: "Sécurité",
+        content: "Théo MENARD met en œuvre toutes les mesures techniques et organisationnelles nécessaires pour garantir la sécurité et la confidentialité des données personnelles."
+      },
+      modifications: {
+        title: "Modifications",
+        content: "La présente politique de confidentialité peut être modifiée à tout moment afin de garantir sa conformité avec la législation en vigueur. Nous vous conseillons de consulter régulièrement cette page."
+      }
+    },
+    legalNotice: {
+      title: "Mentions légales",
+      subtitle: "Informations légales sur T&M Conciergerie",
+      publisher: {
+        title: "Éditeur du site",
+        content: "Le présent site est édité par :",
+        name: "Théo MENARD",
+        address: "138 chemin du Petit Four, 06600 Antibes, France",
+        email: "theo.m.conciergerie@gmail.com",
+        director: "Le directeur de publication du site est Théo MENARD."
+      },
+      hosting: {
+        title: "Hébergement du site",
+        content: "Le site est hébergé par :",
+        name: "IONOS SARL",
+        address: "7 place de la Gare, 57200 Sarreguemines, France",
+        website: "https://www.ionos.fr"
+      },
+      intellectualProperty: {
+        title: "Propriété intellectuelle",
+        content: "L'ensemble du contenu du site (textes, images, photos, vidéos, éléments graphiques, logos, structure générale…) est protégé par la législation en vigueur sur la propriété intellectuelle. Toute reproduction, modification ou diffusion, totale ou partielle, sans accord préalable écrit de l'éditeur est interdite."
+      },
+      personalData: {
+        title: "Données personnelles",
+        content: "Des données personnelles peuvent être collectées via le formulaire de contact et par l'utilisation de cookies.",
+        responsible: "Le responsable du traitement est :",
+        responsibleName: "Théo MENARD — theo.m.conciergerie@gmail.com",
+        compliance: "Le traitement des données est conforme au RGPD et à la législation française.",
+        details: "Pour plus de détails, consultez la Politique de confidentialité du site.",
+        rights: "Les utilisateurs disposent des droits suivants : accès, rectification, suppression, opposition, portabilité, limitation du traitement.",
+        contact: "Pour exercer vos droits : theo.m.conciergerie@gmail.com"
+      },
+      cookies: {
+        title: "Cookies",
+        content: "Le site utilise des cookies pour mesurer l'audience et améliorer l'expérience utilisateur.",
+        banner: "Un bandeau de consentement permet de gérer l'utilisation des cookies.",
+        moreInfo: "Pour plus d'informations, consultez la politique cookies."
+      },
+      liability: {
+        title: "Responsabilité",
+        content: "L'éditeur ne saurait être tenu responsable :",
+        items: [
+          "d'interruptions temporaires du site",
+          "de dysfonctionnements indépendants de sa volonté",
+          "de tout dommage indirect lié à l'utilisation du site"
+        ]
+      },
+      externalLinks: {
+        title: "Liens externes",
+        content: "Le site peut contenir des liens vers des sites tiers. T&M Conciergerie décline toute responsabilité concernant leur contenu ou leur politique de confidentialité."
+      },
+      modifications: {
+        title: "Modification des mentions légales",
+        content: "Les présentes mentions légales peuvent être modifiées à tout moment pour rester conformes à la réglementation."
+      },
+      applicableLaw: {
+        title: "Droit applicable",
+        content: "Les présentes mentions légales sont régies par le droit français. En cas de litige, les tribunaux français seront seuls compétents."
+      },
+      credits: {
+        title: "Crédits",
+        content: "Site web conçu et développé par Melissa BONNET – Auto-entrepreneure",
+        siret: "SIRET : 934 160 318 00010",
+        website: "Site : https://melissabonnet.fr"
+      }
+    },
+    privacyPolicy: {
+      title: "Politique de confidentialité",
+      subtitle: "Protection de vos données personnelles",
+      introduction: {
+        title: "Introduction",
+        content: "La présente politique de confidentialité a pour but d'informer les utilisateurs du site sur la manière dont sont collectées, utilisées et protégées leurs données personnelles. Théo MENARD s'engage à ce que la collecte et le traitement de vos données soient conformes au Règlement Général sur la Protection des Données (RGPD) et à la législation française en vigueur."
+      },
+      responsible: {
+        title: "Responsable du traitement",
+        content: "Le responsable du traitement des données est :",
+        name: "Théo MENARD",
+        address: "138 chemin du Petit Four, 06600 Antibes",
+        email: "Email : theo.m.conciergerie@gmail.com"
+      },
+      dataCollected: {
+        title: "Données collectées",
+        content: "Les données personnelles pouvant être collectées sur le site sont :",
+        items: [
+          "Nom",
+          "Prénom",
+          "Adresse mail",
+          "Téléphone",
+          "Autres informations saisies dans le champ \"message\" du formulaire de contact"
+        ],
+        voluntary: "Ces données sont fournies volontairement par l'utilisateur lors de l'envoi d'un message via le formulaire de contact.",
+        automatic: "Le site peut également collecter automatiquement des données de navigation (adresses IP, données de localisation, type de navigateur, etc.) par le biais de cookies, à des fins statistiques et d'amélioration de l'expérience utilisateur."
+      },
+      purposes: {
+        title: "Finalités du traitement",
+        content: "Les données sont collectées pour les finalités suivantes :",
+        items: [
+          "Répondre aux demandes envoyées via le formulaire de contact",
+          "Assurer la gestion et le bon fonctionnement du site",
+          "Analyser l'audience du site et améliorer les services proposés"
+        ]
+      },
+      recipients: {
+        title: "Destinataires des données",
+        content: "Les données collectées sont destinées uniquement à Théo MENARD et ne sont jamais cédées, louées ou vendues à des tiers."
+      },
+      retention: {
+        title: "Durée de conservation",
+        content: "Les données personnelles sont conservées :",
+        contact: "Pour les demandes de contact : pendant 12 mois à compter du dernier échange",
+        cookies: "Pour les cookies : jusqu'à 13 mois maximum après dépôt"
+      },
+      rights: {
+        title: "Droits des utilisateurs",
+        content: "Conformément au RGPD, vous disposez des droits suivants concernant vos données personnelles :",
+        items: [
+          "Droit d'accès",
+          "Droit de rectification",
+          "Droit à l'effacement",
+          "Droit à la limitation du traitement",
+          "Droit d'opposition",
+          "Droit à la portabilité des données"
+        ],
+        contact: "Vous pouvez exercer ces droits en envoyant un e-mail à : theo.m.conciergerie@gmail.com"
+      }
     },
     footer: {
       brandDescription: "Experts de la location saisonnière premium, nous mettons notre savoir-faire au service de votre tranquillité.",
@@ -708,7 +854,7 @@ export const translations = {
       },
     },
     properties: {
-      title: "Our Exceptional Properties",
+      title: "Our Prestigious Addresses",
       subtitle: "Carefully selected and managed properties by our team.",
       ctaTitle: "Ready to enhance your property?",
       ctaSubtitle: "Let's discuss your property and the solutions we can implement to optimize its management",
@@ -788,25 +934,171 @@ export const translations = {
         // Reviews are displayed from most recent to oldest
         comments: [
           {
-            name: "Marie",
-            date: "May 2024",
-            text: "Perfectly located apartment in the heart of Nice. Very clean and well equipped. Théo is an exceptional host, very responsive and attentive.",
+            name: "Jelena",
+            date: "",
+            text: "It was truly incredible. The location is perfect. Clean, well-organized. Comfort with a touch of style.",
             rating: 5,
           },
           {
-            name: "Pierre",
-            date: "April 2024",
-            text: "Excellent stay! The apartment perfectly matches the photos. The location is ideal for visiting Nice on foot.",
+            name: "Shreya",
+            date: "",
+            text: "It's an incredible discovery! I couldn't have asked for a better value for money. Charming Airbnb, perfect for 2 people spending a week in Nice.",
             rating: 5,
           },
           {
-            name: "Sophie",
-            date: "March 2024",
-            text: "Perfect stay in this magnificent apartment. Everything was impeccable. I highly recommend!",
+            name: "Pedro",
+            date: "",
+            text: "The apartment is a real gem: bright, impeccable, modern and ideally located in the heart of the action, with all restaurants, bars and beaches within reach.",
             rating: 5,
           },
         ],
       },
+    },
+    cookies: {
+      title: "Cookie Policy",
+      subtitle: "Information about cookie usage",
+      usage: {
+        title: "The site uses cookies to:",
+        items: [
+          "Measure audience",
+          "Improve user experience"
+        ]
+      },
+      consent: "On your first visit, a consent management banner allows you to accept or refuse all or part of the cookies. You can also manage cookies through your browser settings.",
+      security: {
+        title: "Security",
+        content: "Théo MENARD implements all necessary technical and organizational measures to guarantee the security and confidentiality of personal data."
+      },
+      modifications: {
+        title: "Modifications",
+        content: "This privacy policy may be modified at any time to ensure compliance with current legislation. We advise you to consult this page regularly."
+      }
+    },
+    legalNotice: {
+      title: "Legal Notice",
+      subtitle: "Legal information about T&M Conciergerie",
+      publisher: {
+        title: "Site Publisher",
+        content: "This site is published by:",
+        name: "Théo MENARD",
+        address: "138 chemin du Petit Four, 06600 Antibes, France",
+        email: "theo.m.conciergerie@gmail.com",
+        director: "The site's publication director is Théo MENARD."
+      },
+      hosting: {
+        title: "Site Hosting",
+        content: "The site is hosted by:",
+        name: "IONOS SARL",
+        address: "7 place de la Gare, 57200 Sarreguemines, France",
+        website: "https://www.ionos.fr"
+      },
+      intellectualProperty: {
+        title: "Intellectual Property",
+        content: "All content on the site (texts, images, photos, videos, graphic elements, logos, general structure...) is protected by current intellectual property legislation. Any reproduction, modification or distribution, total or partial, without prior written agreement from the publisher is prohibited."
+      },
+      personalData: {
+        title: "Personal Data",
+        content: "Personal data may be collected via the contact form and through the use of cookies.",
+        responsible: "The data controller is:",
+        responsibleName: "Théo MENARD — theo.m.conciergerie@gmail.com",
+        compliance: "Data processing complies with GDPR and French legislation.",
+        details: "For more details, consult the site's Privacy Policy.",
+        rights: "Users have the following rights: access, rectification, deletion, opposition, portability, limitation of processing.",
+        contact: "To exercise your rights: theo.m.conciergerie@gmail.com"
+      },
+      cookies: {
+        title: "Cookies",
+        content: "The site uses cookies to measure audience and improve user experience.",
+        banner: "A consent banner allows you to manage cookie usage.",
+        moreInfo: "For more information, consult the cookie policy."
+      },
+      liability: {
+        title: "Liability",
+        content: "The publisher cannot be held responsible for:",
+        items: [
+          "temporary site interruptions",
+          "malfunctions independent of its will",
+          "any indirect damage related to site use"
+        ]
+      },
+      externalLinks: {
+        title: "External Links",
+        content: "The site may contain links to third-party sites. T&M Conciergerie disclaims any responsibility regarding their content or privacy policy."
+      },
+      modifications: {
+        title: "Modification of Legal Notice",
+        content: "This legal notice may be modified at any time to remain compliant with regulations."
+      },
+      applicableLaw: {
+        title: "Applicable Law",
+        content: "This legal notice is governed by French law. In case of dispute, French courts will have sole jurisdiction."
+      },
+      credits: {
+        title: "Credits",
+        content: "Website designed and developed by Melissa BONNET – Self-employed",
+        siret: "SIRET: 934 160 318 00010",
+        website: "Site: https://melissabonnet.fr"
+      }
+    },
+    privacyPolicy: {
+      title: "Privacy Policy",
+      subtitle: "Protection of your personal data",
+      introduction: {
+        title: "Introduction",
+        content: "This privacy policy aims to inform site users about how their personal data is collected, used and protected. Théo MENARD is committed to ensuring that the collection and processing of your data complies with the General Data Protection Regulation (GDPR) and current French legislation."
+      },
+      responsible: {
+        title: "Data Controller",
+        content: "The data controller is:",
+        name: "Théo MENARD",
+        address: "138 chemin du Petit Four, 06600 Antibes",
+        email: "Email: theo.m.conciergerie@gmail.com"
+      },
+      dataCollected: {
+        title: "Data Collected",
+        content: "Personal data that may be collected on the site are:",
+        items: [
+          "Name",
+          "First Name",
+          "Email address",
+          "Phone",
+          "Other information entered in the \"message\" field of the contact form"
+        ],
+        voluntary: "This data is provided voluntarily by the user when sending a message via the contact form.",
+        automatic: "The site may also automatically collect navigation data (IP addresses, location data, browser type, etc.) through cookies, for statistical purposes and to improve user experience."
+      },
+      purposes: {
+        title: "Processing Purposes",
+        content: "Data is collected for the following purposes:",
+        items: [
+          "Respond to requests sent via the contact form",
+          "Ensure site management and proper functioning",
+          "Analyze site audience and improve services offered"
+        ]
+      },
+      recipients: {
+        title: "Data Recipients",
+        content: "The data collected is intended solely for Théo MENARD and is never transferred, rented or sold to third parties."
+      },
+      retention: {
+        title: "Retention Period",
+        content: "Personal data is retained:",
+        contact: "For contact requests: for 12 months from the last exchange",
+        cookies: "For cookies: up to 13 months maximum after deposit"
+      },
+      rights: {
+        title: "User Rights",
+        content: "In accordance with GDPR, you have the following rights regarding your personal data:",
+        items: [
+          "Right of access",
+          "Right to rectification",
+          "Right to erasure",
+          "Right to limitation of processing",
+          "Right to object",
+          "Right to data portability"
+        ],
+        contact: "You can exercise these rights by sending an email to: theo.m.conciergerie@gmail.com"
+      }
     },
     footer: {
       brandDescription: "Experts de la location saisonnière premium, nous mettons notre savoir-faire au service de votre tranquillité.",

@@ -1,11 +1,13 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { useLanguage } from "@/contexts/language-context"
 
 export default function About() {
+  const [backgroundSize, setBackgroundSize] = useState("115%")
   const valuesRef = useScrollAnimation()
   const section1Ref = useScrollAnimation()
   const approachRef = useScrollAnimation()
@@ -13,6 +15,15 @@ export default function About() {
   const commitmentRef = useScrollAnimation()
   const faqRef = useScrollAnimation()
   const { t } = useLanguage()
+
+  useEffect(() => {
+    const updateBackgroundSize = () => {
+      setBackgroundSize(window.innerWidth < 768 ? "180%" : "115%")
+    }
+    updateBackgroundSize()
+    window.addEventListener("resize", updateBackgroundSize)
+    return () => window.removeEventListener("resize", updateBackgroundSize)
+  }, [])
 
   const values = [
     {
@@ -70,12 +81,12 @@ export default function About() {
         style={{ 
           backgroundImage: "url('/04 - PAGE À PROPOS/PAGE A PROPOS.JPG')",
           backgroundPosition: "center 15%",
-          backgroundSize: "115%"
+          backgroundSize: backgroundSize
         }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h1 className="text-5xl md:text-6xl font-sans font-bold mb-4 animate-fade-in-up text-white title-font title-tall title-thin">
+          <h1 className="text-5xl md:text-6xl font-sans font-bold mb-4 animate-fade-in-up text-white title-font title-tall title-thin" style={{ color: '#d9c064' }}>
             {t("about.title")}
           </h1>
           <p className="text-xl text-white/90 mx-auto animate-fade-in-up" style={{ animationDelay: "100ms" }}>
@@ -90,7 +101,7 @@ export default function About() {
           <div ref={section1Ref.ref} className={`transition-all duration-700 ${
             section1Ref.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}>
-            <h2 className="text-4xl md:text-5xl font-sans font-bold mb-8 text-center text-foreground title-font title-tall title-thin">
+            <h2 className="text-4xl md:text-5xl font-sans font-bold mb-8 text-center text-foreground title-font title-tall title-thin" style={{ color: '#d9c064' }}>
               {t("about.section1Title")}
             </h2>
             <div className="max-w-4xl mx-auto space-y-6 text-lg text-foreground">
@@ -108,7 +119,7 @@ export default function About() {
           <div ref={approachRef.ref} className={`transition-all duration-700 ${
             approachRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}>
-            <h2 className="text-4xl md:text-5xl font-sans font-bold mb-8 text-center text-foreground title-font title-tall title-thin">
+            <h2 className="text-4xl md:text-5xl font-sans font-bold mb-8 text-center text-foreground title-font title-tall title-thin" style={{ color: '#d9c064' }}>
               {t("about.approachTitle")}
             </h2>
             <div className="max-w-4xl mx-auto space-y-6 text-lg text-foreground">
@@ -125,7 +136,7 @@ export default function About() {
           <div ref={standardsRef.ref} className={`transition-all duration-700 ${
             standardsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}>
-            <h2 className="text-4xl md:text-5xl font-sans font-bold mb-8 text-center text-foreground title-font title-tall title-thin">
+            <h2 className="text-4xl md:text-5xl font-sans font-bold mb-8 text-center text-foreground title-font title-tall title-thin max-w-4xl mx-auto" style={{ color: '#d9c064' }}>
               {t("about.standardsTitle")}
             </h2>
             <div className="max-w-4xl mx-auto space-y-6 text-lg text-foreground">
@@ -142,7 +153,7 @@ export default function About() {
           <div ref={commitmentRef.ref} className={`transition-all duration-700 ${
             commitmentRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}>
-            <h2 className="text-4xl md:text-5xl font-sans font-bold mb-8 text-center text-foreground title-font title-tall title-thin">
+            <h2 className="text-4xl md:text-5xl font-sans font-bold mb-8 text-center text-foreground title-font title-tall title-thin" style={{ color: '#d9c064' }}>
               {t("about.commitmentTitle")}
             </h2>
             <div className="max-w-4xl mx-auto space-y-6 text-lg text-foreground">
@@ -156,7 +167,9 @@ export default function About() {
       {/* Values */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-sans font-bold text-center mb-16 text-foreground title-font title-tall title-thin">{t("about.valuesTitle")}</h2>
+          <h2 className="text-4xl font-sans font-bold text-center mb-16 text-foreground title-font title-tall title-thin" style={{ color: '#d9c064' }}>
+            {t("about.valuesTitle").replace("T&M Conciergerie", "T&M\u00A0Conciergerie")}
+          </h2>
 
           <div ref={valuesRef.ref} className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, i) => (

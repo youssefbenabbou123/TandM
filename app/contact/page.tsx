@@ -107,7 +107,7 @@ export default function Contact() {
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h1 className="text-5xl md:text-6xl font-sans font-bold mb-4 animate-fade-in-up text-white title-font title-tall title-thin">
+          <h1 className="text-5xl md:text-6xl font-sans font-bold mb-4 animate-fade-in-up text-white title-font title-tall title-thin" style={{ color: '#d9c064' }}>
             {t("contact.title")}
           </h1>
           <p className="text-xl text-white/90 mx-auto animate-fade-in-up" style={{ animationDelay: "100ms" }}>
@@ -130,7 +130,7 @@ export default function Contact() {
                   <Phone className="h-8 w-8 text-foreground" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground text-xl mb-2 title-font title-tall title-thin">{t("contact.info.phone")}</h3>
+                  <h3 className="font-bold text-foreground text-xl mb-2 title-font title-tall title-thin">{t("contact.info.phone")}</h3>
                   <p className="text-muted-foreground text-lg">06.66.83.08.14</p>
                 </div>
               </div>
@@ -140,7 +140,7 @@ export default function Contact() {
                   <Mail className="h-8 w-8 text-foreground" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground text-xl mb-2 title-font title-tall title-thin">{t("contact.info.email")}</h3>
+                  <h3 className="font-bold text-foreground text-xl mb-2 title-font title-tall title-thin">{t("contact.info.email")}</h3>
                   <p className="text-muted-foreground text-lg">theo.m.conciergerie@gmail.com</p>
                 </div>
               </div>
@@ -262,7 +262,7 @@ export default function Contact() {
       {/* FAQ Section */}
       <section className="py-20 !bg-stone-100 dark:!bg-transparent">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-5xl md:text-5xl font-sans font-bold text-center mb-16 text-foreground title-font title-tall title-thin">{t("contact.faqTitle")}</h2>
+          <h2 className="text-5xl md:text-5xl font-sans font-bold text-center mb-16 text-foreground title-font title-tall title-thin" style={{ color: '#d9c064' }}>{t("contact.faqTitle")}</h2>
 
           <div ref={faqRef.ref} className="space-y-4">
             {faqs.map((faq, i) => (
@@ -275,8 +275,8 @@ export default function Contact() {
                   animationDelay: faqRef.isVisible ? `${i * 75}ms` : "0ms",
                 }}
               >
-                <h3 className="text-lg md:text-xl font-bold text-foreground mb-2 title-font title-tall title-thin">{faq.question}</h3>
-                <p className="text-muted-foreground">{faq.answer}</p>
+                <h3 className="text-lg md:text-xl font-bold text-foreground mb-2 title-font title-tall title-thin text-center">{faq.question}</h3>
+                <p className="text-muted-foreground text-justify">{faq.answer}</p>
               </div>
             ))}
           </div>

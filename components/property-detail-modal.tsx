@@ -551,7 +551,7 @@ export function PropertyDetailModal({ open, onOpenChange }: PropertyDetailModalP
               {(() => {
                 const Icon = amenityIcons.parkingAndFacilities
                 return (
-                  <h4 className="font-semibold mb-3 flex items-center gap-2 title-font">
+                  <h4 className="font-normal mb-3 flex items-center gap-2 title-font">
                     <Icon className="h-5 w-5 text-primary" />
                     {property.amenities.parkingAndFacilities}
                   </h4>

@@ -4,6 +4,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import Image from "next/image"
 import { ImageIcon, Sparkles, Key, Clock, Wallet, Handshake, TrendingUp, Award, Heart } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { PropertyCarousel } from "@/components/property-carousel"
@@ -21,33 +22,48 @@ export default function Home() {
   const { t } = useLanguage()
   const [isModalOpen, setIsModalOpen] = useState(false)
 
+  // Hero background image configuration
+  const heroImageConfig = {
+    position: '50% 25%', // Options: 'center', 'top', 'bottom', 'left', 'right', or custom like 'center top', '50% 30%'
+    zoom: 'cover', // Options: 'cover' (recommended - adapts to all resolutions), 'contain', or percentage like '120%', '150%'
+    brightness: 1.13, // 0-2, where 1 is normal
+    saturation: 1.6, // 0-2, where 1 is normal
+    contrast: 1.05, // 0-2, where 1 is normal
+  }
+
   const services = [
     {
+      id: "announcement",
       icon: <ImageIcon className="h-8 w-8 text-foreground transition-transform duration-300" />,
       title: t("home.services.announcement.title"),
       description: t("home.services.announcement.description"),
     },
     {
+      id: "preparation",
       icon: <Sparkles className="h-8 w-8 text-foreground transition-transform duration-300" />,
       title: t("home.services.preparation.title"),
       description: t("home.services.preparation.description"),
     },
     {
+      id: "checkin",
       icon: <Key className="h-8 w-8 text-foreground transition-transform duration-300" />,
       title: t("home.services.checkin.title"),
       description: t("home.services.checkin.description"),
     },
     {
+      id: "reactivity",
       icon: <Clock className="h-8 w-8 text-foreground transition-transform duration-300" />,
       title: t("home.services.support.title"),
       description: t("home.services.support.description"),
     },
     {
+      id: "payment",
       icon: <Wallet className="h-8 w-8 text-foreground transition-transform duration-300" />,
       title: t("home.services.payment.title"),
       description: t("home.services.payment.description"),
     },
     {
+      id: "assistance",
       icon: <Handshake className="h-8 w-8 text-foreground transition-transform duration-300" />,
       title: t("home.services.management.title"),
       description: t("home.services.management.description"),
@@ -83,18 +99,23 @@ export default function Home() {
           className="absolute inset-0 z-0"
           style={{
             backgroundImage: "url('/01 - PAGE D_ACCUEIL/PHOTO PAGE D_ACCUEIL.JPG')",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            backgroundSize: heroImageConfig.zoom === 'cover' || heroImageConfig.zoom === 'contain' 
+              ? heroImageConfig.zoom 
+              : heroImageConfig.zoom.includes('%') 
+                ? heroImageConfig.zoom 
+                : `${heroImageConfig.zoom}%`,
+            backgroundPosition: heroImageConfig.position,
             backgroundRepeat: 'no-repeat',
+            filter: `brightness(${heroImageConfig.brightness}) saturate(${heroImageConfig.saturation}) contrast(${heroImageConfig.contrast})`,
           }}
         >
           {/* Dark overlay */}
-          <div className="absolute inset-0 bg-black/50"></div>
+          <div className="absolute inset-0 bg-black/30"></div>
         </div>
         
         {/* Content */}
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl mb-6 font-bold title-font title-tall title-thin opacity-0 animate-fade-in-up" style={{ animationFillMode: 'forwards' }}>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl mb-6 font-bold title-font title-tall title-thin opacity-0 animate-fade-in-up" style={{ animationFillMode: 'forwards', color: '#d9c064' }}>
             {t("home.heroTitle")}
           </h1>
           <p className="text-lg md:text-xl mb-4 opacity-0 animate-fade-in-up" style={{ animationDelay: "400ms", animationFillMode: 'forwards' }}>
@@ -107,12 +128,7 @@ export default function Home() {
             <Link href="/services">
               <Button
                 size="lg"
-                className="relative overflow-hidden group bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white rounded-full text-lg px-8 py-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-0.5 border border-white/30 animate-spin-gradient"
-                style={{
-                  background: 'linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.1) 100%)',
-                  backgroundSize: '200% 100%',
-                  animation: 'spin-gradient 3s ease infinite',
-                }}
+                className="relative overflow-hidden group bg-gray-400/40 backdrop-blur-lg hover:bg-gray-400/45 text-white rounded-full text-lg px-8 py-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 border border-white/60 shadow-[0_4px_12px_rgba(0,0,0,0.15)]"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   {t("home.ctaButton")}
@@ -136,9 +152,9 @@ export default function Home() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div ref={servicesRef.ref}>
-            <h2 className={`text-4xl font-bold text-center mb-4 text-foreground transition-all duration-700 title-font title-tall title-thin ${
+            <h2 className={`text-4xl font-bold text-center mb-4 transition-all duration-700 title-font title-tall title-thin ${
               servicesRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}>{t("home.servicesTitle")}</h2>
+            }`} style={{ color: '#D4AF37' }}>{t("home.servicesTitle")}</h2>
             <p className={`text-center text-muted-foreground mb-16 max-w-3xl mx-auto text-lg transition-all duration-700 ${
               servicesRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`} style={{
@@ -151,7 +167,7 @@ export default function Home() {
               {services.map((service, i) => (
                 <div
                   key={i}
-                  className={`group relative bg-white dark:bg-card p-8 rounded-lg shadow-sm border border-gray-100 dark:border-border transition-all duration-700 ease-out text-center cursor-pointer transform hover:scale-105 hover:border-black dark:hover:border-white overflow-hidden ${
+                  className={`group relative bg-white dark:bg-card p-8 rounded-lg shadow-sm border border-gray-100 dark:border-border transition-all duration-700 ease-out text-center transform hover:scale-105 hover:border-black dark:hover:border-white overflow-hidden ${
                     servicesRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                   }`}
                   style={{
@@ -167,7 +183,7 @@ export default function Home() {
                   </div>
                   <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4 title-font title-tall title-thin">{service.title}</h3>
                   <p className="text-muted-foreground mb-6 text-justify">{service.description}</p>
-                  <Link href="/services">
+                  <Link href={`/services?service=${service.id}`}>
                     <Button
                       className="w-full bg-black dark:bg-white text-white dark:text-black rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-semibold"
                     >
@@ -187,8 +203,8 @@ export default function Home() {
           <div
             className={`transition-all duration-700 ${featuredRef.isVisible ? "opacity-100" : "opacity-0"}`}
           >
-            <h2 className="text-4xl font-bold text-center mb-4 text-foreground title-font title-tall title-thin">
-              {t("home.featuredTitle")}
+            <h2 className="text-4xl font-bold text-center mb-4 title-font title-tall title-thin" style={{ color: '#D4AF37' }}>
+              {t("home.featuredTitle").replace("T&M Conciergerie", "T&M\u00A0Conciergerie")}
             </h2>
             <p className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto">
               {t("home.featuredSubtitle")}
@@ -202,9 +218,9 @@ export default function Home() {
       <section ref={commitmentsRef.ref} className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div>
-            <h2 className={`text-4xl font-bold text-center mb-4 text-foreground transition-all duration-700 title-font title-tall title-thin ${
+            <h2 className={`text-4xl font-bold text-center mb-4 transition-all duration-700 title-font title-tall title-thin ${
               commitmentsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}>
+            }`} style={{ color: '#D4AF37' }}>
               {t("home.commitmentsTitle")}
             </h2>
             <p className={`text-center text-muted-foreground mb-16 max-w-3xl mx-auto text-lg transition-all duration-700 ${
@@ -241,11 +257,24 @@ export default function Home() {
 
       {/* Join CTA Section - White Background */}
       <section className="py-20 relative overflow-hidden !bg-stone-100 dark:!bg-transparent">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Background Logo */}
+        <div 
+          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-[5%] opacity-25 select-none pointer-events-none"
+          style={{ 
+            zIndex: 0,
+            width: '420px',
+            height: '420px',
+            backgroundImage: "url('/logo-gold.png')",
+            backgroundSize: 'contain',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center'
+          }}
+        />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative" style={{ zIndex: 10 }}>
           <div ref={joinCtaRef.ref} className={`max-w-2xl transition-all duration-700 ${
             joinCtaRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-8 title-font title-tall title-thin">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 title-font title-tall title-thin" style={{ color: '#D4AF37' }}>
               {t("home.finalCtaTitle")}
             </h2>
             <p className="text-lg mb-8 text-muted-foreground max-w-2xl">
@@ -254,22 +283,13 @@ export default function Home() {
             <Link href="/contact">
               <Button 
                 size="lg" 
-                className="relative overflow-hidden group text-white rounded-full font-semibold px-8 py-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 animate-spin-gradient"
-                style={{
-                  background: 'linear-gradient(90deg, #1A363A 0%, rgba(26, 54, 58, 0.9) 50%, #1A363A 100%)',
-                  backgroundSize: '200% 100%',
-                  animation: 'spin-gradient 3s ease infinite',
-                }}
+                className="relative overflow-hidden group text-white dark:text-black rounded-full font-semibold px-8 py-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 bg-black hover:bg-black/90 dark:bg-white dark:hover:bg-white/90"
               >
                 <span className="relative z-10">{t("home.finalCtaButton")}</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 dark:via-black/10"></div>
               </Button>
             </Link>
           </div>
-        </div>
-        {/* Background TM Text */}
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-[10%] text-[10rem] md:text-[15rem] lg:text-[18rem] xl:text-[20rem] font-serif font-bold text-[#E0E0E0] opacity-30 select-none pointer-events-none z-0 leading-none">
-          TM
         </div>
       </section>
 

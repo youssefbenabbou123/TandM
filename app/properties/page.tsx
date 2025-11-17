@@ -48,7 +48,7 @@ export default function Properties() {
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h1 className="text-5xl md:text-6xl font-sans font-bold mb-4 animate-fade-in-up text-white title-font title-tall title-thin">
+          <h1 className="text-5xl md:text-6xl font-sans font-bold mb-4 animate-fade-in-up text-white title-font title-tall title-thin" style={{ color: '#d9c064' }}>
             {t("properties.title")}
           </h1>
           <p className="text-xl text-white/90 mx-auto animate-fade-in-up" style={{ animationDelay: "100ms" }}>
@@ -140,18 +140,18 @@ export default function Properties() {
               <div className="grid grid-cols-3 gap-4 mb-6 pb-6 border-b">
                 <div className="text-center">
                   <Users className="h-6 w-6 mx-auto mb-2 text-muted-foreground" />
-                  <p className="text-sm text-muted-foreground mb-1">Voyageurs</p>
-                  <p className="font-bold text-foreground">{property.guests}</p>
+                  <p className="text-xs md:text-sm text-muted-foreground mb-1">Voyageurs</p>
+                  <p className="font-bold text-foreground text-xs md:text-base whitespace-nowrap">{property.guests}</p>
                 </div>
                 <div className="text-center">
                   <Bed className="h-6 w-6 mx-auto mb-2 text-muted-foreground" />
-                  <p className="text-sm text-muted-foreground mb-1">Chambres • Lits</p>
-                  <p className="font-bold text-foreground">{property.bedrooms} • {property.beds}</p>
+                  <p className="text-xs md:text-sm text-muted-foreground mb-1 whitespace-nowrap">Chambres • Lits</p>
+                  <p className="font-bold text-foreground text-xs md:text-base whitespace-nowrap">{property.bedrooms} • {property.beds}</p>
                 </div>
                 <div className="text-center">
                   <Bath className="h-6 w-6 mx-auto mb-2 text-muted-foreground" />
-                  <p className="text-sm text-muted-foreground mb-1">Salle de bain</p>
-                  <p className="font-bold text-foreground">{property.bathrooms}</p>
+                  <p className="text-xs md:text-sm text-muted-foreground mb-1 whitespace-nowrap">Salle de bain</p>
+                  <p className="font-bold text-foreground text-xs md:text-base whitespace-nowrap">{property.bathrooms}</p>
                 </div>
               </div>
 
@@ -163,7 +163,6 @@ export default function Properties() {
                 <div className="flex items-center gap-2 mb-4">
                   <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
                   <span className="font-bold text-lg">5.0</span>
-                  <span className="text-muted-foreground text-sm">{t("properties.exceptionalRatings")}</span>
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                   {Object.values(property.ratings).map((rating: any, index: number) => (
@@ -202,7 +201,9 @@ export default function Properties() {
         <section className="py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div ref={commentsRef.ref} className={`transition-all duration-700 ${commentsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-              <h2 className="text-4xl font-sans font-bold text-center mb-4 text-foreground title-font title-tall title-thin">{t("properties.commentsTitle")}</h2>
+              <h2 className="text-4xl font-sans font-bold text-center mb-4 text-foreground title-font title-tall title-thin" style={{ color: '#d9c064' }}>
+                {t("properties.commentsTitle").replace("T&M Conciergerie", "T&M\u00A0Conciergerie")}
+              </h2>
               <p className="text-muted-foreground text-center mb-12 max-w-3xl mx-auto">
                 {t("properties.commentsSubtitle")}
               </p>
@@ -227,7 +228,7 @@ export default function Properties() {
                     </div>
                     <div>
                       <p className="font-semibold text-foreground leading-tight">{comment.name}</p>
-                      <p className="text-xs text-muted-foreground">{comment.date}</p>
+                      {comment.date && <p className="text-xs text-muted-foreground">{comment.date}</p>}
                     </div>
                   </div>
                   <div className="flex gap-1 mb-4">

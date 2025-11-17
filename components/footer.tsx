@@ -90,7 +90,12 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Star className="h-4 w-4 flex-shrink-0 text-white" />
-                <a href="#" className="hover:text-white transition-colors">
+                <a 
+                  href="https://share.google/1kCtDLI6RzvHMPXY9" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
                   {t("footer.review")}
                 </a>
               </li>
