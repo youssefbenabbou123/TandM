@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, Suspense } from "react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
@@ -10,7 +10,7 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { useLanguage } from "@/contexts/language-context"
 import { useSearchParams } from "next/navigation"
 
-export default function Services() {
+function ServicesContent() {
   const ctaRef = useScrollAnimation()
   const { t, language } = useLanguage()
   const searchParams = useSearchParams()
@@ -321,6 +321,24 @@ export default function Services() {
       {/* Footer */}
       <Footer />
     </main>
+  )
+}
+
+export default function Services() {
+  return (
+    <Suspense fallback={
+      <main className="min-h-screen bg-gradient-to-br from-background to-stone-50 dark:from-background dark:to-background/80">
+        <Navbar />
+        <div className="flex items-center justify-center min-h-screen">
+          <div className="text-center">
+            <p className="text-muted-foreground">Chargement...</p>
+          </div>
+        </div>
+        <Footer />
+      </main>
+    }>
+      <ServicesContent />
+    </Suspense>
   )
 }
 
