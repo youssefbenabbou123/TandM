@@ -107,6 +107,15 @@ function ServicesContent() {
   const { translations } = require("@/translations/index")
   const langData = translations[language]
 
+  // Image configuration for "Accueil personnalisé des voyageurs" (checkin service, index 2)
+  const checkinImageConfig = {
+    position: '50% 64.5%', // Options: 'center', 'top', 'bottom', 'left', 'right', or custom like 'center top', '50% 30%'
+    zoom: '100%', // Options: 'cover' (recommended - adapts to all resolutions), 'contain', or percentage like '120%', '150%'
+    brightness: 1.0, // 0-2, where 1 is normal
+    saturation: 1.0, // 0-2, where 1 is normal
+    contrast: 1.0, // 0-2, where 1 is normal
+  }
+
   const detailedServices = [
     {
       title: t("services.detailedServices.announcement.title"),
@@ -206,24 +215,54 @@ function ServicesContent() {
                     >
                       <div 
                         className="relative rounded-lg overflow-hidden mb-4"
-                        style={{ 
+                        style={i === 2 ? {
+                          height: isExpanded ? "256px" : "192px",
+                          transition: "height 800ms cubic-bezier(0.4, 0, 0.2, 1)",
+                          backgroundImage: `url('${service.image}')`,
+                          backgroundSize: checkinImageConfig.zoom === 'cover' || checkinImageConfig.zoom === 'contain' 
+                            ? checkinImageConfig.zoom 
+                            : checkinImageConfig.zoom.includes('%') 
+                              ? checkinImageConfig.zoom 
+                              : `${checkinImageConfig.zoom}%`,
+                          backgroundPosition: checkinImageConfig.position,
+                          backgroundRepeat: 'no-repeat',
+                          filter: `brightness(${checkinImageConfig.brightness}) saturate(${checkinImageConfig.saturation}) contrast(${checkinImageConfig.contrast})`,
+                        } : {
                           height: isExpanded ? "256px" : "192px",
                           transition: "height 800ms cubic-bezier(0.4, 0, 0.2, 1)"
                         }}
                       >
-                        <Image
-                          src={service.image || "/placeholder.svg"}
-                          alt={service.title}
-                          fill
-                          className="object-cover transition-transform duration-300 group-hover:scale-110"
-                          loading="lazy"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        />
+                        {i !== 2 && (
+                          <Image
+                            src={service.image || "/placeholder.svg"}
+                            alt={service.title}
+                            fill
+                            className="object-cover transition-transform duration-300 group-hover:scale-110"
+                            loading="lazy"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          />
+                        )}
                       </div>
                       <h2 className="text-xl md:text-2xl font-bold mb-3 title-font title-tall title-thin text-center" style={{ color: '#D4AF37', lineHeight: '1.3', maxWidth: '100%' }}>
                         {service.title === "Réactivité et suivi continu" ? (
                           <>
                             Réactivité et suivi<br />continu
+                          </>
+                        ) : service.title === "Création de l'annonce de A à Z" ? (
+                          <>
+                            Création de l'annonce<br />de A à Z
+                          </>
+                        ) : service.title === "Accueil personnalisé des voyageurs" ? (
+                          <>
+                            Accueil personnalisé<br />des voyageurs
+                          </>
+                        ) : service.title === "Assistance et gestion des imprévus" ? (
+                          <>
+                            Assistance et gestion<br />des imprévus
+                          </>
+                        ) : service.title === "Gestion transparente des paiements" ? (
+                          <>
+                            Gestion transparente<br />des paiements
                           </>
                         ) : (
                           service.title

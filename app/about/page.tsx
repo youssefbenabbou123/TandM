@@ -116,9 +116,6 @@ export default function About() {
             <div className="grid gap-10 lg:grid-cols-[280px,1fr] p-8 md:p-10 lg:p-12">
               {/* Left: numbered navigation */}
               <div className="space-y-6 border-b lg:border-b-0 lg:border-r border-border/50 pb-6 lg:pb-0 lg:pr-8">
-                <p className="text-xs font-semibold tracking-[0.3em] uppercase text-foreground/50">
-                  Parcours
-                </p>
                 <div className="space-y-3">
                   {narrativeSections.map((section, index) => {
                     const isActive = index === activeSectionIndex
@@ -226,21 +223,12 @@ export default function About() {
                     }}
                   />
                   <div className="absolute inset-0 rounded-[28px] border border-white/10 dark:border-white/5 pointer-events-none" />
-                  <div
-                    className="absolute inset-0 rounded-[28px] opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none"
-                    style={{
-                      backgroundImage: "url('/logo-gold.png')",
-                      backgroundSize: "88%",
-                      backgroundPosition: "center",
-                      backgroundRepeat: "no-repeat",
-                    }}
-                  />
                   <div className="relative z-10 flex h-full flex-col">
                     <h3 className="text-2xl font-bold text-foreground mb-4 text-center title-font title-tall title-thin">
                       {value.title}
                     </h3>
                     <div className={`mx-auto mb-6 h-px w-16 bg-gradient-to-r ${valueTheme.accent}`} />
-                    <p className="text-foreground/80 text-justify leading-relaxed flex-1">{value.description}</p>
+                    <p className="text-foreground/80 text-center leading-relaxed flex-1">{value.description}</p>
                   </div>
                 </div>
               )
