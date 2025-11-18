@@ -116,6 +116,15 @@ function ServicesContent() {
     contrast: 1.0, // 0-2, where 1 is normal
   }
 
+  // Image configuration for "Assistance et gestion des imprévus" (assistance service, index 4)
+  const assistanceImageConfig = {
+    position: '100% 64.5%', // Options: 'center', 'top', 'bottom', 'left', 'right', or custom like 'center top', '50% 30%'
+    zoom: '110%', // Options: 'cover' (recommended - adapts to all resolutions), 'contain', or percentage like '120%', '150%'
+    brightness: 1.0, // 0-2, where 1 is normal
+    saturation: 1.0, // 0-2, where 1 is normal
+    contrast: 1.0, // 0-2, where 1 is normal
+  }
+
   const detailedServices = [
     {
       title: t("services.detailedServices.announcement.title"),
@@ -215,24 +224,27 @@ function ServicesContent() {
                     >
                       <div 
                         className="relative rounded-lg overflow-hidden mb-4"
-                        style={i === 2 ? {
-                          height: isExpanded ? "256px" : "192px",
-                          transition: "height 800ms cubic-bezier(0.4, 0, 0.2, 1)",
-                          backgroundImage: `url('${service.image}')`,
-                          backgroundSize: checkinImageConfig.zoom === 'cover' || checkinImageConfig.zoom === 'contain' 
-                            ? checkinImageConfig.zoom 
-                            : checkinImageConfig.zoom.includes('%') 
-                              ? checkinImageConfig.zoom 
-                              : `${checkinImageConfig.zoom}%`,
-                          backgroundPosition: checkinImageConfig.position,
-                          backgroundRepeat: 'no-repeat',
-                          filter: `brightness(${checkinImageConfig.brightness}) saturate(${checkinImageConfig.saturation}) contrast(${checkinImageConfig.contrast})`,
-                        } : {
-                          height: isExpanded ? "256px" : "192px",
+                        style={i === 2 || i === 4 ? (() => {
+                          const imageConfig = i === 2 ? checkinImageConfig : assistanceImageConfig;
+                          return {
+                            height: isExpanded ? "300px" : "220px",
+                            transition: "height 800ms cubic-bezier(0.4, 0, 0.2, 1)",
+                            backgroundImage: `url('${service.image}')`,
+                            backgroundSize: imageConfig.zoom === 'cover' || imageConfig.zoom === 'contain' 
+                              ? imageConfig.zoom 
+                              : imageConfig.zoom.includes('%') 
+                                ? imageConfig.zoom 
+                                : `${imageConfig.zoom}%`,
+                            backgroundPosition: imageConfig.position,
+                            backgroundRepeat: 'no-repeat',
+                            filter: `brightness(${imageConfig.brightness}) saturate(${imageConfig.saturation}) contrast(${imageConfig.contrast})`,
+                          };
+                        })() : {
+                          height: isExpanded ? "300px" : "220px",
                           transition: "height 800ms cubic-bezier(0.4, 0, 0.2, 1)"
                         }}
                       >
-                        {i !== 2 && (
+                        {i !== 2 && i !== 4 && (
                           <Image
                             src={service.image || "/placeholder.svg"}
                             alt={service.title}
@@ -263,6 +275,14 @@ function ServicesContent() {
                         ) : service.title === "Gestion transparente des paiements" ? (
                           <>
                             Gestion transparente<br />des paiements
+                          </>
+                        ) : service.title === "Setup and preparation for the stay" ? (
+                          <>
+                            Setup and preparation<br />for the stay
+                          </>
+                        ) : service.title === "Personalized welcome of travelers" ? (
+                          <>
+                            Personalized welcome<br />of travelers
                           </>
                         ) : (
                           service.title

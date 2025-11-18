@@ -51,7 +51,7 @@ export default function Home() {
       description: t("home.services.checkin.description"),
     },
     {
-      id: "reactivity",
+      id: "assistance",
       icon: <Clock className="h-8 w-8 text-foreground transition-transform duration-300" />,
       title: t("home.services.support.title"),
       description: t("home.services.support.description"),
@@ -63,7 +63,7 @@ export default function Home() {
       description: t("home.services.payment.description"),
     },
     {
-      id: "assistance",
+      id: "preparation",
       icon: <Handshake className="h-8 w-8 text-foreground transition-transform duration-300" />,
       title: t("home.services.management.title"),
       description: t("home.services.management.description"),
@@ -262,7 +262,13 @@ export default function Home() {
             joinCtaRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 title-font title-tall title-thin" style={{ color: '#D4AF37' }}>
-              {t("home.finalCtaTitle")}
+              {t("home.finalCtaTitle") === "Entrust your property to a trusted partner" ? (
+                <>
+                  Entrust your property<br />to a trusted partner
+                </>
+              ) : (
+                t("home.finalCtaTitle")
+              )}
             </h2>
             <p className="text-lg mb-8 text-muted-foreground max-w-2xl mx-auto">
               {t("home.finalCtaDescription")}

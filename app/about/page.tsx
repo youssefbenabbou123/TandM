@@ -200,7 +200,7 @@ export default function About() {
               {t("about.valuesTitle").replace("T&M Conciergerie", "T&M\u00A0Conciergerie")}
             </h2>
             <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
-              Les valeurs qui guident chaque action et chaque décision
+              {t("about.valuesSubtitle")}
             </p>
           </div>
 

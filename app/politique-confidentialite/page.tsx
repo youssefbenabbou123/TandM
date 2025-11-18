@@ -48,9 +48,7 @@ export default function PrivacyPolicy() {
                 <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground title-font title-tall title-thin">
                   {t("privacyPolicy.introduction.title")}
                 </h2>
-                <p className="text-lg leading-relaxed text-muted-foreground text-justify">
-                  {t("privacyPolicy.introduction.content")}
-                </p>
+                <p className="text-lg leading-relaxed text-muted-foreground text-justify" dangerouslySetInnerHTML={{ __html: t("privacyPolicy.introduction.content") }} />
               </div>
 
               {/* Responsible */}
@@ -60,7 +58,7 @@ export default function PrivacyPolicy() {
                 </h2>
                 <p className="text-lg text-muted-foreground mb-4 text-justify">{t("privacyPolicy.responsible.content")}</p>
                 <div className="space-y-2">
-                  <p className="font-semibold text-foreground text-lg">{t("privacyPolicy.responsible.name")}</p>
+                  <p className="text-muted-foreground text-lg">{t("privacyPolicy.responsible.name")}</p>
                   <p className="text-muted-foreground text-lg text-justify">{t("privacyPolicy.responsible.address")}</p>
                   <p className="text-muted-foreground text-lg text-justify">{t("privacyPolicy.responsible.email")}</p>
                 </div>
@@ -144,7 +142,7 @@ export default function PrivacyPolicy() {
                     </li>
                   ))}
                 </ul>
-                <p className="text-lg font-medium text-foreground text-justify">
+                <p className="text-lg text-muted-foreground text-justify">
                   {t("privacyPolicy.rights.contact")}
                 </p>
               </div>

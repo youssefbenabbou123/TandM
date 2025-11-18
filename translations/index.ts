@@ -28,7 +28,7 @@ export const translations = {
           description: "Accueil en présentiel, remise des clés et vérification rigoureuse du bien à chaque séjour. Notre présence sur place garantit un accueil chaleureux, des voyageurs sereins et des avis 5 étoiles.",
         },
         support: {
-          title: "Réactivité & Assistance",
+          title: "Réactivité & assistance",
           description: "Disponibles 7j/7, nous répondons rapidement aux besoins des voyageurs et gérons les imprévus avec efficacité. Votre tranquillité est notre priorité.",
         },
         payment: {
@@ -83,6 +83,7 @@ export const translations = {
       commitment: "Allier humanité et professionnalisme, exigence et confiance, pour faire de chaque collaboration une réussite durable.",
       commitment2: "Avec T&M Conciergerie, vous profitez d'un accompagnement fondé sur la confiance, la transparence et l'excellence.",
       valuesTitle: "L'esprit T&M Conciergerie",
+      valuesSubtitle: "Les valeurs qui guident chaque action et chaque décision",
       values: {
         confiance: {
           title: "Confiance",
@@ -478,7 +479,7 @@ export const translations = {
       subtitle: "Protection de vos données personnelles",
       introduction: {
         title: "Introduction",
-        content: "La présente politique de confidentialité a pour but d'informer les utilisateurs du site sur la manière dont sont collectées, utilisées et protégées leurs données personnelles. Théo MENARD s'engage à ce que la collecte et le traitement de vos données soient conformes au Règlement Général sur la Protection des Données (RGPD) et à la législation française en vigueur."
+        content: "La présente politique de confidentialité a pour but d'informer les utilisateurs du site sur la manière dont sont collectées, utilisées et protégées leurs données personnelles.<br />Théo MENARD s'engage à ce que la collecte et le traitement de vos données soient conformes au Règlement Général sur la Protection des Données (RGPD) et à la législation française en vigueur."
       },
       responsible: {
         title: "Responsable du traitement",
@@ -650,6 +651,7 @@ export const translations = {
       commitment: "Combining humanity and professionalism, excellence and trust, to make every collaboration a lasting success.",
       commitment2: "With T&M Conciergerie, you benefit from support based on trust, transparency and excellence.",
       valuesTitle: "The T&M Conciergerie spirit",
+      valuesSubtitle: "The values that guide every action and every decision",
       values: {
         confiance: {
           title: "Trust",
@@ -825,8 +827,8 @@ export const translations = {
         hoursValue: "Monday - Friday : 08:00 - 18:00",
       },
       form: {
-        firstname: "First Name",
-        lastname: "Last Name",
+        firstname: "First name",
+        lastname: "Last name",
         email: "Email",
         phone: "Phone",
         message: "Message",
@@ -856,12 +858,12 @@ export const translations = {
     properties: {
       title: "Our prestigious addresses",
       subtitle: "Carefully selected and managed properties by our team.",
-      ctaTitle: "Ready to enhance your property?",
+      ctaTitle: "Ready to enhance your property ?",
       ctaSubtitle: "Let's discuss your property and the solutions we can<br />implement to optimize its management.",
-      ctaButton: "Contact Us",
+      ctaButton: "Contact us",
       learnMore: "Learn more",
       viewOnAirbnb: "View on Airbnb",
-      commentsTitle: "The T&M Conciergerie experience told<br />by our travelers",
+      commentsTitle: "The T&M Conciergerie experience<br />told by our travelers",
       commentsSubtitle: "Successful stays, delighted travelers : discover their impressions.",
       exceptionalRatings: "(Exceptional ratings)",
       modalHighlights: "Highlights",
@@ -1045,7 +1047,7 @@ export const translations = {
       subtitle: "Protection of your personal data",
       introduction: {
         title: "Introduction",
-        content: "This privacy policy aims to inform site users about how their personal data is collected, used and protected. Théo MENARD is committed to ensuring that the collection and processing of your data complies with the General Data Protection Regulation (GDPR) and current French legislation."
+        content: "This privacy policy aims to inform site users about how their personal data is collected, used and protected.<br />Théo MENARD is committed to ensuring that the collection and processing of your data complies with the General Data Protection Regulation (GDPR) and current French legislation."
       },
       responsible: {
         title: "Data Controller",

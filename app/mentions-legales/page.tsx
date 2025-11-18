@@ -51,7 +51,7 @@ export default function LegalNotice() {
                 </h2>
                 <p className="text-lg text-muted-foreground mb-4 text-justify">{t("legalNotice.publisher.content")}</p>
                 <div className="space-y-2">
-                  <p className="font-semibold text-foreground text-lg">{t("legalNotice.publisher.name")}</p>
+                  <p className="text-muted-foreground text-lg">{t("legalNotice.publisher.name")}</p>
                   <p className="text-muted-foreground text-lg text-justify">{t("legalNotice.publisher.address")}</p>
                   <p className="text-muted-foreground text-lg text-justify">{t("legalNotice.publisher.email")}</p>
                   <p className="text-muted-foreground mt-4 text-justify">{t("legalNotice.publisher.director")}</p>
@@ -65,9 +65,9 @@ export default function LegalNotice() {
                 </h2>
                 <p className="text-lg text-muted-foreground mb-4 text-justify">{t("legalNotice.hosting.content")}</p>
                 <div className="space-y-2">
-                  <p className="font-semibold text-foreground text-lg">{t("legalNotice.hosting.name")}</p>
+                  <p className="text-muted-foreground text-lg">{t("legalNotice.hosting.name")}</p>
                   <p className="text-muted-foreground text-lg">{t("legalNotice.hosting.address")}</p>
-                  <a href={t("legalNotice.hosting.website")} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline flex items-center gap-2 text-lg">
+                  <a href={t("legalNotice.hosting.website")} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline flex items-center gap-2 text-lg">
                     <ExternalLink className="h-4 w-4" />
                     {t("legalNotice.hosting.website")}
                   </a>
@@ -93,11 +93,11 @@ export default function LegalNotice() {
                   <p className="text-lg text-muted-foreground text-justify">{t("legalNotice.personalData.content")}</p>
                   <div className="space-y-2">
                     <p className="text-muted-foreground text-justify">{t("legalNotice.personalData.responsible")}</p>
-                    <p className="font-semibold text-foreground text-lg">{t("legalNotice.personalData.responsibleName")}</p>
+                    <p className="text-muted-foreground text-lg">{t("legalNotice.personalData.responsibleName")}</p>
                     <p className="text-muted-foreground text-justify">{t("legalNotice.personalData.compliance")}</p>
                     <p className="text-muted-foreground text-justify">{t("legalNotice.personalData.details")}</p>
                     <p className="text-muted-foreground text-justify">{t("legalNotice.personalData.rights")}</p>
-                    <p className="font-medium text-foreground text-justify">{t("legalNotice.personalData.contact")}</p>
+                    <p className="text-muted-foreground text-justify">{t("legalNotice.personalData.contact")}</p>
                   </div>
                 </div>
               </div>
@@ -168,7 +168,7 @@ export default function LegalNotice() {
                 <div className="space-y-2">
                   <p className="text-lg text-muted-foreground text-justify">{t("legalNotice.credits.content")}</p>
                   <p className="text-muted-foreground text-justify">{t("legalNotice.credits.siret")}</p>
-                  <a href={t("legalNotice.credits.website")} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline flex items-center gap-2 text-lg">
+                  <a href={t("legalNotice.credits.website")} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:underline flex items-center gap-2 text-lg">
                     <ExternalLink className="h-4 w-4" />
                     {t("legalNotice.credits.website")}
                   </a>
