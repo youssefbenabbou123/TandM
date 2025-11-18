@@ -257,29 +257,14 @@ export default function Home() {
 
       {/* Join CTA Section - White Background */}
       <section className="py-20 relative overflow-hidden !bg-stone-100 dark:!bg-transparent">
-        {/* Background Logo */}
-        <div 
-          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-[5%] opacity-100 select-none pointer-events-none outline-none"
-          style={{ 
-            zIndex: 0,
-            width: '420px',
-            height: '420px',
-            backgroundImage: "url('/logo-gold.png')",
-            backgroundSize: 'contain',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center',
-            outline: 'none',
-            border: 'none'
-          }}
-        />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative" style={{ zIndex: 10 }}>
-          <div ref={joinCtaRef.ref} className={`max-w-2xl transition-all duration-700 ${
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div ref={joinCtaRef.ref} className={`max-w-2xl mx-auto text-center transition-all duration-700 ${
             joinCtaRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 title-font title-tall title-thin" style={{ color: '#D4AF37' }}>
               {t("home.finalCtaTitle")}
             </h2>
-            <p className="text-lg mb-8 text-muted-foreground max-w-2xl">
+            <p className="text-lg mb-8 text-muted-foreground max-w-2xl mx-auto">
               {t("home.finalCtaDescription")}
             </p>
             <Link href="/contact">
